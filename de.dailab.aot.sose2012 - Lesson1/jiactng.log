@@ -2565,3 +2565,1013 @@
 2012-05-06 23:49:42,519 DEBUG [n-213ce8d3e7ff.a-213d0b5b8ee5.SimpleReactiveBean] - Heating state = 1
 2012-05-06 23:49:42,520 DEBUG [n-213ce8d3e7ff.a-213d0b5b8ee5.SimpleReactiveBean] - Action result received: Window.GetState iter: 172
 2012-05-06 23:49:42,520 DEBUG [n-213ce8d3e7ff.a-213d0b5b8ee5.SimpleReactiveBean] - Window open = false
+2012-05-07 20:39:02,468 WARN [n-79f7ab2f901] - JIAC version: JIAC TNG Agent Core version 5.1.2 (02.04.2012 09:22:50) (DAI-Labor, TU Berlin)
+2012-05-07 20:41:12,469 WARN [n-7bd686a3ad7] - JIAC version: JIAC TNG Agent Core version 5.1.2 (02.04.2012 09:22:50) (DAI-Labor, TU Berlin)
+2012-05-07 20:41:12,764 WARN [n-7bd686a3ad7] - Agentnode is: JIACvNode (n-7bd686a3ad7) with owner: frido
+2012-05-07 20:41:14,673 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 16.0
+2012-05-07 20:41:14,675 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 14.879999999999999
+2012-05-07 20:41:14,675 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:41:14,675 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 4.3059163059163055
+2012-05-07 20:41:14,676 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:41:14,676 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.04
+2012-05-07 20:41:14,677 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 1
+2012-05-07 20:41:14,678 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:14,695 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 1
+2012-05-07 20:41:14,695 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:41:14,698 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 1
+2012-05-07 20:41:15,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 14.879999999999999
+2012-05-07 20:41:15,801 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 13.838399999999998
+2012-05-07 20:41:15,802 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:41:15,802 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 4.573291573291574
+2012-05-07 20:41:15,804 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 5
+2012-05-07 20:41:15,805 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.1544
+2012-05-07 20:41:15,807 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 2
+2012-05-07 20:41:15,876 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 2
+2012-05-07 20:41:15,877 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 5
+2012-05-07 20:41:15,928 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 2
+2012-05-07 20:41:15,928 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.4912
+2012-05-07 20:41:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 24.286656
+2012-05-07 20:41:16,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 5
+2012-05-07 20:41:16,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be -2.524536625454058
+2012-05-07 20:41:16,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 0
+2012-05-07 20:41:16,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 19.056815999999998
+2012-05-07 20:41:16,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 3
+2012-05-07 20:41:16,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 5
+2012-05-07 20:41:16,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 3
+2012-05-07 20:41:16,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:16,737 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 3
+2012-05-07 20:41:17,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 24.286656
+2012-05-07 20:41:17,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 25.72892928
+2012-05-07 20:41:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 5
+2012-05-07 20:41:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be -6.231999639063464
+2012-05-07 20:41:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 0
+2012-05-07 20:41:17,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.58659008
+2012-05-07 20:41:17,744 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 4
+2012-05-07 20:41:17,745 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:41:17,764 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 4
+2012-05-07 20:41:17,766 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 4
+2012-05-07 20:41:17,767 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 22.58659008
+2012-05-07 20:41:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.005528774400002
+2012-05-07 20:41:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:41:18,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.4805643105801687
+2012-05-07 20:41:18,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:18,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.8210038656
+2012-05-07 20:41:18,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 5
+2012-05-07 20:41:18,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:18,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 5
+2012-05-07 20:41:18,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 5
+2012-05-07 20:41:18,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.005528774400002
+2012-05-07 20:41:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.524533595008002
+2012-05-07 20:41:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.8345786849703063
+2012-05-07 20:41:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.513925429824003
+2012-05-07 20:41:19,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 6
+2012-05-07 20:41:19,737 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 6
+2012-05-07 20:41:19,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:19,739 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 6
+2012-05-07 20:41:19,739 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.524533595008002
+2012-05-07 20:41:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.17241885245568
+2012-05-07 20:41:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.3487175183477358
+2012-05-07 20:41:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.13011754790656
+2012-05-07 20:41:20,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 7
+2012-05-07 20:41:20,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:20,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 7
+2012-05-07 20:41:20,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 7
+2012-05-07 20:41:20,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:20,754 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone opens the window for fresh air
+2012-05-07 20:41:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.17241885245568
+2012-05-07 20:41:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.632417385243535
+2012-05-07 20:41:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:21,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.9580825434232585
+2012-05-07 20:41:21,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:21,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.66138345901366
+2012-05-07 20:41:21,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 8
+2012-05-07 20:41:21,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:21,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 8
+2012-05-07 20:41:21,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 8
+2012-05-07 20:41:21,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 19.17931413934176
+2012-05-07 20:41:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 17.684485604506317
+2012-05-07 20:41:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:22,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 4.274979136178506
+2012-05-07 20:41:22,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:41:22,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.255311938523537
+2012-05-07 20:41:22,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 9
+2012-05-07 20:41:22,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:22,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 9
+2012-05-07 20:41:22,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 9
+2012-05-07 20:41:22,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 4
+2012-05-07 20:41:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 17.684485604506317
+2012-05-07 20:41:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.627483953892654
+2012-05-07 20:41:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 4
+2012-05-07 20:41:23,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.162402791323073
+2012-05-07 20:41:23,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:23,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 19.272777370388347
+2012-05-07 20:41:23,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 10
+2012-05-07 20:41:23,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:23,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 10
+2012-05-07 20:41:23,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 4
+2012-05-07 20:41:23,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 10
+2012-05-07 20:41:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.627483953892654
+2012-05-07 20:41:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.863543260634913
+2012-05-07 20:41:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 4
+2012-05-07 20:41:24,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.4551146952109497
+2012-05-07 20:41:24,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:24,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 19.801589730491298
+2012-05-07 20:41:24,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 11
+2012-05-07 20:41:24,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 11
+2012-05-07 20:41:24,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:24,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 11
+2012-05-07 20:41:24,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.832566495563107
+2012-05-07 20:41:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 19.932842557160388
+2012-05-07 20:41:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.4836550280598924
+2012-05-07 20:41:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.941260242648447
+2012-05-07 20:41:25,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 12
+2012-05-07 20:41:25,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 12
+2012-05-07 20:41:25,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:25,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 12
+2012-05-07 20:41:25,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 19.932842557160388
+2012-05-07 20:41:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.464406555295007
+2012-05-07 20:41:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:26,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.2420257677585047
+2012-05-07 20:41:26,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:26,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.464406555295007
+2012-05-07 20:41:26,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 13
+2012-05-07 20:41:26,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:26,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 13
+2012-05-07 20:41:26,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 13
+2012-05-07 20:41:26,739 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.464406555295007
+2012-05-07 20:41:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.746135474306353
+2012-05-07 20:41:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:27,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.102707162679146
+2012-05-07 20:41:27,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:27,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.746135474306353
+2012-05-07 20:41:27,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 14
+2012-05-07 20:41:27,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 14
+2012-05-07 20:41:27,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:27,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 14
+2012-05-07 20:41:27,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.746135474306353
+2012-05-07 20:41:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.895451801382368
+2012-05-07 20:41:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:28,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.025372478890378
+2012-05-07 20:41:28,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:28,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.895451801382368
+2012-05-07 20:41:28,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 15
+2012-05-07 20:41:28,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 15
+2012-05-07 20:41:28,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:28,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 15
+2012-05-07 20:41:28,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.895451801382368
+2012-05-07 20:41:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.974589454732655
+2012-05-07 20:41:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:29,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.983347611194387
+2012-05-07 20:41:29,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:29,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.974589454732655
+2012-05-07 20:41:29,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 16
+2012-05-07 20:41:29,741 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 16
+2012-05-07 20:41:29,742 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:29,743 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 16
+2012-05-07 20:41:29,743 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:30,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.974589454732655
+2012-05-07 20:41:30,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.016532411008306
+2012-05-07 20:41:30,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:30,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.960774229843052
+2012-05-07 20:41:30,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:30,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.016532411008306
+2012-05-07 20:41:30,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 17
+2012-05-07 20:41:30,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:30,742 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 17
+2012-05-07 20:41:30,743 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 17
+2012-05-07 20:41:30,743 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.016532411008306
+2012-05-07 20:41:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.038762177834403
+2012-05-07 20:41:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.948724662561062
+2012-05-07 20:41:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.038762177834403
+2012-05-07 20:41:31,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 18
+2012-05-07 20:41:31,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:31,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 18
+2012-05-07 20:41:31,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:31,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 18
+2012-05-07 20:41:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.038762177834403
+2012-05-07 20:41:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.050543954252234
+2012-05-07 20:41:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9423141214968362
+2012-05-07 20:41:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.050543954252234
+2012-05-07 20:41:32,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 19
+2012-05-07 20:41:32,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:32,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 19
+2012-05-07 20:41:32,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:32,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 19
+2012-05-07 20:41:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.050543954252234
+2012-05-07 20:41:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.056788295753684
+2012-05-07 20:41:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:33,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.938909686488381
+2012-05-07 20:41:33,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:33,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.056788295753684
+2012-05-07 20:41:33,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 20
+2012-05-07 20:41:33,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:33,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 20
+2012-05-07 20:41:33,737 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:33,739 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 20
+2012-05-07 20:41:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.056788295753684
+2012-05-07 20:41:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.060097796749453
+2012-05-07 20:41:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:34,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9371034076710805
+2012-05-07 20:41:34,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:34,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.060097796749453
+2012-05-07 20:41:34,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 21
+2012-05-07 20:41:34,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:34,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 21
+2012-05-07 20:41:34,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 21
+2012-05-07 20:41:34,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.060097796749453
+2012-05-07 20:41:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06185183227721
+2012-05-07 20:41:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:35,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9361455375636307
+2012-05-07 20:41:35,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:35,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06185183227721
+2012-05-07 20:41:35,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 22
+2012-05-07 20:41:35,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:35,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 22
+2012-05-07 20:41:35,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:35,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 22
+2012-05-07 20:41:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06185183227721
+2012-05-07 20:41:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06278147110692
+2012-05-07 20:41:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:36,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.935637713962827
+2012-05-07 20:41:36,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:36,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06278147110692
+2012-05-07 20:41:36,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 23
+2012-05-07 20:41:36,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 23
+2012-05-07 20:41:36,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:36,741 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 23
+2012-05-07 20:41:36,741 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:36,777 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone closes the window because of traffic noise
+2012-05-07 20:41:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06278147110692
+2012-05-07 20:41:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06327417968667
+2012-05-07 20:41:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:37,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9353685246177017
+2012-05-07 20:41:37,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:37,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06327417968667
+2012-05-07 20:41:37,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 24
+2012-05-07 20:41:37,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:37,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 24
+2012-05-07 20:41:37,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 24
+2012-05-07 20:41:37,736 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:38,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 22.537668882664153
+2012-05-07 20:41:38,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 23.422601329598493
+2012-05-07 20:41:38,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be -1.0822449804858525
+2012-05-07 20:41:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 0
+2012-05-07 20:41:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.960032060877662
+2012-05-07 20:41:38,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 25
+2012-05-07 20:41:38,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 25
+2012-05-07 20:41:38,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:38,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 25
+2012-05-07 20:41:38,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:41:39,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 23.422601329598493
+2012-05-07 20:41:39,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.7830192365266
+2012-05-07 20:41:39,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:41:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.8206864334666146
+2012-05-07 20:41:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.506533090270764
+2012-05-07 20:41:39,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 26
+2012-05-07 20:41:39,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:41:39,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 26
+2012-05-07 20:41:39,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:39,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 26
+2012-05-07 20:41:40,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.7830192365266
+2012-05-07 20:41:40,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.258207889969736
+2012-05-07 20:41:40,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:41:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.015558457205613
+2012-05-07 20:41:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.065943657933886
+2012-05-07 20:41:40,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 27
+2012-05-07 20:41:40,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 27
+2012-05-07 20:41:40,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:40,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 27
+2012-05-07 20:41:40,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:41,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.162075773951813
+2012-05-07 20:41:41,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.62507379950579
+2012-05-07 20:41:41,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.9646558453007636
+2012-05-07 20:41:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.652902134640485
+2012-05-07 20:41:41,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 28
+2012-05-07 20:41:41,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:41,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 28
+2012-05-07 20:41:41,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:41,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 28
+2012-05-07 20:41:42,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.62507379950579
+2012-05-07 20:41:42,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.95380239764911
+2012-05-07 20:41:42,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.6586552928440514
+2012-05-07 20:41:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.032560515594746
+2012-05-07 20:41:42,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 29
+2012-05-07 20:41:42,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:42,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 29
+2012-05-07 20:41:42,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 29
+2012-05-07 20:41:42,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:43,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.032560515594746
+2012-05-07 20:41:43,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.546699622787692
+2012-05-07 20:41:43,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:43,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.8190562365703016
+2012-05-07 20:41:43,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:43,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.53311796607227
+2012-05-07 20:41:43,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 30
+2012-05-07 20:41:43,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 30
+2012-05-07 20:41:43,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:43,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 30
+2012-05-07 20:41:43,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:44,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.546699622787692
+2012-05-07 20:41:44,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.188156732179262
+2012-05-07 20:41:44,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:44,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.3360265679985937
+2012-05-07 20:41:44,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.148293690685907
+2012-05-07 20:41:44,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 31
+2012-05-07 20:41:44,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 31
+2012-05-07 20:41:44,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:44,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 31
+2012-05-07 20:41:44,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:45,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.188156732179262
+2012-05-07 20:41:45,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.674288520386995
+2012-05-07 20:41:45,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:45,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.7282733771386856
+2012-05-07 20:41:45,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:45,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.643591279847275
+2012-05-07 20:41:45,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 32
+2012-05-07 20:41:45,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:45,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 32
+2012-05-07 20:41:45,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 32
+2012-05-07 20:41:45,738 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:46,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.674288520386995
+2012-05-07 20:41:46,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.278744849474766
+2012-05-07 20:41:46,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:46,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.262086153146045
+2012-05-07 20:41:46,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:46,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.252916586717337
+2012-05-07 20:41:46,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 33
+2012-05-07 20:41:46,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 33
+2012-05-07 20:41:46,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:46,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 33
+2012-05-07 20:41:46,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:47,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.278744849474766
+2012-05-07 20:41:47,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.74857077656931
+2012-05-07 20:41:47,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:47,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.674266298498289
+2012-05-07 20:41:47,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:47,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.707908843127083
+2012-05-07 20:41:47,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 34
+2012-05-07 20:41:47,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 34
+2012-05-07 20:41:47,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:47,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 34
+2012-05-07 20:41:47,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:48,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.74857077656931
+2012-05-07 20:41:48,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.33148525136421
+2012-05-07 20:41:48,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:48,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.2183262698062867
+2012-05-07 20:41:48,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:41:48,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.313828036786834
+2012-05-07 20:41:48,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 35
+2012-05-07 20:41:48,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:41:48,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 35
+2012-05-07 20:41:48,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 35
+2012-05-07 20:41:48,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:41:48,777 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone opens the window for fresh air
+2012-05-07 20:41:49,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.33148525136421
+2012-05-07 20:41:49,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.791817906118652
+2012-05-07 20:41:49,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:41:49,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.642422053016096
+2012-05-07 20:41:49,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:49,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.74535452846859
+2012-05-07 20:41:49,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 36
+2012-05-07 20:41:49,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 36
+2012-05-07 20:41:49,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:49,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 36
+2012-05-07 20:41:49,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:50,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 19.298613938523157
+2012-05-07 20:41:50,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 18.951112920654822
+2012-05-07 20:41:50,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:50,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.8687918639720786
+2012-05-07 20:41:50,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:41:50,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.305417854179726
+2012-05-07 20:41:50,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 37
+2012-05-07 20:41:50,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:50,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 37
+2012-05-07 20:41:50,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 37
+2012-05-07 20:41:50,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:51,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 18.951112920654822
+2012-05-07 20:41:51,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 18.728712269219088
+2012-05-07 20:41:51,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:51,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.946719685492534
+2012-05-07 20:41:51,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:41:51,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.159467426675025
+2012-05-07 20:41:51,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 38
+2012-05-07 20:41:51,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 38
+2012-05-07 20:41:51,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 4
+2012-05-07 20:41:51,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 38
+2012-05-07 20:41:51,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:52,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.159467426675025
+2012-05-07 20:41:52,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 22.08697631920351
+2012-05-07 20:41:52,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 4
+2012-05-07 20:41:52,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.303682507095289
+2012-05-07 20:41:52,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:41:52,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.142059153072015
+2012-05-07 20:41:52,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 39
+2012-05-07 20:41:52,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 39
+2012-05-07 20:41:52,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:41:52,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 39
+2012-05-07 20:41:52,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:53,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 22.08697631920351
+2012-05-07 20:41:53,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.73566484429025
+2012-05-07 20:41:53,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:41:53,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.1080366320515553
+2012-05-07 20:41:53,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:53,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.60609744917786
+2012-05-07 20:41:53,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 40
+2012-05-07 20:41:53,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 40
+2012-05-07 20:41:53,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:53,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 40
+2012-05-07 20:41:53,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:54,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.73566484429025
+2012-05-07 20:41:54,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.88990236747383
+2012-05-07 20:41:54,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:54,736 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.0282920281353447
+2012-05-07 20:41:54,736 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:54,736 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.88990236747383
+2012-05-07 20:41:54,737 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 41
+2012-05-07 20:41:54,739 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 41
+2012-05-07 20:41:54,740 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:54,741 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 41
+2012-05-07 20:41:54,741 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:55,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.88990236747383
+2012-05-07 20:41:55,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.971648254761128
+2012-05-07 20:41:55,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:55,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9849226732470404
+2012-05-07 20:41:55,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:55,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.971648254761128
+2012-05-07 20:41:55,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 42
+2012-05-07 20:41:55,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 42
+2012-05-07 20:41:55,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:55,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 42
+2012-05-07 20:41:55,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:56,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.971648254761128
+2012-05-07 20:41:56,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.014973575023397
+2012-05-07 20:41:56,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:56,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9616169543253097
+2012-05-07 20:41:56,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:56,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.014973575023397
+2012-05-07 20:41:56,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 43
+2012-05-07 20:41:56,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:56,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 43
+2012-05-07 20:41:56,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:56,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 43
+2012-05-07 20:41:57,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.014973575023397
+2012-05-07 20:41:57,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.0379359947624
+2012-05-07 20:41:57,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:57,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9491735617286507
+2012-05-07 20:41:57,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:57,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.0379359947624
+2012-05-07 20:41:57,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 44
+2012-05-07 20:41:57,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 44
+2012-05-07 20:41:57,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:57,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 44
+2012-05-07 20:41:57,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:58,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.0379359947624
+2012-05-07 20:41:58,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.050106077224072
+2012-05-07 20:41:58,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:58,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9425526752132463
+2012-05-07 20:41:58,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:58,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.050106077224072
+2012-05-07 20:41:58,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 45
+2012-05-07 20:41:58,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:41:58,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 45
+2012-05-07 20:41:58,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:58,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 45
+2012-05-07 20:41:59,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.050106077224072
+2012-05-07 20:41:59,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.05655622092876
+2012-05-07 20:41:59,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:41:59,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9390362994859793
+2012-05-07 20:41:59,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:41:59,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.05655622092876
+2012-05-07 20:41:59,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 46
+2012-05-07 20:41:59,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 46
+2012-05-07 20:41:59,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:41:59,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 46
+2012-05-07 20:41:59,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:00,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.05655622092876
+2012-05-07 20:42:00,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.05997479709224
+2012-05-07 20:42:00,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:00,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9371705630713936
+2012-05-07 20:42:00,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:00,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.05997479709224
+2012-05-07 20:42:00,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 47
+2012-05-07 20:42:00,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:00,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 47
+2012-05-07 20:42:00,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 47
+2012-05-07 20:42:00,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:01,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.05997479709224
+2012-05-07 20:42:01,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.061786642458888
+2012-05-07 20:42:01,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:01,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9361811441267602
+2012-05-07 20:42:01,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:01,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.061786642458888
+2012-05-07 20:42:01,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 48
+2012-05-07 20:42:01,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 48
+2012-05-07 20:42:01,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:01,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 48
+2012-05-07 20:42:01,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:02,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.061786642458888
+2012-05-07 20:42:02,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06274692050321
+2012-05-07 20:42:02,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:02,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9356565894321642
+2012-05-07 20:42:02,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:02,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06274692050321
+2012-05-07 20:42:02,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 49
+2012-05-07 20:42:02,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:02,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 49
+2012-05-07 20:42:02,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 49
+2012-05-07 20:42:02,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:03,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06274692050321
+2012-05-07 20:42:03,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.0632558678667
+2012-05-07 20:42:03,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:03,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.935378529737759
+2012-05-07 20:42:03,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:03,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.0632558678667
+2012-05-07 20:42:03,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 50
+2012-05-07 20:42:03,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:03,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 50
+2012-05-07 20:42:03,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:03,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 50
+2012-05-07 20:42:04,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.0632558678667
+2012-05-07 20:42:04,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06352560996935
+2012-05-07 20:42:04,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:04,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9352311452583346
+2012-05-07 20:42:04,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:04,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06352560996935
+2012-05-07 20:42:04,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 51
+2012-05-07 20:42:04,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 51
+2012-05-07 20:42:04,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:04,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 51
+2012-05-07 20:42:04,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:05,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06352560996935
+2012-05-07 20:42:05,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063668573283756
+2012-05-07 20:42:05,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:05,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9351530278767215
+2012-05-07 20:42:05,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:05,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063668573283756
+2012-05-07 20:42:05,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 52
+2012-05-07 20:42:05,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:05,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 52
+2012-05-07 20:42:05,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 52
+2012-05-07 20:42:05,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:06,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063668573283756
+2012-05-07 20:42:06,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06374434384039
+2012-05-07 20:42:06,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:06,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.93511162465106
+2012-05-07 20:42:06,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:06,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06374434384039
+2012-05-07 20:42:06,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 53
+2012-05-07 20:42:06,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:06,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 53
+2012-05-07 20:42:06,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 53
+2012-05-07 20:42:06,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:07,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06374434384039
+2012-05-07 20:42:07,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063784502235407
+2012-05-07 20:42:07,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:07,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350896806567834
+2012-05-07 20:42:07,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:07,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063784502235407
+2012-05-07 20:42:07,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 54
+2012-05-07 20:42:07,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:07,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 54
+2012-05-07 20:42:07,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:07,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 54
+2012-05-07 20:42:08,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063784502235407
+2012-05-07 20:42:08,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063805786184766
+2012-05-07 20:42:08,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:08,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350780502598517
+2012-05-07 20:42:08,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:08,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063805786184766
+2012-05-07 20:42:08,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 55
+2012-05-07 20:42:08,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:08,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 55
+2012-05-07 20:42:08,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 55
+2012-05-07 20:42:08,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:09,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063805786184766
+2012-05-07 20:42:09,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063817066677927
+2012-05-07 20:42:09,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:09,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350718861270138
+2012-05-07 20:42:09,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:09,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063817066677927
+2012-05-07 20:42:09,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 56
+2012-05-07 20:42:09,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 56
+2012-05-07 20:42:09,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:09,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 56
+2012-05-07 20:42:09,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:10,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063817066677927
+2012-05-07 20:42:10,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.0638230453393
+2012-05-07 20:42:10,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:10,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350686191303015
+2012-05-07 20:42:10,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:10,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.0638230453393
+2012-05-07 20:42:10,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 57
+2012-05-07 20:42:10,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:10,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 57
+2012-05-07 20:42:10,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 57
+2012-05-07 20:42:10,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:11,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.0638230453393
+2012-05-07 20:42:11,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06382621402983
+2012-05-07 20:42:11,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:11,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.93506688762027
+2012-05-07 20:42:11,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:11,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06382621402983
+2012-05-07 20:42:11,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 58
+2012-05-07 20:42:11,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:11,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 58
+2012-05-07 20:42:11,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 58
+2012-05-07 20:42:11,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:12,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06382621402983
+2012-05-07 20:42:12,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06382789343581
+2012-05-07 20:42:12,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:12,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350659699194592
+2012-05-07 20:42:12,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:12,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06382789343581
+2012-05-07 20:42:12,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 59
+2012-05-07 20:42:12,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 59
+2012-05-07 20:42:12,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:12,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 59
+2012-05-07 20:42:12,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:13,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06382789343581
+2012-05-07 20:42:13,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06382878352098
+2012-05-07 20:42:13,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:13,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350654835378878
+2012-05-07 20:42:13,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:13,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06382878352098
+2012-05-07 20:42:13,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 60
+2012-05-07 20:42:13,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:13,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 60
+2012-05-07 20:42:13,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 60
+2012-05-07 20:42:13,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:14,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.06382878352098
+2012-05-07 20:42:14,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829255266118
+2012-05-07 20:42:14,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:14,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350652257556153
+2012-05-07 20:42:14,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:14,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829255266118
+2012-05-07 20:42:14,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 61
+2012-05-07 20:42:14,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:14,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 61
+2012-05-07 20:42:14,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 61
+2012-05-07 20:42:14,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:15,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829255266118
+2012-05-07 20:42:15,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829505291043
+2012-05-07 20:42:15,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:15,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350650891310015
+2012-05-07 20:42:15,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:15,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829505291043
+2012-05-07 20:42:15,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 62
+2012-05-07 20:42:15,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 62
+2012-05-07 20:42:15,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:15,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 62
+2012-05-07 20:42:15,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829505291043
+2012-05-07 20:42:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829637804254
+2012-05-07 20:42:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:16,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.93506501671995
+2012-05-07 20:42:16,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:16,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829637804254
+2012-05-07 20:42:16,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 63
+2012-05-07 20:42:16,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:16,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 63
+2012-05-07 20:42:16,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 63
+2012-05-07 20:42:16,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:17,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829637804254
+2012-05-07 20:42:17,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829708036256
+2012-05-07 20:42:17,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649783420923
+2012-05-07 20:42:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:17,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829708036256
+2012-05-07 20:42:17,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 64
+2012-05-07 20:42:17,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 64
+2012-05-07 20:42:17,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:17,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 64
+2012-05-07 20:42:17,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829708036256
+2012-05-07 20:42:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829745259216
+2012-05-07 20:42:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:18,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.93506495800183
+2012-05-07 20:42:18,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:18,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829745259216
+2012-05-07 20:42:18,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 65
+2012-05-07 20:42:18,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:18,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 65
+2012-05-07 20:42:18,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 65
+2012-05-07 20:42:18,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829745259216
+2012-05-07 20:42:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829764987386
+2012-05-07 20:42:19,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649472214894
+2012-05-07 20:42:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:19,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829764987386
+2012-05-07 20:42:19,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 66
+2012-05-07 20:42:19,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:19,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 66
+2012-05-07 20:42:19,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:19,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 66
+2012-05-07 20:42:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829764987386
+2012-05-07 20:42:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829775443313
+2012-05-07 20:42:20,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.935064941507908
+2012-05-07 20:42:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:20,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829775443313
+2012-05-07 20:42:20,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 67
+2012-05-07 20:42:20,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 67
+2012-05-07 20:42:20,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:20,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 67
+2012-05-07 20:42:20,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829775443313
+2012-05-07 20:42:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829780984957
+2012-05-07 20:42:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:21,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649384797114
+2012-05-07 20:42:21,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:21,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829780984957
+2012-05-07 20:42:21,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 68
+2012-05-07 20:42:21,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 68
+2012-05-07 20:42:21,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:21,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 68
+2012-05-07 20:42:21,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829780984957
+2012-05-07 20:42:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829783922028
+2012-05-07 20:42:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:22,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.935064936874767
+2012-05-07 20:42:22,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:22,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829783922028
+2012-05-07 20:42:22,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 69
+2012-05-07 20:42:22,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:22,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 69
+2012-05-07 20:42:22,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 69
+2012-05-07 20:42:22,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829783922028
+2012-05-07 20:42:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829785478674
+2012-05-07 20:42:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:23,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649360241436
+2012-05-07 20:42:23,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:23,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829785478674
+2012-05-07 20:42:23,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 70
+2012-05-07 20:42:23,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 70
+2012-05-07 20:42:23,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:23,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 70
+2012-05-07 20:42:23,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829785478674
+2012-05-07 20:42:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.063829786303696
+2012-05-07 20:42:24,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:24,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649355733185
+2012-05-07 20:42:24,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:24,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.063829786303696
+2012-05-07 20:42:24,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 71
+2012-05-07 20:42:24,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:24,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 71
+2012-05-07 20:42:24,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:24,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 71
+2012-05-07 20:42:24,777 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone closes the window because of traffic noise
+2012-05-07 20:42:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.063829786303696
+2012-05-07 20:42:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.06382978674096
+2012-05-07 20:42:25,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.9350649353343776
+2012-05-07 20:42:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:25,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.06382978674096
+2012-05-07 20:42:25,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 72
+2012-05-07 20:42:25,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 3
+2012-05-07 20:42:25,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 72
+2012-05-07 20:42:25,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:25,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 72
+2012-05-07 20:42:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 22.538297871782216
+2012-05-07 20:42:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 23.42297872306933
+2012-05-07 20:42:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 3
+2012-05-07 20:42:26,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be -1.082792207306535
+2012-05-07 20:42:26,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 0
+2012-05-07 20:42:26,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.96061702075746
+2012-05-07 20:42:26,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 73
+2012-05-07 20:42:26,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 73
+2012-05-07 20:42:26,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:42:26,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 73
+2012-05-07 20:42:26,735 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 23.42297872306933
+2012-05-07 20:42:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.78337021245448
+2012-05-07 20:42:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:42:27,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.8203603507754749
+2012-05-07 20:42:27,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:27,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.50684255291685
+2012-05-07 20:42:27,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 74
+2012-05-07 20:42:27,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:42:27,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 74
+2012-05-07 20:42:27,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 74
+2012-05-07 20:42:27,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.78337021245448
+2012-05-07 20:42:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.258534297582663
+2012-05-07 20:42:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:42:28,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.0153427058556943
+2012-05-07 20:42:28,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:28,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.06619285084268
+2012-05-07 20:42:28,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 75
+2012-05-07 20:42:28,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 75
+2012-05-07 20:42:28,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:28,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 75
+2012-05-07 20:42:28,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:28,777 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone opens the window for fresh air
+2012-05-07 20:42:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.162363574212673
+2012-05-07 20:42:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.625278137690998
+2012-05-07 20:42:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:29,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.9644730964912681
+2012-05-07 20:42:29,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:29,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.65313813085439
+2012-05-07 20:42:29,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 76
+2012-05-07 20:42:29,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:29,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 76
+2012-05-07 20:42:29,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 76
+2012-05-07 20:42:29,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:30,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.143912687496112
+2012-05-07 20:42:30,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 18.407934515622085
+2012-05-07 20:42:30,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:30,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 4.053851492825191
+2012-05-07 20:42:30,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:42:30,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.660443328748368
+2012-05-07 20:42:30,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 77
+2012-05-07 20:42:30,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:30,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 77
+2012-05-07 20:42:30,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:30,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 77
+2012-05-07 20:42:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 18.407934515622085
+2012-05-07 20:42:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 17.105950886716563
+2012-05-07 20:42:31,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 4.433956796779542
+2012-05-07 20:42:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 4
+2012-05-07 20:42:31,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.931332496561275
+2012-05-07 20:42:31,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 78
+2012-05-07 20:42:31,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 78
+2012-05-07 20:42:31,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:31,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 78
+2012-05-07 20:42:31,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 4
+2012-05-07 20:42:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.931332496561275
+2012-05-07 20:42:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.991159648555737
+2012-05-07 20:42:32,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 4
+2012-05-07 20:42:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.3696572226709915
+2012-05-07 20:42:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:32,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 19.996052797799216
+2012-05-07 20:42:32,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 79
+2012-05-07 20:42:32,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 79
+2012-05-07 20:42:32,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:32,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 79
+2012-05-07 20:42:32,734 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = true
+2012-05-07 20:42:32,777 INFO [n-7bd686a3ad7.a-7bd8c028545.Window] - human interaction: someone closes the window because of traffic noise
+2012-05-07 20:42:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.991159648555737
+2012-05-07 20:42:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.674342175075672
+2012-05-07 20:42:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:33,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 3.1390091039805306
+2012-05-07 20:42:33,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 3
+2012-05-07 20:42:33,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.55531461373454
+2012-05-07 20:42:33,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 80
+2012-05-07 20:42:33,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:33,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 80
+2012-05-07 20:42:33,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:33,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 80
+2012-05-07 20:42:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 22.213723350474574
+2012-05-07 20:42:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 22.37174357883695
+2012-05-07 20:42:34,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:34,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.2315297004802638
+2012-05-07 20:42:34,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 0
+2012-05-07 20:42:34,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.658762715941354
+2012-05-07 20:42:34,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 81
+2012-05-07 20:42:34,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 81
+2012-05-07 20:42:34,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 0
+2012-05-07 20:42:34,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 81
+2012-05-07 20:42:34,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 23.228234010284744
+2012-05-07 20:42:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.60225762956481
+2012-05-07 20:42:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 0
+2012-05-07 20:42:35,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.9850054329191337
+2012-05-07 20:42:35,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:35,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 22.34715188843349
+2012-05-07 20:42:35,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 82
+2012-05-07 20:42:35,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 82
+2012-05-07 20:42:35,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:35,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 82
+2012-05-07 20:42:35,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.60225762956481
+2012-05-07 20:42:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.013851256243143
+2012-05-07 20:42:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:36,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.474105388844048
+2012-05-07 20:42:36,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:36,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.013851256243143
+2012-05-07 20:42:36,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 83
+2012-05-07 20:42:36,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:36,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 83
+2012-05-07 20:42:36,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:36,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 83
+2012-05-07 20:42:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.013851256243143
+2012-05-07 20:42:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.531358030119378
+2012-05-07 20:42:37,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:37,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.829807405857406
+2012-05-07 20:42:37,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:37,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.51983439193263
+2012-05-07 20:42:37,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 84
+2012-05-07 20:42:37,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 84
+2012-05-07 20:42:37,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:37,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 84
+2012-05-07 20:42:37,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.531358030119378
+2012-05-07 20:42:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.17726420138476
+2012-05-07 20:42:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:38,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.3448150762292428
+2012-05-07 20:42:38,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:38,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.13571358469789
+2012-05-07 20:42:38,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 85
+2012-05-07 20:42:38,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:38,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 85
+2012-05-07 20:42:38,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 85
+2012-05-07 20:42:38,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:39,726 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.17726420138476
+2012-05-07 20:42:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.635857582983178
+2012-05-07 20:42:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 0.9549992249577937
+2012-05-07 20:42:39,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:39,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.665356645135503
+2012-05-07 20:42:39,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 86
+2012-05-07 20:42:39,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 86
+2012-05-07 20:42:39,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:39,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 86
+2012-05-07 20:42:39,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.665356645135503
+2012-05-07 20:42:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.245592449011113
+2012-05-07 20:42:40,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:40,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.0238860424406657
+2012-05-07 20:42:40,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:40,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.272403218046207
+2012-05-07 20:42:40,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 87
+2012-05-07 20:42:40,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:40,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 87
+2012-05-07 20:42:40,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:40,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 87
+2012-05-07 20:42:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.245592449011113
+2012-05-07 20:42:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 19.90138580818911
+2012-05-07 20:42:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:41,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 2.2430721240622318
+2012-05-07 20:42:41,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:41,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.97437063879789
+2012-05-07 20:42:41,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 88
+2012-05-07 20:42:41,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:41,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 88
+2012-05-07 20:42:41,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 88
+2012-05-07 20:42:41,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.97437063879789
+2012-05-07 20:42:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.491803153546503
+2012-05-07 20:42:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:42,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.0819759360793209
+2012-05-07 20:42:42,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:42,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.49898392381427
+2012-05-07 20:42:42,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 89
+2012-05-07 20:42:42,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 89
+2012-05-07 20:42:42,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:42,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 89
+2012-05-07 20:42:42,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:43,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 21.491803153546503
+2012-05-07 20:42:43,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 20.923278585908132
+2012-05-07 20:42:43,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 1
+2012-05-07 20:42:43,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.5437601758558541
+2012-05-07 20:42:43,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 2
+2012-05-07 20:42:43,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 21.859180239018016
+2012-05-07 20:42:43,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 90
+2012-05-07 20:42:43,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 90
+2012-05-07 20:42:43,730 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false
+2012-05-07 20:42:43,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 90
+2012-05-07 20:42:43,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 2
+2012-05-07 20:42:44,727 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - current 20.923278585908132
+2012-05-07 20:42:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Next temp should be 21.455527795994772
+2012-05-07 20:42:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is now set to: 2
+2012-05-07 20:42:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating would be 1.1132760080992152
+2012-05-07 20:42:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating is next set to 1
+2012-05-07 20:42:44,728 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Nextnext temp should be 20.457088440444668
+2012-05-07 20:42:44,729 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.UpdateState iter: 91
+2012-05-07 20:42:44,731 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Heating.GetState iter: 91
+2012-05-07 20:42:44,732 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Heating state = 1
+2012-05-07 20:42:44,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Action result received: Window.GetState iter: 91
+2012-05-07 20:42:44,733 DEBUG [n-7bd686a3ad7.a-7bd8c028545.SimpleReactiveBean] - Window open = false

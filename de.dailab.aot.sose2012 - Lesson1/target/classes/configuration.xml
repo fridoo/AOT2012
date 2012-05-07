@@ -29,7 +29,7 @@
 					<property name="logLevel" value="info" />
 				</bean>
 				<bean name="Heating" class="de.dailab.aot.sose2012.effectors.Heating" />
-				<bean name="SimpleReactiveBean" class="de.dailab.aot.sose2011.bean.SimpleReactiveBean">
+				<bean name="SimpleReactiveBean" class="de.dailab.aot.sose2012.bean.SimpleReactiveBean">
 					<property name="logLevel" value="DEBUG" />
 					<property name="executeInterval" value="1000" />
 				</bean>
