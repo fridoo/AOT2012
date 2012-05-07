@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.dailab.aot.sose2012</groupId>
+	<artifactId>Lesson1</artifactId>
+	<version>2012.0</version>
+	<name>${project.artifactId} - Agent Architectures</name>
+	<url>http://www.aot.tu-berlin.de/</url>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.dailab.jiactng</groupId>
+			<artifactId>agentCore</artifactId>
+			<version>5.1.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/java</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/java</directory>
+			</testResource>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>de.dailab.aot.sose2012.Lesson1Starter</mainClass>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<links>
+						<link>http://download.oracle.com/javase/6/docs/api/</link>
+					</links>
+					<quiet>true</quiet>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<projectNameTemplate>[groupId] - [artifactId]</projectNameTemplate>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<developers>
+		<developer>
+			<id>mib</id>
+			<name>Michael Burkhardt</name>
+			<email>michael.burkhardt@dai-labor.de</email>
+			<organization>DAI-Labor, TU-Berlin</organization>
+		</developer>
+		<developer>
+			<id>fricke</id>
+			<name>Stefan Fricke</name>
+			<email>stefan.fricke@dai-labor.de</email>
+		</developer>
+		<developer>
+			<id>jakob</id>
+			<name>Jakob Tonn</name>
+			<email>jakob.tonn@dai-labor.de</email>
+			<organization>DAI-Labor, TU-Berlin</organization>
+		</developer>
+	</developers>
+
+	<repositories>
+		<repository>
+			<id>dai-open</id>
+			<name>DAI Open</name>
+			<url>http://repositories.dai-labor.de/extern/content/repositories/dai-open</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+</project>
