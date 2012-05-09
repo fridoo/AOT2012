@@ -42,17 +42,17 @@ public class SimpleReactiveBean extends AbstractAgentBean implements
 	@Override
 	public void execute() {
 		System.out.println("vvv iteration "+ (counter++) + " vvv");
-		Temperature current = null;
+		Temperature currentTemp = null;
 
 		this.invoke(getWinAction, new Serializable[] {}, this);
 		this.invoke(getHeatAction, new Serializable[] {}, this);
-		current = memory.read(new Temperature());
+		currentTemp = memory.read(new Temperature());
 		
-		double nextTemp = calcNextTemperature(this.heating, this.windowPos, current.getValue());
+		double nextTemp = calcNextTemperature(this.heating, this.windowPos, currentTemp.getValue());
 		double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos * nextTemp - nextTemp)
 				/ (0.11 * (30 - nextTemp));
-		log.debug("current " + current.getValue());
-		log.debug("Next temp should be " + nextTemp);
+		log.debug("current " + currentTemp.getValue());
+		log.debug("Next temp without adjustment " + nextTemp);
 		log.debug("Heating is now set to: " + this.heating);
 		log.debug("Heating would be " + newHeating);
 
@@ -69,7 +69,7 @@ public class SimpleReactiveBean extends AbstractAgentBean implements
 				setHeatingTo = (int) (newHeating + 1);
 			}
 		}
-		tempAfterAdjustment = calcNextTemperature(setHeatingTo, this.windowPos, current.getValue());
+		tempAfterAdjustment = calcNextTemperature(setHeatingTo, this.windowPos, currentTemp.getValue());
 		log.debug("Heating is next set to " + setHeatingTo);
 		log.debug("Nextnext temp should be " + tempAfterAdjustment);
 		this.invoke(setHeatAction, new Serializable[] { setHeatingTo }, this);
@@ -84,7 +84,7 @@ public class SimpleReactiveBean extends AbstractAgentBean implements
 
 		// welche Aktion wurde aufgerufen?
 		if (Window.ACTION_GET_WINDOW_STATE.equals(result.getAction().getName())) {
-			if (result.getFailure() == null) {			
+			if (result.getFailure() == null) {	
 				Boolean w = (Boolean) result.getResults()[0];
 				log.debug("Window open = " + w);
 				this.setWindowPos(w);
