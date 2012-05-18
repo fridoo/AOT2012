@@ -3,7 +3,6 @@ package de.dailab.aot.sose2012.sensors;
 import java.util.Random;
 
 import de.dailab.jiactng.agentcore.action.AbstractMethodExposingBean;
-import de.dailab.jiactng.agentcore.action.IMethodExposingBean.Expose;
 import de.dailab.jiactng.agentcore.action.scope.ActionScope;
 
 /**

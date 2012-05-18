@@ -1,6 +1,5 @@
 package de.dailab.aot.sose2012.effectors;
 
-import javax.management.openmbean.TabularData;
 
 import de.dailab.jiactng.agentcore.action.AbstractMethodExposingBean;
 import de.dailab.jiactng.agentcore.action.scope.ActionScope;

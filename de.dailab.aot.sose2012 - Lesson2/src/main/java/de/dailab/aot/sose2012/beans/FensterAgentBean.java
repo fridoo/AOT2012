@@ -1,14 +1,9 @@
 package de.dailab.aot.sose2012.beans;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
-
-import de.dailab.aot.sose2012.effectors.Heating;
-import de.dailab.aot.sose2012.ontology.Hstate;
 import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.Request;
-import de.dailab.aot.sose2012.ontology.Temperature;
 import de.dailab.aot.sose2012.ontology.WinPos;
 import de.dailab.aot.sose2012.sensors.Window;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
@@ -37,7 +32,6 @@ public class FensterAgentBean extends AbstractAgentBean implements
 	private IGroupAddress groupAddress = null;
 
 	private Boolean winPos = null;
-	private int i;
 
 	@Override
 	public void doInit() {
@@ -65,6 +59,7 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		invoke(getWinAction, new Serializable[] {}, this);
 
 		for (JiacMessage msg : messages) {
+			@SuppressWarnings("unchecked")
 			Request<Object> r = (Request<Object>) msg.getPayload();
 			if (r.getValue() instanceof WinPos) {
 				if (r.getAgent().getName().equals("UserAgent")) {

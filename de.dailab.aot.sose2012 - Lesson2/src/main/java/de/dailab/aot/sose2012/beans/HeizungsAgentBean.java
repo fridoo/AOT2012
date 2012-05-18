@@ -52,6 +52,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 		Set<JiacMessage> messages = memory.removeAll(REQ);
 		
 		for (JiacMessage msg : messages) {
+			@SuppressWarnings("unchecked")
 			Request<Object> r = (Request<Object>) msg.getPayload();
 			if (r.getValue() instanceof Hstate) {
 				Hstate h = (Hstate) r.getValue();

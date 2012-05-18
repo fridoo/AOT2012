@@ -70,6 +70,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements ResultRecei
 		Set<JiacMessage> messages = memory.removeAll(INF);
 		
 		for (JiacMessage msg : messages) {
+			@SuppressWarnings("unchecked")
 			Inform<Object> i = (Inform<Object>) msg.getPayload();
 			if (i.getValue() instanceof Temperature) {
 				currentTemp = (Temperature) i.getValue();
@@ -105,7 +106,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements ResultRecei
 		
 		Hstate h = new Hstate(heating);
 		JiacMessage transport = new JiacMessage(new Request<Hstate>(h, thisAgent.getAgentDescription()));
-		this.invoke(send, new Serializable[] { transport, this.groupAddress });
+		this.invoke(send, new Serializable[] { transport, agent.getMessageBoxAddress() });
 		log.debug("RaumklimaAgent wants HeizungsAgent to set heating to : "+h.getState());
 	}
 	
