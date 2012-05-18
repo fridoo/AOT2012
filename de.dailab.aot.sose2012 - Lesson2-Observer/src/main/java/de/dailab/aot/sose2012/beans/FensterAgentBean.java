@@ -19,23 +19,38 @@ import de.dailab.jiactng.agentcore.environment.ResultReceiver;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
 
+/**
+ * FensterAgentBean is the main class for FensterAgent. It retrieves window-position
+ * data and informs every other agent on the platform if it changes from its former 
+ * state. Furthermore it receives window-position changerequests from other agents
+ * and fulfills them if they're coming from an UserAgent or rejects them otherwise.
+ * 
+ * @author Mitch
+ *
+ */
 public class FensterAgentBean extends AbstractAgentBean implements
 		ResultReceiver {
 
+	// used actions
 	private IActionDescription getWinAction;
 	private IActionDescription setWinAction;
 	private IActionDescription send;
 
+	//reject msg
+	private JiacMessage reject;
+	// request-msg template
 	private final static JiacMessage REQ = new JiacMessage(
 			new Request<Object>());
-	private JiacMessage reject;
 
+	// group variables
 	public static final String GROUP_ADDRESS = "temp-group";
 	private IGroupAddress groupAddress = null;
 
+	// state
 	private Boolean winPos = null;
 	
-	private final SpaceObserver<IFact> observer = new RequestObserver();
+	// message observer
+	private final SpaceObserver<IFact> observer = new WinRequestObserver();
 
 	@Override
 	public void doInit() {
@@ -43,7 +58,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 				.createGroupAddress(GROUP_ADDRESS);
 	}
 
-	// join group, get actions
+	/**
+	 *  join group, get actions, attach observer, set reject msg
+	 */
 	@Override
 	public void doStart() {
 		Action join = this.retrieveAction(ICommunicationBean.ACTION_JOIN_GROUP);
@@ -54,19 +71,24 @@ public class FensterAgentBean extends AbstractAgentBean implements
 				.retrieveAction(Window.ACTION_UPDATE_WINDOW_STATE);
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
+		// only look for requests
 		this.memory.attach(observer, REQ);
 		
 		reject = new JiacMessage(new Inform<String>(
-				"Request rejected. Value out of bounds", thisAgent.getAgentDescription()));
+				"Request rejected. Authorization needed", thisAgent.getAgentDescription()));
 	}
 
-	// wait for requests to open/close the window
+	/**
+	 *  refresh window informations
+	 */
 	@Override
 	public void execute() {
 		invoke(getWinAction, new Serializable[] {}, this);
 	}
 
-	// leave group
+	/**
+	 * leave group in the end
+	 */
 	@Override
 	public void doStop() {
 		Action leave = this
@@ -112,7 +134,13 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 	
-	final class RequestObserver implements SpaceObserver<IFact> {
+	/**
+	 *  looks for requests to open/close the window (but only from UserAgent)
+	 *  
+	 * @author Mitch
+	 *
+	 */
+	final class WinRequestObserver implements SpaceObserver<IFact> {
 
 		static final long serialVersionUID = -1143799774862165996L;
 

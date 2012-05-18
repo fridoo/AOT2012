@@ -18,10 +18,11 @@ import de.dailab.jiactng.agentcore.ontology.IActionDescription;
 import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 /**
- * This is a stub for 'Arbeitsblatt 2'.
+ * UserAgentBean is the main class for UserAgent. It receives commands
+ * to open/close, which can be triggered by a user.
  * 
- * @author mib
- * @version AOT SoSe 2011
+ * @author Mitch
+ * 
  */
 public final class UserAgentBean extends AbstractAgentBean implements ResultReceiver {
 
@@ -29,14 +30,18 @@ public final class UserAgentBean extends AbstractAgentBean implements ResultRece
 	public static final String CMD_WINDOW_CLOSE = "Close Window";
 
 	private WindowSwitch frame = null;
+	
+	// agent templates for messaging
 	private AgentDescription agentTemplate;
 	private IAgentDescription agent;
+	
+	// used actions
 	private IActionDescription send;
 	
+	// group variables
 	public static final String GROUP_ADDRESS = "temp-group";
 	private IGroupAddress groupAddress = null;
 	
-
 	@Override
 	public void doInit() {
 		this.groupAddress = CommunicationAddressFactory
@@ -44,6 +49,9 @@ public final class UserAgentBean extends AbstractAgentBean implements ResultRece
 		this.agentTemplate = new AgentDescription(null, "FensterAgent", null, null, null, null);
 	}
 	
+	/**
+	 *  join group, get actions, get the FensterAgent-Description for messaging
+	 */
 	@Override
 	public void doStart() throws Exception {
 		super.doStart();
@@ -67,6 +75,9 @@ public final class UserAgentBean extends AbstractAgentBean implements ResultRece
 		
 	}
 
+	/**
+	 * leave group in the end
+	 */
 	@Override
 	public void doStop() throws Exception {
 		if (frame != null) {
@@ -82,6 +93,10 @@ public final class UserAgentBean extends AbstractAgentBean implements ResultRece
 		}
 	}
 
+	/**
+	 * send a request to FensterAgent to open/close the window
+	 * @param cmd
+	 */
 	protected void windowSwitch(String cmd) {
 		Boolean newPos = null;
 		if (cmd.equals(CMD_WINDOW_OPEN)) {

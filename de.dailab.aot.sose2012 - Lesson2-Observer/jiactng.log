@@ -3694,3 +3694,301 @@ Caused by: org.apache.activemq.transport.TransportDisposedIOException: Peer (vm:
 	at org.apache.activemq.transport.ResponseCorrelator.request(ResponseCorrelator.java:86)
 	at org.apache.activemq.ActiveMQConnection.syncSendPacket(ActiveMQConnection.java:1284)
 	... 22 more
+2012-05-18 22:38:20,112 WARN [n-f088e4e4f7be] - JIAC version: JIAC TNG Agent Core version 5.1.2 (02.04.2012 09:22:50) (DAI-Labor, TU Berlin)
+2012-05-18 22:38:20,148 WARN [n-f088e4e4f7be] - Agentnode is: TempNode (n-f088e4e4f7be) with owner: Mitch
+2012-05-18 22:38:21,076 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 16.0
+2012-05-18 22:38:21,103 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent sent windowposition msg to everyone: open? false
+2012-05-18 22:38:21,104 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:21,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 16.0
+2012-05-18 22:38:21,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 14.879999999999999
+2012-05-18 22:38:21,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 0
+2012-05-18 22:38:21,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 4.3059163059163055
+2012-05-18 22:38:21,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 4
+2012-05-18 22:38:21,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.04
+2012-05-18 22:38:21,111 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 4
+2012-05-18 22:38:21,119 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 4
+2012-05-18 22:38:22,076 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.04
+2012-05-18 22:38:22,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:22,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.04
+2012-05-18 22:38:22,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 23.5096
+2012-05-18 22:38:22,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 4
+2012-05-18 22:38:22,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be -1.210078101363689
+2012-05-18 22:38:22,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 0
+2012-05-18 22:38:22,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 19.5672
+2012-05-18 22:38:22,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 0
+2012-05-18 22:38:22,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 0
+2012-05-18 22:38:23,076 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 23.5096
+2012-05-18 22:38:23,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:23,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 23.5096
+2012-05-18 22:38:23,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.863927999999998
+2012-05-18 22:38:23,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 0
+2012-05-18 22:38:23,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 0.7447719019917511
+2012-05-18 22:38:23,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:23,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 22.577872
+2012-05-18 22:38:23,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:23,113 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:24,076 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.863927999999998
+2012-05-18 22:38:24,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:24,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.863927999999998
+2012-05-18 22:38:24,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.228420959999998
+2012-05-18 22:38:24,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:24,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.3033503913504574
+2012-05-18 22:38:24,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:24,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.228420959999998
+2012-05-18 22:38:24,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:24,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:25,078 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.228420959999998
+2012-05-18 22:38:25,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:25,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.228420959999998
+2012-05-18 22:38:25,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.7073051872
+2012-05-18 22:38:25,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:25,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.7043751335670305
+2012-05-18 22:38:25,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:25,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.672178881599997
+2012-05-18 22:38:25,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:25,113 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:26,078 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.7073051872
+2012-05-18 22:38:26,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:26,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.7073051872
+2012-05-18 22:38:26,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.302186682911998
+2012-05-18 22:38:26,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:26,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.2427014610630094
+2012-05-18 22:38:26,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:26,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.279990253504
+2012-05-18 22:38:26,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:26,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:27,079 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.302186682911998
+2012-05-18 22:38:27,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:27,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.302186682911998
+2012-05-18 22:38:27,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.76779307998784
+2012-05-18 22:38:27,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:27,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.6601491340619763
+2012-05-18 22:38:27,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:27,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.724552544867517
+2012-05-18 22:38:27,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:27,113 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:28,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.76779307998784
+2012-05-18 22:38:28,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.76779307998784
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.345133086791368
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.2069154960140949
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:28,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.32959032559003
+2012-05-18 22:38:28,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:28,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:29,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.345133086791368
+2012-05-18 22:38:29,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.345133086791368
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.80300913116892
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.6341328193804454
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:29,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.75504449162187
+2012-05-18 22:38:29,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:29,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:30,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.80300913116892
+2012-05-18 22:38:30,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.80300913116892
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.370136483129933
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.185916859823132
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:30,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.358467487558514
+2012-05-18 22:38:30,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:30,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:31,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.370136483129933
+2012-05-18 22:38:31,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.370136483129933
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.823511916166545
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.618894151539722
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:31,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.772796903022254
+2012-05-18 22:38:31,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:31,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:32,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.823511916166545
+2012-05-18 22:38:32,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.823511916166545
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.384693460478246
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.1736353163491644
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:32,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.375279771256565
+2012-05-18 22:38:32,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:32,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:33,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.384693460478246
+2012-05-18 22:38:33,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.384693460478246
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.83544863759216
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.6099907953207466
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:33,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.783132356939554
+2012-05-18 22:38:33,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:33,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:34,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.83544863759216
+2012-05-18 22:38:34,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:34,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.83544863759216
+2012-05-18 22:38:34,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.393168532690435
+2012-05-18 22:38:34,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:34,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.1664658673566959
+2012-05-18 22:38:34,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 1
+2012-05-18 22:38:34,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.385067882825574
+2012-05-18 22:38:34,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 1
+2012-05-18 22:38:34,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 1
+2012-05-18 22:38:35,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.393168532690435
+2012-05-18 22:38:35,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:35,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.393168532690435
+2012-05-18 22:38:35,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.84239819680616
+2012-05-18 22:38:35,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 1
+2012-05-18 22:38:35,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 1.6047965710118068
+2012-05-18 22:38:35,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:35,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.78914965821021
+2012-05-18 22:38:35,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:35,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2
+2012-05-18 22:38:35,932 DEBUG [n-f088e4e4f7be.a-f088e4a33339.UserAgentBean] - UserAgent sent a msg to FensterAgent: Open Window
+2012-05-18 22:38:35,935 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent set window to: open? true
+2012-05-18 22:38:36,080 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.84239819680616
+2012-05-18 22:38:36,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent sent windowposition msg to everyone: open? true
+2012-05-18 22:38:36,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:36,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.84239819680616
+2012-05-18 22:38:36,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 19.93913484595594
+2012-05-18 22:38:36,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 2
+2012-05-18 22:38:36,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 3.480944118616429
+2012-05-18 22:38:36,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:36,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.946471044307263
+2012-05-18 22:38:36,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:36,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:37,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 19.93913484595594
+2012-05-18 22:38:37,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 19.93913484595594
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.46774146835665
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 3.240424774401682
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:37,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.46774146835665
+2012-05-18 22:38:37,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:37,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:38,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.46774146835665
+2012-05-18 22:38:38,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:38,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.46774146835665
+2012-05-18 22:38:38,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.747902978229025
+2012-05-18 22:38:38,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:38,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 3.1018063269084837
+2012-05-18 22:38:38,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:38,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.747902978229025
+2012-05-18 22:38:38,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:38,112 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:39,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.747902978229025
+2012-05-18 22:38:39,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.747902978229025
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.896388578461384
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 3.0248792906681183
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.896388578461384
+2012-05-18 22:38:39,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:39,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:40,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.896388578461384
+2012-05-18 22:38:40,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.896388578461384
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 20.97508594658453
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.983081630180635
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:40,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 20.97508594658453
+2012-05-18 22:38:40,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:40,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:41,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 20.97508594658453
+2012-05-18 22:38:41,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 20.97508594658453
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.016795551689803
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.960631944141944
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:41,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.016795551689803
+2012-05-18 22:38:41,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:41,113 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:42,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.016795551689803
+2012-05-18 22:38:42,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.016795551689803
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.038901642395597
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.948648877575968
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:42,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.038901642395597
+2012-05-18 22:38:42,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:42,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:43,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.038901642395597
+2012-05-18 22:38:43,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.038901642395597
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.050617870469665
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.9422738499237164
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:43,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.050617870469665
+2012-05-18 22:38:43,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:43,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:44,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.050617870469665
+2012-05-18 22:38:44,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.050617870469665
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.05682747134892
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.9388883128215455
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:44,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.05682747134892
+2012-05-18 22:38:44,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:44,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:45,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.05682747134892
+2012-05-18 22:38:45,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.05682747134892
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.060118559814928
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.937092071262281
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:45,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.060118559814928
+2012-05-18 22:38:45,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:45,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:46,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.060118559814928
+2012-05-18 22:38:46,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.060118559814928
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.061862836701913
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.9361395269151394
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:46,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.061862836701913
+2012-05-18 22:38:46,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:46,113 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:47,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.061862836701913
+2012-05-18 22:38:47,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? true
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.061862836701913
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 21.062787303452012
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.9356345276582028
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 3
+2012-05-18 22:38:47,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.062787303452012
+2012-05-18 22:38:47,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 3
+2012-05-18 22:38:47,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 3
+2012-05-18 22:38:48,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.062787303452012
+2012-05-18 22:38:48,091 INFO [n-f088e4e4f7be.a-f088e37b294f.Window] - human interaction: someone closes the window because of traffic noise
+2012-05-18 22:38:48,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent sent windowposition msg to everyone: open? false
+2012-05-18 22:38:48,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.062787303452012
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 22.537672382071207
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 3
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 0.04868659402506796
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 0
+2012-05-18 22:38:48,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 19.58839219221037
+2012-05-18 22:38:48,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 0
+2012-05-18 22:38:48,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 0
+2012-05-18 22:38:49,081 DEBUG [n-f088e4e4f7be.a-f088de63584f.ThermoAgentBean] - ThermoAgent sent msg to everyone: 21.063277270829566
+2012-05-18 22:38:49,100 DEBUG [n-f088e4e4f7be.a-f088e37b294f.FensterAgentBean] - FensterAgent retrieved window-position: open? false
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - current 21.063277270829566
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Next temp without adjustment 19.588847861871496
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is now set to: 0
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating would be 2.429537665297211
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Heating is next set to 2
+2012-05-18 22:38:49,109 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - Nextnext temp should be 21.55492686228899
+2012-05-18 22:38:49,110 DEBUG [n-f088e4e4f7be.a-f088e5705810.RaumKlimaAgentBean] - RaumklimaAgent wants HeizungsAgent to set heating to : 2
+2012-05-18 22:38:49,111 DEBUG [n-f088e4e4f7be.a-f088e35fecd2.HeizungsAgentBean] - HeizungAgent sets heating to 2

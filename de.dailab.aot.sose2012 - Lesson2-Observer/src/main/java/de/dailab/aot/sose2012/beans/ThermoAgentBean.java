@@ -14,19 +14,30 @@ import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.environment.ResultReceiver;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
 
+/**
+ * ThermoAgentBean is the main class for ThermoAgent. It receives temperature-data and
+ * propagates them to every other agent in his group.
+ * 
+ * @author Mitch
+ * 
+ */
 public class ThermoAgentBean extends AbstractAgentBean implements ResultReceiver {
 
+	// used actions
+	private IActionDescription send;
+	
+	// group variables
 	public static final String GROUP_ADDRESS = "temp-group";
 	private IGroupAddress groupAddress = null;
-	
-	private IActionDescription send;
 	
 	@Override
 	public void doInit() {
 		this.groupAddress = CommunicationAddressFactory.createGroupAddress(GROUP_ADDRESS);
 	}
 	
-	// join group, get actions
+	/**
+	 *  join group, get actions
+	 */
 	@Override
 	public void doStart() {
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
@@ -35,7 +46,9 @@ public class ThermoAgentBean extends AbstractAgentBean implements ResultReceiver
 		this.invoke(join, new Serializable[] { groupAddress, }, this);
 	}
 	
-	// read memory for temps, and msg them to everyone
+	/**
+	 * read memory for temps, and msg them to everyone
+	 */
 	@Override
 	public void execute() {
 		// read Temperature
@@ -48,7 +61,9 @@ public class ThermoAgentBean extends AbstractAgentBean implements ResultReceiver
 		log.debug("ThermoAgent sent msg to everyone: "+currentTemp.getValue());
 	}
 	
-	// leave group
+	/**
+	 * leave group in the end
+	 */
 	@Override
 	public void doStop() {
 		Action leave = this

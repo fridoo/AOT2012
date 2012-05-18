@@ -19,20 +19,33 @@ import de.dailab.jiactng.agentcore.environment.ResultReceiver;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
 
+/**
+ * HeizungsAgentBean is the main class for HeizungsAgent. It receives
+ * heating-state changerequests from other agents and fulfills them if they're
+ * valid, or rejects them.
+ * 
+ * @author Mitch
+ * 
+ */
 public class HeizungsAgentBean extends AbstractAgentBean implements
 		ResultReceiver {
 
+	// used actions
 	private IActionDescription setHeatAction;
 	private IActionDescription send;
 
+	// reject msg
+	private JiacMessage reject;
+	// request-msg template
 	private final static JiacMessage REQ = new JiacMessage(
 			new Request<Object>());
-	private JiacMessage reject;
 
+	// group variables
 	public static final String GROUP_ADDRESS = "temp-group";
 	private IGroupAddress groupAddress = null;
 
-	private final SpaceObserver<IFact> observer = new RequestObserver();
+	// message observer
+	private final SpaceObserver<IFact> observer = new HeatRequestObserver();
 
 	@Override
 	public void doInit() {
@@ -40,7 +53,9 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 				.createGroupAddress(GROUP_ADDRESS);
 	}
 
-	// join group, get actions
+	/**
+	 *  join group, get actions, attach observer, set reject msg
+	 */
 	@Override
 	public void doStart() {
 		Action join = this.retrieveAction(ICommunicationBean.ACTION_JOIN_GROUP);
@@ -49,13 +64,17 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 		this.setHeatAction = this.retrieveAction(Heating.ACTION_UPDATE_STATE);
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 
+		// only look for requests
 		this.memory.attach(observer, REQ);
-		
+
 		reject = new JiacMessage(new Inform<String>(
-				"Request rejected. Value out of bounds", thisAgent.getAgentDescription()));
+				"Request rejected. Value out of bounds",
+				thisAgent.getAgentDescription()));
 	}
 
-	// leave group
+	/**
+	 * leave group in the end
+	 */
 	@Override
 	public void doStop() {
 		Action leave = this
@@ -86,7 +105,13 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 		}
 	}
 
-	final class RequestObserver implements SpaceObserver<IFact> {
+	/**
+	 *  looks for requests to set the heating (between 0 and 5)
+	 *  
+	 * @author Mitch
+	 *
+	 */
+	final class HeatRequestObserver implements SpaceObserver<IFact> {
 
 		static final long serialVersionUID = -1143799774862165996L;
 
@@ -104,7 +129,8 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 						Hstate h = (Hstate) r.getValue();
 						if (h.getState() >= 0 && h.getState() <= 5) {
 							invoke(setHeatAction,
-									new Serializable[] { h.getState() }, HeizungsAgentBean.this);
+									new Serializable[] { h.getState() },
+									HeizungsAgentBean.this);
 							log.debug("HeizungAgent sets heating to "
 									+ h.getState());
 						} else {
