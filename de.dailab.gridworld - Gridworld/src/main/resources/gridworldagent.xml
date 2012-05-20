@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+
+	<bean name="GridworldAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<ref bean="WorldAgentBean" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="WorldAgentBean" class="de.dailab.gridworld.world.GridworldAgentBean">
+		<property name="worldXmax" value="40" />
+		<property name="worldYmax" value="40" />
+		<property name="gridWidth" value="15" />
+		<property name="goldRatio" value="10" />
+	</bean>
+	
+	<bean name="ExplorerAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<ref bean="ExplorerBean"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="CollectorAgentOne" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<ref bean="CollectorBeanOne"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="CollectorAgentTwo" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<ref bean="CollectorBeanTwo"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="ExplorerBean" class="de.dailab.gridworld.bean.ExplorerBean">
+		<property name="logLevel" value="info" />
+		<property name="executeInterval" value="550" />
+	</bean>
+	
+	<bean name="CollectorBeanOne" class="de.dailab.gridworld.bean.CollectorBean">
+		<property name="logLevel" value="info" />
+		<property name="executeInterval" value="550" />
+	</bean>
+	
+	<bean name="CollectorBeanTwo" class="de.dailab.gridworld.bean.CollectorBean">
+		<property name="logLevel" value="info" />
+		<property name="executeInterval" value="550" />
+	</bean>
+
+</beans>
