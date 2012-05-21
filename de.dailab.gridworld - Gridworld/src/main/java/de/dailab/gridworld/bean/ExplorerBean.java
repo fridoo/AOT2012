@@ -261,7 +261,7 @@ public class ExplorerBean extends AbstractAgentBean implements ResultReceiver {
 				goldPoints.add(new Point(Integer.valueOf(p.x), Integer.valueOf(p.y)));
 			}
 		}
-		JiacMessage transport = new JiacMessage(new Inform<HashSet<Point>>(goldPoints));
+		JiacMessage transport = new JiacMessage(new Inform<HashSet<Point>>(goldPoints, thisAgent.getAgentDescription()));
 		this.invoke(send,
 				new Serializable[] { transport, this.groupAddress });
 	}

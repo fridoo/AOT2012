@@ -20,7 +20,7 @@
 		<property name="goldRatio" value="10" />
 	</bean>
 	
-	<bean name="ExplorerAgent" parent="SimpleAgent">
+	<bean name="ExplorerAgent" parent="NonBlockingAgent">
 		<property name="agentBeans">
 			<list>
 				<ref bean="ExplorerBean"/>
@@ -28,7 +28,7 @@
 		</property>
 	</bean>
 	
-	<bean name="CollectorAgentOne" parent="SimpleAgent">
+	<bean name="CollectorAgentOne" parent="NonBlockingAgent">
 		<property name="agentBeans">
 			<list>
 				<ref bean="CollectorBeanOne"/>
@@ -36,7 +36,7 @@
 		</property>
 	</bean>
 	
-	<bean name="CollectorAgentTwo" parent="SimpleAgent">
+	<bean name="CollectorAgentTwo" parent="NonBlockingAgent">
 		<property name="agentBeans">
 			<list>
 				<ref bean="CollectorBeanTwo"/>
@@ -46,17 +46,17 @@
 	
 	<bean name="ExplorerBean" class="de.dailab.gridworld.bean.ExplorerBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="550" />
+		<property name="executeInterval" value="1000" />
 	</bean>
 	
 	<bean name="CollectorBeanOne" class="de.dailab.gridworld.bean.CollectorBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="550" />
+		<property name="executeInterval" value="1000" />
 	</bean>
 	
 	<bean name="CollectorBeanTwo" class="de.dailab.gridworld.bean.CollectorBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="550" />
+		<property name="executeInterval" value="1000" />
 	</bean>
 
 </beans>

@@ -2,6 +2,7 @@ package de.dailab.gridworld.bean;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ import de.dailab.gridworld.ontology.Direction;
 import de.dailab.gridworld.ontology.Group;
 import de.dailab.gridworld.ontology.Inform;
 import de.dailab.gridworld.ontology.Position;
+import de.dailab.gridworld.ontology.Request;
 import de.dailab.gridworld.ontology.Role;
 import de.dailab.gridworld.world.GridworldAgentBean;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
@@ -40,6 +42,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 	private IActionDescription moveAction;
 	private IActionDescription takeGoldAction;
 	private IActionDescription dropGoldAction;
+	private IActionDescription send;
 
 	// group variables
 	public static final Group group = Group.G2;
@@ -56,15 +59,20 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 	public Point nextDestination;
 	public boolean gold = false;
 	private final Point home = new Point(0, 0);
-
+	private HashMap<Point, Double> taken;
+	private JiacMessage transport;
+	
 	// inform-msg template
 	private final static JiacMessage INF = new JiacMessage(new Inform<Object>());
-	// message observer
-	private final SpaceObserver<IFact> observer = new InformObserver();
+	// info observer
+	private final SpaceObserver<IFact> infObserver = new InformObserver();
+	// inform-msg template
+	private final static JiacMessage REQ = new JiacMessage(new Request<Object>());
+	// info observer
+	private final SpaceObserver<IFact> reqObserver = new RequestObserver();
 
 	@Override
 	public void doInit() throws Exception {
-		// Bereitstellung eines Templates fuer die Position des eigenen Agenten
 		this.ownPositionTemplate = new Position(null, null, null,
 				thisAgent.getAgentDescription());
 		this.groupAddress = CommunicationAddressFactory
@@ -87,8 +95,10 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 				GridworldAgentBean.ACTION_DROP_GOLD));
 		this.moveAction = thisAgent.searchAction(new Action(
 				GridworldAgentBean.ACTION_MOVE));
+		this.send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
-		this.memory.attach(observer, INF);
+		this.memory.attach(infObserver, INF);
+		this.memory.attach(reqObserver, REQ);
 	}
 
 	@Override
@@ -98,16 +108,13 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 		next = null;
 		nextDestination = null;
 		possibleMoves = null;
+		taken = new HashMap<Point, Double>();
 
 		// reading current position from memory
 		current = memory.read(ownPositionTemplate);
 
 		log.debug("Hat gold?: "+ gold);
-		if(possibleDestinations != null) {
-			for ( Point p : possibleDestinations ) {
-				log.debug("goldpunkte: " + p);
-			}
-		}
+		logList(possibleDestinations, "goldpunkte: ");
 		
 		if (current == null) {
 			this.invoke(initAction, new Serializable[] { group, role }, this);
@@ -125,12 +132,11 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 				if (home.equals(cPoint)) {
 					invoke(dropGoldAction, new Serializable[] { current });
 					this.gold = false;
+					transport = new JiacMessage(new Request<Point>(home, thisAgent.getAgentDescription(), 10));
+					this.invoke(send,
+							new Serializable[] { transport, this.groupAddress });
 				} else {
-					HashSet<Point> possibleMoves = getPossibleMoves(cPoint);
-					next = smallestDistance(possibleMoves, this.home);
-					this.invoke(moveAction, new Serializable[] { current,
-									Direction.getDirection(next.x - cPoint.x,
-											next.y - cPoint.y) }, this);
+					move(cPoint, home);
 				}
 			} else {
 				// if there's gold on the current field, take it
@@ -138,30 +144,17 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 					invoke(takeGoldAction, new Serializable[] { current });
 					possibleDestinations.remove(cPoint);
 					gold = true;
+					transport = new JiacMessage(new Request<Point>(cPoint, thisAgent.getAgentDescription(), 10));
+					this.invoke(send,
+							new Serializable[] { transport, this.groupAddress });
 				} else {
 					// get the closest field with gold
 					nextDestination = smallestDistance(possibleDestinations,
 							cPoint);
 					log.debug("nextDestination: " + nextDestination);
 
-					// get possible moves
-					possibleMoves = getPossibleMoves(cPoint);
-
-					// get the best next move
 					if (nextDestination != null) {
-						next = smallestDistance(possibleMoves, nextDestination);
-						this.invoke(
-								moveAction,
-								new Serializable[] {
-										current,
-										Direction.getDirection(next.x
-												- cPoint.x, next.y - cPoint.y) },
-								this);
-						if (nextDestination.equals(next)) {
-							possibleDestinations.remove(next);
-						}
-					log.debug("next: " + next);
-					log.debug("Direction: " + Direction.getDirection(next.x, next.y));
+						move(cPoint, nextDestination);
 					}
 				}
 			}
@@ -247,6 +240,78 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 		}
 		return surroundings;
 	}
+	
+	/**
+	 * Moves one field from a given point to a give destination.
+	 * Receives Positions other agents want to move to ant tries to avoid them.
+	 * @param currentPoint
+	 * @param destination
+	 */
+	private void move(Point currentPoint, Point destination) {
+		double priority = Math.random() * 10;
+		
+		// get possible moves
+		possibleMoves = getPossibleMoves(currentPoint);
+		
+		// get the best next move not taken from anyone
+		next = smallestDistance(possibleMoves, destination);
+		transport = new JiacMessage(new Request<Point>(next, thisAgent.getAgentDescription(), priority));
+		this.invoke(send, new Serializable[] { transport, this.groupAddress });
+		
+		synchronized (taken) {
+			while(taken.size() < 1 ) {
+				try {
+					taken.wait();
+					while (taken.containsKey(next)) {
+						if(taken.get(next) > priority) {
+							priority = Math.random() * 10;
+							possibleMoves.remove(next);
+							next = smallestDistance(possibleMoves, destination);
+							transport = new JiacMessage(new Request<Point>(next, thisAgent.getAgentDescription(), priority));
+							this.invoke(send,
+									new Serializable[] { transport, this.groupAddress });
+						}
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		// move
+		if(!next.equals(currentPoint)) {
+			invoke(moveAction, new Serializable[] { current,
+							Direction.getDirection(next.x - currentPoint.x,
+									next.y - currentPoint.y) }, this);
+		}
+		log.debug("next: " + next);
+		log.debug("Direction: " + Direction.getDirection(next.x, next.y));
+	}
+	
+	@Override
+	public void doStop() throws Exception {
+		Action leave = this
+				.retrieveAction(ICommunicationBean.ACTION_LEAVE_GROUP);
+		ActionResult result = this.invokeAndWaitForResult(leave,
+				new Serializable[] { groupAddress });
+		if (result.getFailure() != null) {
+			this.log.error("could not leave temp-group: " + result.getFailure());
+		}
+	}
+
+	/**
+	 * debug helper
+	 * @param set
+	 * @param s
+	 */
+	private void logList(Set<Point> set, String s) {
+		for (Point p : set) {
+			log.debug(s + p.x + " " + p.y);
+		}
+		if (set.isEmpty()) {
+			log.debug(s + "is empty");
+		}
+	}
 
 	/**
 	 * looks for information about about gold fields
@@ -254,7 +319,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 	 * @author Mitch
 	 * 
 	 */
-	final class InformObserver implements SpaceObserver<IFact> {
+	final class InformObserver implements SpaceObserver<IFact>  {
 
 		static final long serialVersionUID = -1143799774862165996L;
 
@@ -268,11 +333,56 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 					@SuppressWarnings("unchecked")
 					Inform<Object> i = (Inform<Object>) ((JiacMessage) object)
 							.getPayload();
+					/* if you get an information set of points it's from
+					 * explorerAgent - add it to your possible destinations
+					 */
 					if (i.getValue() instanceof HashSet<?>) {
 						@SuppressWarnings("unchecked")
 						HashSet<Point> dest = (HashSet<Point>) i.getValue();
 						possibleDestinations.addAll(dest);
-					}
+					/* if you get a information about a single point, it's from
+					 * another agent who picked up gold - so remove this field
+					 * of your possible destinations
+					 */
+					} else if (i.getValue() instanceof Point) {
+						Point p = (Point) i.getValue();
+						possibleDestinations.remove(p);
+					} 
+				}
+			}
+		}
+	}
+	
+	/**
+	 * looks for information about about gold fields
+	 * 
+	 * @author Mitch
+	 * 
+	 */
+	final class RequestObserver implements SpaceObserver<IFact>  {
+
+		static final long serialVersionUID = -1143799774862165996L;
+
+		@Override
+		public void notify(SpaceEvent<? extends IFact> event) {
+
+			if (event instanceof WriteCallEvent) {
+				@SuppressWarnings("rawtypes")
+				Object object = ((WriteCallEvent) event).getObject();
+				if (object instanceof JiacMessage) {
+					@SuppressWarnings("unchecked")
+					Request<Object> i = (Request<Object>) ((JiacMessage) object)
+							.getPayload();
+					if (i.getValue() instanceof Point) {
+						if (!i.getAgent().equals(thisAgent.getAgentDescription())) {
+							Point p = (Point) i.getValue();
+							synchronized (taken) {
+								taken.put(p, i.getPriority());
+								taken.notify();
+							}
+							log.debug("added " + p + " to taken");
+						}
+					} 
 				}
 			}
 		}
