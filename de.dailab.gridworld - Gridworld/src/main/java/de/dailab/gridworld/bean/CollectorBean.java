@@ -37,6 +37,11 @@ import de.dailab.jiactng.agentcore.ontology.IActionDescription;
  */
 public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 
+	// intervall of execute
+	private final int INT = 2000;
+	private long startTime = 0;
+	private long maxWait= 0;
+	
 	// used actions
 	private IActionDescription initAction;
 	private IActionDescription moveAction;
@@ -103,6 +108,8 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 
 	@Override
 	public void execute() {
+		startTime = System.currentTimeMillis();
+		
 		log.debug("같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같");
 		current = null;
 		next = null;
@@ -135,6 +142,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 					transport = new JiacMessage(new Request<Point>(home, thisAgent.getAgentDescription(), 10));
 					this.invoke(send,
 							new Serializable[] { transport, this.groupAddress });
+					log.warn("sent after(drop gold): " + (System.currentTimeMillis() - startTime));
 				} else {
 					move(cPoint, home);
 				}
@@ -147,6 +155,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 					transport = new JiacMessage(new Request<Point>(cPoint, thisAgent.getAgentDescription(), 10));
 					this.invoke(send,
 							new Serializable[] { transport, this.groupAddress });
+					log.warn("sent after (take gold): " + (System.currentTimeMillis() - startTime));
 				} else {
 					// get the closest field with gold
 					nextDestination = smallestDistance(possibleDestinations,
@@ -238,6 +247,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 						+ j));
 			}
 		}
+		surroundings.remove(currentPoint);
 		return surroundings;
 	}
 	
@@ -256,12 +266,23 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 		// get the best next move not taken from anyone
 		next = smallestDistance(possibleMoves, destination);
 		transport = new JiacMessage(new Request<Point>(next, thisAgent.getAgentDescription(), priority));
+		log.warn("sent after (normal): " + (System.currentTimeMillis() - startTime));
 		this.invoke(send, new Serializable[] { transport, this.groupAddress });
 		
 		synchronized (taken) {
-			while(taken.size() < 1 ) {
+			int in = 0;
+//			while(taken.size() < 1 ) {
 				try {
+					maxWait = (long)(INT * 0.7) - (System.currentTimeMillis() - startTime);
+					if ( maxWait < 0 )  {
+						maxWait = 0;
+					}
+					log.warn("wait start: " + (System.currentTimeMillis() - startTime));
 					taken.wait();
+					
+					long r = System.currentTimeMillis() - startTime;
+					log.warn("received at " + r + " times " + in);
+					logList(possibleMoves, "possiblemoves before: ");
 					while (taken.containsKey(next)) {
 						if(taken.get(next) > priority) {
 							priority = Math.random() * 10;
@@ -275,14 +296,17 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			}
+//			}
 		}
 		
 		// move
 		if(!next.equals(currentPoint)) {
+			logList(possibleMoves, "possiblemoves after: ");
 			invoke(moveAction, new Serializable[] { current,
 							Direction.getDirection(next.x - currentPoint.x,
 									next.y - currentPoint.y) }, this);
+			log.debug("next point = " + (next.x - currentPoint.x)+" "+
+					(next.y - currentPoint.y));
 		}
 		log.debug("next: " + next);
 		log.debug("Direction: " + Direction.getDirection(next.x, next.y));
@@ -333,16 +357,16 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 					@SuppressWarnings("unchecked")
 					Inform<Object> i = (Inform<Object>) ((JiacMessage) object)
 							.getPayload();
-					/* if you get an information set of points it's from
+					/* if you get information about a set of points, it's from
 					 * explorerAgent - add it to your possible destinations
 					 */
 					if (i.getValue() instanceof HashSet<?>) {
 						@SuppressWarnings("unchecked")
 						HashSet<Point> dest = (HashSet<Point>) i.getValue();
 						possibleDestinations.addAll(dest);
-					/* if you get a information about a single point, it's from
+					/* if you get information about a single point, it's from
 					 * another agent who picked up gold - so remove this field
-					 * of your possible destinations
+					 * from your possible destinations
 					 */
 					} else if (i.getValue() instanceof Point) {
 						Point p = (Point) i.getValue();
@@ -378,6 +402,7 @@ public class CollectorBean extends AbstractAgentBean implements ResultReceiver {
 							Point p = (Point) i.getValue();
 							synchronized (taken) {
 								taken.put(p, i.getPriority());
+								log.warn("received: " + p);
 								taken.notify();
 							}
 							log.debug("added " + p + " to taken");

@@ -46,17 +46,17 @@
 	
 	<bean name="ExplorerBean" class="de.dailab.gridworld.bean.ExplorerBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="1000" />
+		<property name="executeInterval" value="5000" />
 	</bean>
 	
 	<bean name="CollectorBeanOne" class="de.dailab.gridworld.bean.CollectorBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="1000" />
+		<property name="executeInterval" value="5000" />
 	</bean>
 	
 	<bean name="CollectorBeanTwo" class="de.dailab.gridworld.bean.CollectorBean">
 		<property name="logLevel" value="info" />
-		<property name="executeInterval" value="1000" />
+		<property name="executeInterval" value="5000" />
 	</bean>
 
 </beans>
