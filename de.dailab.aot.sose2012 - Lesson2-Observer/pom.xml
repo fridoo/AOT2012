@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>de.dailab.aot.sose2012</groupId>
-	<artifactId>Lesson1</artifactId>
+	<artifactId>Lesson2-Observer</artifactId>
 	<version>2012.0</version>
 	<name>${project.artifactId} - Agent Architectures</name>
 	<url>http://www.aot.tu-berlin.de/</url>
