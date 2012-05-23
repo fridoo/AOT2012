@@ -56,7 +56,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>de.dailab.aot.sose2012.Lesson1Starter</mainClass>
+					<mainClass>run.Run</mainClass>
 				</configuration>
 			</plugin>
 
