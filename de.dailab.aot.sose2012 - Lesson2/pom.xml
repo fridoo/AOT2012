@@ -1,53 +1,66 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.dailab.gridworld</groupId>
-	<artifactId>Gridworld</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
-
-	<name>JIACv Gridworld</name>
-	<description>Gridworld is a JIACv application used in education to teach agent-oriented programming and technologies.</description>
+	<groupId>de.dailab.aot.sose2012</groupId>
+	<artifactId>Lesson1</artifactId>
+	<version>2012.0</version>
+	<name>${project.artifactId} - Agent Architectures</name>
 	<url>http://www.aot.tu-berlin.de/</url>
 	<packaging>jar</packaging>
-	<inceptionYear>2012</inceptionYear>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jiac.version>5.1.2</jiac.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>de.dailab.jiactng</groupId>
 			<artifactId>agentCore</artifactId>
-			<version>${jiac.version}</version>
+			<version>5.1.2</version>
 		</dependency>
 	</dependencies>
 
-	<developers>
-		<developer>
-			<id>burkhardt</id>
-			<name>Michael Burkhardt</name>
-			<email>michael.burkhardt@dai-labor.de</email>
-		</developer>
-		<developer>
-			<id>kuester</id>
-			<name>Tobias Küster</name>
-			<email>tobias.kuester@dai-labor.de</email>
-		</developer>
-		<developer>
-			<id>burkhardt</id>
-			<name>Michael Burkhardt</name>
-			<email>jakob.tonn@dai-labor.de</email>
-		</developer>
-	</developers>
-
 	<build>
+
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/java</directory>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/java</directory>
+			</testResource>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+
 		<plugins>
 
 			<plugin>
-				<!-- Java 6 compatibility -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>de.dailab.aot.sose2012.Lesson1Starter</mainClass>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
@@ -104,6 +117,27 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<developers>
+		<developer>
+			<id>mib</id>
+			<name>Michael Burkhardt</name>
+			<email>michael.burkhardt@dai-labor.de</email>
+			<organization>DAI-Labor, TU-Berlin</organization>
+		</developer>
+		<developer>
+			<id>fricke</id>
+			<name>Stefan Fricke</name>
+			<email>stefan.fricke@dai-labor.de</email>
+		</developer>
+		<developer>
+			<id>jakob</id>
+			<name>Jakob Tonn</name>
+			<email>jakob.tonn@dai-labor.de</email>
+			<organization>DAI-Labor, TU-Berlin</organization>
+		</developer>
+	</developers>
+
 	<repositories>
 		<repository>
 			<id>dai-open</id>
@@ -116,37 +150,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<url>http://edu.dai-labor.de/nexus/content/repositories/thirdparty/</url>
-			<id>edu-3rd</id>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>edu-snapshots</id>
-			<url>http://edu.dai-labor.de/nexus/content/repositories/snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>edu-releases</id>
-			<url>http://edu.dai-labor.de/nexus/content/repositories/releases/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
-
 
 </project>
