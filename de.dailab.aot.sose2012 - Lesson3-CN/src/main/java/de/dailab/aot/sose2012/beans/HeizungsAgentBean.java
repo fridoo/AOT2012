@@ -10,6 +10,7 @@ import de.dailab.aot.sose2012.ontology.AcceptProposal;
 import de.dailab.aot.sose2012.ontology.CallForProposal;
 import de.dailab.aot.sose2012.ontology.Failure;
 import de.dailab.aot.sose2012.ontology.HeatingService;
+import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.Proposal;
 import de.dailab.aot.sose2012.ontology.QualityOfService;
 import de.dailab.aot.sose2012.ontology.Refuse;
@@ -241,7 +242,8 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 							if(tasks.contains(task)) {
 								currentTask = task;
 								busy = task.getJob().duration*2;
-								JiacMessage msg = new JiacMessage(task.getJob());
+								Inform inf = new Inform<HeatingService>(task.getJob(), thisAgent.getAgentDescription());
+								JiacMessage msg = new JiacMessage(inf);
 								invoke(send, new Serializable[] {
 									msg,
 									task.getClient()

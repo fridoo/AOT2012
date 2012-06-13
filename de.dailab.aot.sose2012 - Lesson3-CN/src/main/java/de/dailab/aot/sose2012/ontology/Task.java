@@ -12,6 +12,7 @@ public class Task<T> implements IFact {
 	private final String id;
 	private T job;
 	private IAgentDescription client;
+	private volatile int hashCode = 0;
 
 	public Task() {
 		this(null, null, null);
@@ -55,5 +56,16 @@ public class Task<T> implements IFact {
 		Task<?> t = (Task<?>) obj;
 		return t.id.equals(this.id);
 	}
+	
+	@Override
+	public int hashCode () {
+        final int multiplier = 23;
+        if (hashCode == 0) {
+            int code = 133;
+            code = multiplier * code + id.hashCode();
+            hashCode = code;
+        }
+        return hashCode;
+    }
 
 }

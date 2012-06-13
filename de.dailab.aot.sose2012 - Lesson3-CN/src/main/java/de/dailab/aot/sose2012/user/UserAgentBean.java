@@ -3,6 +3,7 @@ package de.dailab.aot.sose2012.user;
 import java.io.Serializable;
 import java.util.List;
 
+import de.dailab.aot.sose2012.ontology.Request;
 import de.dailab.aot.sose2012.ontology.WinService;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import de.dailab.jiactng.agentcore.action.Action;

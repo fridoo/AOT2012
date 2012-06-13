@@ -13,6 +13,7 @@ import de.dailab.aot.sose2012.ontology.Proposal;
 import de.dailab.aot.sose2012.ontology.QualityOfService;
 import de.dailab.aot.sose2012.ontology.Refuse;
 import de.dailab.aot.sose2012.ontology.RejectProposal;
+import de.dailab.aot.sose2012.ontology.Request;
 import de.dailab.aot.sose2012.ontology.Task;
 import de.dailab.aot.sose2012.ontology.WinService;
 import de.dailab.aot.sose2012.sensors.Window;
@@ -37,12 +38,14 @@ public class FensterAgentBean extends AbstractAgentBean implements
 	private IActionDescription setWinAction;
 
 	// msg templates
-	private static final JiacMessage CFP = new JiacMessage(
+	private static final JiacMessage CFPTpl = new JiacMessage(
 			new CallForProposal());
-	private static final JiacMessage accept = new JiacMessage(
+	private static final JiacMessage acceptTpl = new JiacMessage(
 			new AcceptProposal());
-	private static final JiacMessage reject = new JiacMessage(
+	private static final JiacMessage rejectTpl = new JiacMessage(
 			new RejectProposal());
+	private static final JiacMessage requestTpl = new JiacMessage(
+			new Request<WinService>());
 
 	// group variables
 	public static final String GROUP_ADDRESS = "room-clima";
@@ -52,6 +55,7 @@ public class FensterAgentBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> cfpObserver = new CFPObserver();
 	private final SpaceObserver<IFact> acceptObserver = new AcceptObserver();
 	private final SpaceObserver<IFact> rejectObserver = new RejectObserver();
+	private final SpaceObserver<IFact> requestObserver = new RequestObserver();
 
 	// states
 	QualityOfService qualityService;
@@ -82,9 +86,10 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 
 		// attach observers
-		this.memory.attach(cfpObserver, CFP);
-		this.memory.attach(acceptObserver, accept);
-		this.memory.attach(rejectObserver, reject);
+		this.memory.attach(cfpObserver, CFPTpl);
+		this.memory.attach(acceptObserver, acceptTpl);
+		this.memory.attach(rejectObserver, rejectTpl);
+		this.memory.attach(requestObserver, requestTpl);
 	}
 
 	@Override
@@ -259,6 +264,34 @@ public class FensterAgentBean extends AbstractAgentBean implements
 					log.debug(rej);
 					if(tasks.contains(rej.getTask())) {
 						tasks.remove(rej.getTask());
+					}
+				}
+			}
+		}
+	}
+	
+	// to get immediate response for useragent
+	final class RequestObserver implements SpaceObserver<IFact> {
+
+		static final long serialVersionUID = -1143799774862165996L;
+
+		@Override
+		public void notify(SpaceEvent<? extends IFact> event) {
+
+			if (event instanceof WriteCallEvent) {
+				@SuppressWarnings("rawtypes")
+				Object object = ((WriteCallEvent) event).getObject();
+				if (object instanceof JiacMessage) {
+					@SuppressWarnings("unchecked")
+					Request<Object> r = (Request<Object>) ((JiacMessage) object)
+							.getPayload();
+					if (r.getValue() instanceof WinService) {
+						if (r.getAgent().getName().equals("UserAgent")) {
+							WinService w = (WinService) r.getValue();
+							Boolean newPos = w.getValue();
+							invoke(setWinAction, new Serializable[] { newPos }, FensterAgentBean.this);
+							log.debug("FensterAgent set window to: open? " + newPos);
+						} 
 					}
 				}
 			}

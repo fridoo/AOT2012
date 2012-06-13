@@ -16,6 +16,7 @@
 				<ref bean="RaumKlimaAgent" />
 				<ref bean="HeizungsAgent1" />
 				<ref bean="FensterAgent" />
+				<ref bean="UserAgent" />
 			</list>
 		</property>
 	</bean>
@@ -30,7 +31,7 @@
 				</bean>
 				<bean name="TemperatureSensor" class="de.dailab.aot.sose2012.sensors.TemperatureSensor">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="DEBUG" />
+					<property name="logLevel" value="info" />
 				</bean>
 			</list>
 		</property>
@@ -41,7 +42,7 @@
 			<list>
 				<bean name="HeizungsAgentBean" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="DEBUG" />
+					<property name="logLevel" value="info" />
 					<property name="quality" value="0.9" />
 					<property name="range" value="5" />
 					<property name="provider" value="HeizungsAgent 1" />
@@ -55,7 +56,7 @@
 			<list>
 				<bean name="FensterBean" class="de.dailab.aot.sose2012.beans.FensterAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="DEBUG" />
+					<property name="logLevel" value="info" />
 				</bean>
 				<bean name="Window" class="de.dailab.aot.sose2012.sensors.Window">
 					<property name="executeInterval" value="1000" />
@@ -65,4 +66,14 @@
 		</property>
 	</bean>
 
+	<bean name="UserAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="UserAgentBean" class="de.dailab.aot.sose2012.user.UserAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 </beans>

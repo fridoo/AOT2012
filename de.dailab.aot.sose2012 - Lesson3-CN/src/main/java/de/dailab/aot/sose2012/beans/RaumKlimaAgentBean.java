@@ -10,6 +10,7 @@ import org.sercho.masp.space.event.WriteCallEvent;
 
 import de.dailab.aot.sose2012.ontology.AcceptProposal;
 import de.dailab.aot.sose2012.ontology.Failure;
+import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.Proposal;
 import de.dailab.aot.sose2012.ontology.CallForProposal;
 import de.dailab.aot.sose2012.ontology.HeatingService;
@@ -17,6 +18,7 @@ import de.dailab.aot.sose2012.ontology.QualityOfService;
 import de.dailab.aot.sose2012.ontology.Refuse;
 import de.dailab.aot.sose2012.ontology.Task;
 import de.dailab.aot.sose2012.ontology.Temperature;
+import de.dailab.aot.sose2012.ontology.WinService;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.action.ActionResult;
@@ -41,14 +43,14 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 	// agent templates
 	private static final Temperature tempTpl = new Temperature();
+	private static final JiacMessage infTpl = new JiacMessage(
+			new Inform());
 	private static final JiacMessage proposalTpl = new JiacMessage(
 			new Proposal());
 	private static final JiacMessage refuseTpl = new JiacMessage(
 			new Refuse());
 	private static final JiacMessage failureTpl = new JiacMessage(
 			new Failure());
-	private static final JiacMessage heatTpl = new JiacMessage(
-			new HeatingService());
 
 
 	// used actions
@@ -80,10 +82,10 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 	// message observer
 	private final SpaceObserver<IFact> tempObserver = new TemperatureObserver();
+	private final SpaceObserver<IFact> infObserver = new InformObserver();
 	private final SpaceObserver<IFact> propObserver = new ProposalObserver();
 	private final SpaceObserver<IFact> refObserver = new RefuseObserver();
 	private final SpaceObserver<IFact> failObserver = new FailureObserver();
-	private final SpaceObserver<IFact> heatObserver = new HeatObserver();
 
 	@Override
 	public void doInit() {
@@ -105,10 +107,10 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		this.invoke(join, new Serializable[] { groupAddress, }, this);
 
 		this.memory.attach(tempObserver, tempTpl);
+		this.memory.attach(infObserver, infTpl);
 		this.memory.attach(propObserver, proposalTpl);
 		this.memory.attach(refObserver, refuseTpl);
 		this.memory.attach(failObserver, failureTpl);
-		this.memory.attach(heatObserver, heatTpl);
 	}
 
 	/**
@@ -310,9 +312,9 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		}
 	}
 	
-	final class HeatObserver implements SpaceObserver<IFact> {
+	final class InformObserver implements SpaceObserver<IFact> {
 
-		private static final long serialVersionUID = 7024133145644016669L;
+		private static final long serialVersionUID = 2952306745915919961L;
 
 		@Override
 		public void notify(SpaceEvent<? extends IFact> event) {
@@ -321,17 +323,23 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					HeatingService heat = (HeatingService) ((JiacMessage) object).getPayload();
-					//create a new Service with a fresh creationdate so former dates will not matter anymore
-					HeatingService newHeat = new HeatingService(heat.heating, heat.duration);
-					memory.write(newHeat);
-					log.debug("Heatservice empfangen und ins Memory geschrieben: " + newHeat);
-				}
+					Inform inf = (Inform) ((JiacMessage) object).getPayload();
+					if (inf.getValue() instanceof WinService) {
+						WinService w = (WinService) inf.getValue();
+						setWindowPos(w.getValue());
+						log.debug("Winservice empfangen: " + w);
+					} else if (inf.getValue() instanceof HeatingService) {
+						HeatingService heat = (HeatingService) inf.getValue();
+						//create a new Service with a fresh creationdate so former dates will not matter anymore
+						HeatingService newHeat = new HeatingService(heat.heating, heat.duration);
+						memory.write(newHeat);
+						log.debug("Heatservice empfangen und ins Memory geschrieben: " + newHeat);
+					}
+				} 
 			}
 		}
 	}
 	
-
 	private void callForProposals(Task<HeatingService> task, long deadline) {
 		log.info("Calling for Proposals for: " + task.toString());
 		cfp = new CallForProposal(task,
