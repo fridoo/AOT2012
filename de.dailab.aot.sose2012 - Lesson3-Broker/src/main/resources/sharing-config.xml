@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+	<!--
+		This is a Spring application context. There are imports to other
+		Spring configurations and configured beans.
+	-->
+<beans>
+
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
+
+	<bean name="JIACvNode" parent="NodeWithJMX">
+		<property name="agents">
+			<list>
+				<ref bean="RaumKlimaAgent" />
+				<ref bean="HeizungsAgent1" />
+				<ref bean="HeizungsAgent2" />
+				<ref bean="HeizungsAgent3" />
+				<ref bean="HeizungsAgent4" />
+				<ref bean="FensterAgent" />
+				<ref bean="UserAgent" />
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="RaumKlimaAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="RaumKlimaAgentBean" class="de.dailab.aot.sose2012.beans.RaumKlimaAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+				<bean name="TemperatureSensor" class="de.dailab.aot.sose2012.sensors.TemperatureSensor">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="HeizungsAgent1" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="HeizungsAgentBean" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="quality" value="0.9" />
+					<property name="range" value="2" />
+					<property name="provider" value="HeizungsAgent 1" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="HeizungsAgent2" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="HeizungsAgentBean2" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="quality" value="0.9" />
+					<property name="range" value="2" />
+					<property name="provider" value="HeizungsAgent 2" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="HeizungsAgent3" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="HeizungsAgentBean3" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="quality" value="0.7" />
+					<property name="range" value="4" />
+					<property name="provider" value="HeizungsAgent 3" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="HeizungsAgent4" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="HeizungsAgentBean3" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="quality" value="0.2" />
+					<property name="range" value="6" />
+					<property name="provider" value="HeizungsAgent 4" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="FensterAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="FensterBean" class="de.dailab.aot.sose2012.beans.FensterAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+				</bean>
+				<bean name="Window" class="de.dailab.aot.sose2012.sensors.Window">
+					<property name="executeInterval" value="4000" />
+					<property name="logLevel" value="info" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="UserAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="UserAgentBean" class="de.dailab.aot.sose2012.user.UserAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>
