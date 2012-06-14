@@ -2,6 +2,7 @@ package de.dailab.aot.sose2012.beans;
 
 import java.io.Serializable;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 import org.sercho.masp.space.event.SpaceEvent;
@@ -16,6 +17,7 @@ import de.dailab.aot.sose2012.ontology.CallForProposal;
 import de.dailab.aot.sose2012.ontology.HeatingService;
 import de.dailab.aot.sose2012.ontology.QualityOfService;
 import de.dailab.aot.sose2012.ontology.Refuse;
+import de.dailab.aot.sose2012.ontology.RejectProposal;
 import de.dailab.aot.sose2012.ontology.Task;
 import de.dailab.aot.sose2012.ontology.Temperature;
 import de.dailab.aot.sose2012.ontology.WinService;
@@ -67,10 +69,13 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	private int taskCount = 0;
 	private PriorityQueue<Proposal> proposals = new PriorityQueue<Proposal>(10,
 			new ProposalComparator());
+	private PriorityQueue<Proposal> winProposals = new PriorityQueue<Proposal>(10,
+			new ProposalComparator());
 	private int deadlineForCFP = 500;
 	private long nextDeadLine = System.currentTimeMillis();
 	private Task<HeatingService> currentTask = null;
 	boolean failed = false;
+	private int count = 0;
 
 	// message observer
 	private final SpaceObserver<IFact> tempObserver = new TemperatureObserver();
@@ -105,10 +110,13 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	}
 
 	/**
-	 * compute heating-state and send a request to Heizungsagent
+	 * processes proposals and sends accept/response accordingly, compute heating-state and sends out call for proposals
 	 */
 	@Override
 	public void execute() {
+		log.debug("\n \n" + "같같같같같같같같같같같같같같같같같같같같 " + count + ". Schleifendurchlauf 같같같같같같같같같같같같같같같 " );
+		++count;
+	
 		if (System.currentTimeMillis() > nextDeadLine) {
 			if (!proposals.isEmpty()) {
 				log.debug(proposals.size() + " proposals empfangen");
@@ -117,14 +125,43 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				JiacMessage accept = new JiacMessage(a);
 				invoke(send, new Serializable[] { accept,
 						prop.getProposer().getMessageBoxAddress() });
+				for ( Iterator<Proposal> i = proposals.iterator(); i.hasNext(); ) {
+					Proposal reProp = i.next();
+					RejectProposal r = new RejectProposal(reProp.getReferencedTask());
+					JiacMessage reject = new JiacMessage(r);
+					invoke(send, new Serializable[] { reject,
+							reProp.getProposer().getMessageBoxAddress() });
+					log.debug("Reject geschickt: " + a + " an: " + reProp.getProposer().getName());
+				}
 				proposals.clear();
 				currentTask = null;
 				this.heating = prop.quality.heating;
-				log.debug("Accept geschickt: " + a + " an: " + prop.getProposer());
-			} else {
+				log.debug("Accept geschickt: " + a + " an: " + prop.getProposer().getName());
+			} else if (proposals.isEmpty()){
 				currentTask = null;
 				this.heating = 0;
 				log.debug("Keine Proposals empfangen");
+			} else if (!winProposals.isEmpty() ) {
+				log.debug(winProposals.size() + " winproposals empfangen");
+				Proposal prop = winProposals.poll();
+				AcceptProposal a = new AcceptProposal(prop.getReferencedTask());
+				JiacMessage accept = new JiacMessage(a);
+				invoke(send, new Serializable[] { accept,
+						prop.getProposer().getMessageBoxAddress() });
+				for ( Iterator<Proposal> i = winProposals.iterator(); i.hasNext(); ) {
+					Proposal reProp = i.next();
+					RejectProposal r = new RejectProposal(reProp.getReferencedTask());
+					JiacMessage reject = new JiacMessage(r);
+					invoke(send, new Serializable[] { reject,
+							reProp.getProposer().getMessageBoxAddress() });
+					log.debug("Reject geschickt: " + a + " an: " + reProp.getProposer().getName());
+				}
+				winProposals.clear();
+				log.debug("Accept geschickt: " + a + " an: " + prop.getProposer().getName());
+			} else if (winProposals.isEmpty()){
+				currentTask = null;
+				this.heating = 0;
+				log.debug("Keine winProposals empfangen");
 			}
 		}
 		if (!temperatures.isEmpty()) {
@@ -172,6 +209,11 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 			taskCount++;
 		}
 		log.debug("Schicke neues CFP: " + currentTask);
+		
+		if (nextnextTemp >= 23.67) {
+			WinService winS = new WinService(true);
+			callForWinProposals(new Task<WinService>("WinTask", winS, thisAgent.getAgentDescription()), (long) deadlineForCFP);
+		}
 	}
 
 	/**
@@ -229,7 +271,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 	/**
 	 * looks for information about temperature, window-position (and updates the
-	 * respective states) and receives rejects.
+	 * respective states).
 	 * 
 	 * @author Mitch
 	 * 
@@ -265,7 +307,9 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				if (object instanceof JiacMessage) {
 					Proposal prop = (Proposal) ((JiacMessage) object)
 							.getPayload();
-					proposals.add(prop);
+					if ( prop.getReferencedTask().getJob() instanceof HeatingService) {
+						proposals.add(prop);
+					}
 				}
 			}
 		}
@@ -346,13 +390,21 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	}
 
 	private void callForProposals(Task<HeatingService> task, long deadline) {
-		log.info("Calling for Proposals for: " + task.toString());
+		log.debug("Calling for Proposals for: " + task.toString());
 		cfp = new CallForProposal(task,
 				new QualityOfService(null, heating, 0.0));
 		JiacMessage message = new JiacMessage(cfp);
 		invoke(send, new Serializable[] { message, groupAddress });
 
 		this.nextDeadLine = System.currentTimeMillis() + deadline;
+	}
+	
+	private void callForWinProposals(Task<WinService> task, long deadline) {
+		log.debug("Calling for Proposals for: " + task.toString());
+		cfp = new CallForProposal(task,
+				new QualityOfService(null, (task.getJob().getValue() ? 2 : 1), 0.0));
+		JiacMessage message = new JiacMessage(cfp);
+		invoke(send, new Serializable[] { message, groupAddress });
 	}
 	
 	class ProposalComparator implements Comparator<Proposal> {
