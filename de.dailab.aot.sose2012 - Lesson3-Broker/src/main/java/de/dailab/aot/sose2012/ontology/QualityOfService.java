@@ -6,7 +6,7 @@ public class QualityOfService implements IFact {
 
 	private static final long serialVersionUID = 7354794080449651668L;
 	/**
-	 * A privider description
+	 * A provider description
 	 */
 	public final String provider;
 	/**
@@ -18,15 +18,20 @@ public class QualityOfService implements IFact {
 	 * quality gains proportional with this value.
 	 */
 	public final Double quality;
+	/**
+	 * true if the provider is ready to deliver its service
+	 */
+	public final boolean ready;
 
 	public QualityOfService() {
-		this(null, null, null);
+		this(null, null, null, false);
 	}
 
-	public QualityOfService(String provider, Integer state, Double level) {
+	public QualityOfService(String provider, Integer state, Double level, boolean readyness) {
 		this.provider = provider;
 		this.heating = state;
 		this.quality = level;
+		this.ready = readyness;
 	}
 
 	@Override

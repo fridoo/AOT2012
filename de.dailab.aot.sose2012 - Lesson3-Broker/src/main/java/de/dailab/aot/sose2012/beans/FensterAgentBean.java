@@ -6,7 +6,7 @@ import org.sercho.masp.space.event.SpaceObserver;
 import org.sercho.masp.space.event.WriteCallEvent;
 import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.Request;
-import de.dailab.aot.sose2012.ontology.WinPos;
+import de.dailab.aot.sose2012.ontology.WinService;
 import de.dailab.aot.sose2012.sensors.Window;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import de.dailab.jiactng.agentcore.action.Action;
@@ -117,8 +117,8 @@ public class FensterAgentBean extends AbstractAgentBean implements
 			if (result.getFailure() == null) {
 				Boolean newPos = (Boolean) result.getResults()[0];
 				if (this.winPos != newPos) {
-					JiacMessage transport = new JiacMessage(new Inform<WinPos>(
-							new WinPos(newPos), thisAgent.getAgentDescription()));
+					JiacMessage transport = new JiacMessage(new Inform<WinService>(
+							new WinService(newPos), thisAgent.getAgentDescription()));
 					this.invoke(send, new Serializable[] { transport,
 							this.groupAddress });
 					log.debug("FensterAgent sent windowposition msg to everyone: open? "
@@ -153,9 +153,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 					@SuppressWarnings("unchecked")
 					Request<Object> r = (Request<Object>) ((JiacMessage) object)
 							.getPayload();
-					if (r.getValue() instanceof WinPos) {
+					if (r.getValue() instanceof WinService) {
 						if (r.getAgent().getName().equals("UserAgent")) {
-							WinPos w = (WinPos) r.getValue();
+							WinService w = (WinService) r.getValue();
 							Boolean newPos = w.getValue();
 							invoke(setWinAction, new Serializable[] { newPos }, FensterAgentBean.this);
 							log.debug("FensterAgent set window to: open? " + newPos);
