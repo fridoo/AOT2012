@@ -43,15 +43,11 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 	// agent templates
 	private static final Temperature tempTpl = new Temperature();
-	private static final JiacMessage infTpl = new JiacMessage(
-			new Inform());
+	private static final JiacMessage infTpl = new JiacMessage(new Inform());
 	private static final JiacMessage proposalTpl = new JiacMessage(
 			new Proposal());
-	private static final JiacMessage refuseTpl = new JiacMessage(
-			new Refuse());
-	private static final JiacMessage failureTpl = new JiacMessage(
-			new Failure());
-
+	private static final JiacMessage refuseTpl = new JiacMessage(new Refuse());
+	private static final JiacMessage failureTpl = new JiacMessage(new Failure());
 
 	// used actions
 	private IActionDescription send;
@@ -64,21 +60,17 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	private final int TEMP_TO_ACHIVE = 21;
 	private int windowPos;
 	private int heating;
-	private Temperature currentTemp = new Temperature(16.);
+	private Temperature currentTemp = null;
 	private PriorityQueue<Temperature> temperatures = new PriorityQueue<Temperature>();
 	private HeatingService heat = new HeatingService();
 	private CallForProposal cfp = new CallForProposal();
 	private int taskCount = 0;
 	private PriorityQueue<Proposal> proposals = new PriorityQueue<Proposal>(10,
-			new Comparator<Proposal>() {
-				public int compare(Proposal o1, Proposal o2) {
-					return (int) Math.signum(o2.quality.quality
-							- o1.quality.quality);
-				};
-			});
+			new ProposalComparator());
 	private int deadlineForCFP = 500;
 	private long nextDeadLine = System.currentTimeMillis();
 	private Task<HeatingService> currentTask = null;
+	boolean failed = false;
 
 	// message observer
 	private final SpaceObserver<IFact> tempObserver = new TemperatureObserver();
@@ -93,7 +85,6 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				.createGroupAddress(GROUP_ADDRESS);
 		this.windowPos = 1;
 		this.heating = 0;
-		this.currentTemp = new Temperature(16.0);
 	}
 
 	/**
@@ -118,66 +109,69 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	 */
 	@Override
 	public void execute() {
-		if (currentTask == null) {
-			if(!temperatures.isEmpty()) {
-				currentTemp = temperatures.peek();
-			}
-			temperatures.clear();
-			double nextTemp = calcNextTemperature(this.heating, this.windowPos,
-					currentTemp.getValue());
-			double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos
-					* nextTemp - nextTemp)
-					/ (0.11 * (30 - nextTemp));
-			log.debug("current " + currentTemp.getValue());
-			log.debug("Next temp without adjustment " + nextTemp);
-			log.debug("Heating is now set to: " + this.heating);
-			log.debug("Heating would be " + newHeating);
-
-			double tempAfterAdjustment;
-			if (newHeating > 5) {
-				heating = 5;
-			} else if (newHeating < 0) {
-				heating = 0;
+		if (System.currentTimeMillis() > nextDeadLine) {
+			if (!proposals.isEmpty()) {
+				log.debug(proposals.size() + " proposals empfangen");
+				Proposal prop = proposals.poll();
+				AcceptProposal a = new AcceptProposal(prop.getReferencedTask());
+				JiacMessage accept = new JiacMessage(a);
+				invoke(send, new Serializable[] { accept,
+						prop.getProposer().getMessageBoxAddress() });
+				proposals.clear();
+				currentTask = null;
+				this.heating = prop.quality.heating;
+				log.debug("Accept geschickt: " + a + " an: " + prop.getProposer());
 			} else {
-				if (newHeating % 1 < 0.5) {
-					heating = (int) newHeating;
-				} else {
-					heating = (int) (newHeating + 1);
-				}
-			}
-			tempAfterAdjustment = calcNextTemperature(heating, this.windowPos,
-					currentTemp.getValue());
-			log.debug("Heating is next set to " + heating);
-			log.debug("Nextnext temp should be " + tempAfterAdjustment);
-
-			heat = new HeatingService(heating, 1);
-			currentTask = new Task<HeatingService>("t-" + taskCount, heat,
-					thisAgent.getAgentDescription());
-			callForProposals(new Task<HeatingService>("t-" + taskCount, heat,
-					thisAgent.getAgentDescription()), (long) deadlineForCFP);
-			if (taskCount == Integer.MAX_VALUE) {
-				taskCount = 0;
-			} else {
-				taskCount++;
-			}
-			log.debug("Schicke neues CFP: " + currentTask);
-		} else {
-			if (System.currentTimeMillis() > nextDeadLine) {
-				if (!proposals.isEmpty()) {
-					Proposal prop = proposals.poll();
-					AcceptProposal a = new AcceptProposal(prop.getReferencedTask());
-					JiacMessage accept = new JiacMessage(a);
-					invoke(send, new Serializable[] { accept, prop.getProposer().getMessageBoxAddress() } );
-					proposals.clear();
-					currentTask = null;
-					log.debug("Accept geschickt: " + a);
-				} else {
-					log.debug("Keine Proposals empfangen. Erneuter CFP");
-					callForProposals(new Task<HeatingService>("t-" + taskCount, heat,
-							thisAgent.getAgentDescription()), (long) deadlineForCFP);
-				}
+				currentTask = null;
+				this.heating = 0;
+				log.debug("Keine Proposals empfangen");
 			}
 		}
+		if (!temperatures.isEmpty()) {
+			currentTemp = temperatures.peek();
+		}
+		if (currentTemp == null ) {
+			return;
+		}
+		temperatures.clear();
+		if (failed) {
+			failed = false;
+			this.heating = 0;
+		}
+		double nextTemp = calcNextTemperature(this.heating, this.windowPos,
+				currentTemp.getValue());
+		double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos
+				* currentTemp.getValue() - currentTemp.getValue())
+				/ (0.11 * (30 - currentTemp.getValue()));
+		if (newHeating > 6) {
+			heating = 6;
+		} else if (newHeating < 0) {
+			heating = 0;
+		} else {
+			if (newHeating % 1 < 0.5) {
+				heating = (int) newHeating;
+			} else {
+				heating = (int) (newHeating + 1);
+			}
+		}
+		double nextnextTemp = calcNextTemperature(this.heating, this.windowPos,
+				nextTemp);
+		log.debug("current " + currentTemp.getValue());
+		log.debug("Heating is next set to " + heating);
+		log.debug("Next temp should be " + nextTemp);
+		log.debug("NextNext temp should be " + nextnextTemp);
+
+		heat = new HeatingService(heating, 1);
+		currentTask = new Task<HeatingService>("t-" + taskCount, heat,
+				thisAgent.getAgentDescription());
+		callForProposals(new Task<HeatingService>("t-" + taskCount, heat,
+				thisAgent.getAgentDescription()), (long) deadlineForCFP);
+		if (taskCount == Integer.MAX_VALUE) {
+			taskCount = 0;
+		} else {
+			taskCount++;
+		}
+		log.debug("Schicke neues CFP: " + currentTask);
 	}
 
 	/**
@@ -257,7 +251,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 			}
 		}
 	}
-	
+
 	final class ProposalObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = -4712056017333426842L;
@@ -269,13 +263,14 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					Proposal prop = (Proposal) ((JiacMessage) object).getPayload();
+					Proposal prop = (Proposal) ((JiacMessage) object)
+							.getPayload();
 					proposals.add(prop);
 				}
 			}
 		}
 	}
-	
+
 	final class RefuseObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = 3288266214466079670L;
@@ -288,12 +283,15 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					Refuse ref = (Refuse) ((JiacMessage) object).getPayload();
-					log.debug(ref.getProposer().getName() + " hat abgelehnt die Task " + ref.getReferencedTask().toString() + " zu übernehmen.");
+					log.debug(ref.getProposer().getName()
+							+ " hat abgelehnt die Task "
+							+ ref.getReferencedTask().toString()
+							+ " zu übernehmen.");
 				}
 			}
 		}
 	}
-	
+
 	final class FailureObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = 2952306745915919961L;
@@ -305,13 +303,17 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					Failure fail = (Failure) ((JiacMessage) object).getPayload();
-					log.debug(fail.getProposer().getName() + " failte bei der Ausführung von " + fail.getReferencedTask().toString());
+					failed = true;
+					Failure fail = (Failure) ((JiacMessage) object)
+							.getPayload();
+					log.debug(fail.getProposer().getName()
+							+ " failte bei der Ausführung von "
+							+ fail.getReferencedTask().toString() + " weil: " + fail.getException());
 				}
 			}
 		}
 	}
-	
+
 	final class InformObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = 2952306745915919961L;
@@ -330,16 +332,19 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 						log.debug("Winservice empfangen: " + w);
 					} else if (inf.getValue() instanceof HeatingService) {
 						HeatingService heat = (HeatingService) inf.getValue();
-						//create a new Service with a fresh creationdate so former dates will not matter anymore
-						HeatingService newHeat = new HeatingService(heat.heating, heat.duration);
+						// create a new Service with a fresh creationdate so
+						// former dates will not matter anymore
+						HeatingService newHeat = new HeatingService(
+								heat.heating, heat.duration);
 						memory.write(newHeat);
-						log.debug("Heatservice empfangen und ins Memory geschrieben: " + newHeat);
+						log.debug("Heatservice empfangen und ins Memory geschrieben: "
+								+ newHeat);
 					}
-				} 
+				}
 			}
 		}
 	}
-	
+
 	private void callForProposals(Task<HeatingService> task, long deadline) {
 		log.info("Calling for Proposals for: " + task.toString());
 		cfp = new CallForProposal(task,
@@ -348,5 +353,22 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		invoke(send, new Serializable[] { message, groupAddress });
 
 		this.nextDeadLine = System.currentTimeMillis() + deadline;
+	}
+	
+	class ProposalComparator implements Comparator<Proposal> {
+
+		@Override
+		public int compare(Proposal o1, Proposal o2) {
+//			log.debug("compare 1: " + o1 + " mit 2: " + o2 + " Ergebnis: " + (int) Math.signum((((HeatingService) o1.getReferencedTask().getJob()).heating -
+//					o1.quality.heating*o1.quality.quality)
+//					- (((HeatingService) o2.getReferencedTask().getJob()).heating -
+//							o2.quality.heating*o2.quality.quality)) + " Rechnung " + "(" + ((HeatingService) o1.getReferencedTask().getJob()).heating + "-"
+//							+o1.quality.heating+"*"+o1.quality.quality+")-("+((HeatingService) o2.getReferencedTask().getJob()).heating+"-"+o2.quality.heating+"*"+o2.quality.quality+")" );
+			return (int) Math.signum((((HeatingService) o1.getReferencedTask().getJob()).heating -
+					o1.quality.heating*o1.quality.quality)
+					- (((HeatingService) o2.getReferencedTask().getJob()).heating -
+							o2.quality.heating*o2.quality.quality));
+		}
+		
 	}
 }

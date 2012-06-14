@@ -114,6 +114,8 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 		this.memory.attach(cfpObserver, CFP);
 		this.memory.attach(acceptObserver, accept);
 		this.memory.attach(rejectObserver, reject);
+		
+		log.debug(provider + " gestartet");
 	}
 
 	@Override
@@ -186,12 +188,12 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 							if (busy == 0) {
 								HeatingService heat = (HeatingService) task.getJob();
 								if (heat.heating > range) {
-									HeatingService newHeat = new HeatingService(range, heat.duration);
-									heat = newHeat;
-									task.setJob(heat);
+									qualityService = new QualityOfService(provider,
+											range, quality);
+								} else {
+									qualityService = new QualityOfService(provider,
+											heat.heating, quality);
 								}
-								qualityService = new QualityOfService(provider,
-										heat.heating, quality);
 								Proposal prop = new Proposal(qualityService,
 										thisAgent.getAgentDescription(),
 										task);
@@ -238,11 +240,17 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 					log.debug("Accept empfangen: " + acc);
 					if (acc.getTask() != null && acc.getTask().getJob() instanceof HeatingService) {
 						Task<HeatingService> task = (Task<HeatingService>) acc.getTask();
-						if(busy == 0) {
+						double rand = Math.random();
+						if(rand <= quality && busy == 0) {
 							if(tasks.contains(task)) {
 								currentTask = task;
 								busy = task.getJob().duration*2;
-								Inform inf = new Inform<HeatingService>(task.getJob(), thisAgent.getAgentDescription());
+								Inform inf = null;
+								if (task.getJob().heating <= range) {
+									inf = new Inform<HeatingService>(task.getJob(), thisAgent.getAgentDescription());
+								} else {
+									inf = new Inform<HeatingService>(new HeatingService(range, task.getJob().duration), thisAgent.getAgentDescription());
+								}
 								JiacMessage msg = new JiacMessage(inf);
 								invoke(send, new Serializable[] {
 									msg,
@@ -252,7 +260,13 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 								tasks.remove(task);
 							}
 						} else {
-							JiacMessage msg = new JiacMessage(new Failure(thisAgent.getAgentDescription(), task));
+							String exception;
+							if (rand <= quality) {
+								exception = "gefailt";
+							} else {
+								exception = "I'm busy";
+							}
+							JiacMessage msg = new JiacMessage(new Failure(thisAgent.getAgentDescription(), task, exception));
 							invoke(send, new Serializable[] {
 									msg,
 									task.getClient()

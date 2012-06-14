@@ -92,6 +92,10 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		this.memory.attach(requestObserver, requestTpl);
 	}
 
+	/** 
+	 * get windowstate every turn and busycycle for later use
+	 * @see de.dailab.jiactng.agentcore.AbstractAgentBean#execute()
+	 */
 	@Override
 	public void execute() {
 		invoke(getWinAction, new Serializable[] {}, this);
@@ -116,6 +120,10 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 
+	/**
+	 * catches and logs error caused by invoke actions
+	 * and sends the received result about windowspositions to everyone
+	 */
 	@Override
 	public void receiveResult(ActionResult result) {
 		String resultActionName = result.getAction().getName();
@@ -146,6 +154,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 
+	/**
+	 * receives call for proposals and sends proposals or refuses in response
+	 */
 	final class CFPObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = -5114193061506471383L;
@@ -208,6 +219,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 
+	/**
+	 * receives accepts, opens or closes the window and sends a result back, or failure
+	 */
 	final class AcceptObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = -8398201613021159704L;
@@ -235,7 +249,7 @@ public class FensterAgentBean extends AbstractAgentBean implements
 							}
 						} else {
 							JiacMessage msg = new JiacMessage(new Failure(
-									thisAgent.getAgentDescription(), task));
+									thisAgent.getAgentDescription(), task, "I'm busy"));
 							invoke(send, new Serializable[] { msg,
 									task.getClient().getMessageBoxAddress() });
 							if(tasks.contains(task)) {
@@ -248,6 +262,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 
+	/**
+	 * receives a reject msg and logs it
+	 */
 	final class RejectObserver implements SpaceObserver<IFact> {
 
 		private static final long serialVersionUID = 6745660754188485697L;
@@ -270,7 +287,9 @@ public class FensterAgentBean extends AbstractAgentBean implements
 		}
 	}
 	
-	// to get immediate response for useragent
+	/**
+	 *  receives requests, but only form useragent to get immediate response for it
+	 */
 	final class RequestObserver implements SpaceObserver<IFact> {
 
 		static final long serialVersionUID = -1143799774862165996L;
