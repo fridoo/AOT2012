@@ -176,12 +176,12 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 							// send refusal
 							JiacMessage refuse = new JiacMessage(
 									new Refuse<HeatingService>(thisAgent.getAgentDescription(), hsToExecute));
-							invoke(send, new Serializable[] { refuse, request.getAgent().getMessageBoxAddress() });
+							invoke(send, new Serializable[] { refuse, request.getSenderID().getMessageBoxAddress() });
 						} else {
 							// send agree and do task
 							JiacMessage agree = new JiacMessage(
 									new Agree<HeatingService>(thisAgent.getAgentDescription(), hsToExecute));
-							invoke(send, new Serializable[] { agree, request.getAgent().getMessageBoxAddress() });
+							invoke(send, new Serializable[] { agree, request.getSenderID().getMessageBoxAddress() });
 							
 							// Heizungsagent is busy during the duration of the task and the double amount afterwards
 							HeizungsAgentBean.this.busy = hsToExecute.duration + hsToExecute.duration * 2;
@@ -191,13 +191,13 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 								HeatingService doHeating = new HeatingService(hsToExecute.heating, hsToExecute.duration);
 								JiacMessage inform = new JiacMessage(
 										new Inform<HeatingService>(doHeating, thisAgent.getAgentDescription()));
-								invoke(send, new Serializable[] {inform , request.getAgent().getMessageBoxAddress() });
+								invoke(send, new Serializable[] {inform , request.getSenderID().getMessageBoxAddress() });
 							} else {
 								// send failure to broker
 								JiacMessage failure = new JiacMessage(
 										new Failure<HeatingService>(thisAgent.getAgentDescription(), 
 												hsToExecute, "Task execution unsuccessful :("));
-								invoke(send, new Serializable[] { failure, request.getAgent().getMessageBoxAddress() });
+								invoke(send, new Serializable[] { failure, request.getSenderID().getMessageBoxAddress() });
 							}
 							
 						}
@@ -225,16 +225,19 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 					QueryRef<Object> qr = (QueryRef<Object>) ((JiacMessage) object).getPayload(); 
 					if (qr.getInformAbout() instanceof QualityOfService) {
 						// send own QualityOfService to the Agent who asked
-						if (HeizungsAgentBean.this.busy == 0) { // only answer if not busy
+//						if (HeizungsAgentBean.this.busy == 0) { // only answer if not busy
 							QualityOfService myQOS = new QualityOfService(HeizungsAgentBean.this.provider, 
+									thisAgent.getAgentDescription(),
 									HeizungsAgentBean.this.range, 
 									HeizungsAgentBean.this.quality, 
 									HeizungsAgentBean.this.busy > 0 ? false : true);
 							JiacMessage inform = new JiacMessage(
 									new Inform<QualityOfService>(myQOS, 
-									thisAgent.getAgentDescription()));
+									thisAgent.getAgentDescription(), qr.getQueryID()));
 							invoke(send, new Serializable[] { inform, qr.getSenderID().getMessageBoxAddress() });
-						}
+//						} else {
+//							log.debug(thisAgent.getAgentDescription().getName() + " ist busy und verweigert QOS Nachricht");
+//						}
 					}
 				}
 			}

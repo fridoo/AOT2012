@@ -154,14 +154,14 @@ public class FensterAgentBean extends AbstractAgentBean implements
 					Request<Object> r = (Request<Object>) ((JiacMessage) object)
 							.getPayload();
 					if (r.getValue() instanceof WinService) {
-						if (r.getAgent().getName().equals("UserAgent")) {
+						if (r.getSenderID().getName().equals("UserAgent")) {
 							WinService w = (WinService) r.getValue();
 							Boolean newPos = w.getValue();
 							invoke(setWinAction, new Serializable[] { newPos }, FensterAgentBean.this);
 							log.debug("FensterAgent set window to: open? " + newPos);
 						} else {
-							invoke(send, new Serializable[] { reject, r.getAgent().getMessageBoxAddress() });
-							log.debug("FensterAgent sent reject msg to: " + r.getAgent());
+							invoke(send, new Serializable[] { reject, r.getSenderID().getMessageBoxAddress() });
+							log.debug("FensterAgent sent reject msg to: " + r.getSenderID());
 						}
 					}
 				}

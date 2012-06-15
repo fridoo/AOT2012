@@ -1,6 +1,7 @@
 package de.dailab.aot.sose2012.ontology;
 
 import de.dailab.jiactng.agentcore.knowledge.IFact;
+import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 public class QualityOfService implements IFact {
 
@@ -9,6 +10,8 @@ public class QualityOfService implements IFact {
 	 * A provider description
 	 */
 	public final String provider;
+	
+	public final IAgentDescription providerIAD;
 	/**
 	 * A heating state, if the provider delivers its service.
 	 */
@@ -24,11 +27,12 @@ public class QualityOfService implements IFact {
 	public final boolean ready;
 
 	public QualityOfService() {
-		this(null, null, null, false);
+		this(null, null, null, null, false);
 	}
 
-	public QualityOfService(String provider, Integer state, Double level, boolean readyness) {
+	public QualityOfService(String provider, IAgentDescription providerIAD, Integer state, Double level, boolean readyness) {
 		this.provider = provider;
+		this.providerIAD = providerIAD;
 		this.heating = state;
 		this.quality = level;
 		this.ready = readyness;

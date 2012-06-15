@@ -66,6 +66,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	private int windowPos;
 	private int heating;
 	private Temperature currentTemp;
+	private int taskID = 0;
 
 	// message observer
 	private final SpaceObserver<IFact> observerINF = new InformObserver();
@@ -152,7 +153,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		HeatingService hservice = new HeatingService(heating, 1);
 		JiacMessage proxyMsg = new JiacMessage(
 				new Proxy(thisAgent.getAgentDescription(), 
-				new Request<HeatingService>(hservice, thisAgent.getAgentDescription()))
+				new Request<HeatingService>(hservice, thisAgent.getAgentDescription(), ++this.taskID))
 				);
 		this.invoke(send, new Serializable[] { proxyMsg, broker.getMessageBoxAddress() }); // send to Broker
 		log.debug("RaumklimaAgent wants Broker to set heating to : "

@@ -11,26 +11,42 @@ public class Request<T> implements IFact{
 	 */
 	private static final long serialVersionUID = -2723570574728601432L;
 	private final T value;
-	private final IAgentDescription agent;
+	private final IAgentDescription senderID;
+	private final int requestID;
 	
 	public Request() {
 		this.value = null;
-		this.agent = null;
+		this.senderID = null;
+		this.requestID = -1;
 	}
 
 	
 	public Request(T value, IAgentDescription agent) {
 		this.value = value;
-		this.agent = agent;
+		this.senderID = agent;
+		this.requestID = -1;
+	}
+	
+	public Request(T value, IAgentDescription agent, int requestID) {
+		this.value = value;
+		this.senderID = agent;
+		this.requestID = requestID;
 	}
 
-	public IAgentDescription getAgent() {
-		return agent;
+	public IAgentDescription getSenderID() {
+		return senderID;
 	}
 
 
 	public T getValue() {
 		return value;
 	}
+
+
+	public int getRequestID() {
+		return requestID;
+	}
+	
+	
 
 }

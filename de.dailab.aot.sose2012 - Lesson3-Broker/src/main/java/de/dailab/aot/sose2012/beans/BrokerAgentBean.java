@@ -1,6 +1,12 @@
 package de.dailab.aot.sose2012.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import org.sercho.masp.space.event.SpaceEvent;
 import org.sercho.masp.space.event.SpaceObserver;
@@ -8,9 +14,13 @@ import org.sercho.masp.space.event.WriteCallEvent;
 
 import de.dailab.aot.sose2012.ontology.Agree;
 import de.dailab.aot.sose2012.ontology.Failure;
+import de.dailab.aot.sose2012.ontology.HeatingService;
 import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.Proxy;
+import de.dailab.aot.sose2012.ontology.QualityOfService;
+import de.dailab.aot.sose2012.ontology.QueryRef;
 import de.dailab.aot.sose2012.ontology.Refuse;
+import de.dailab.aot.sose2012.ontology.Request;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.action.ActionResult;
@@ -21,6 +31,7 @@ import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.environment.ResultReceiver;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
+import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 public class BrokerAgentBean extends AbstractAgentBean implements
 		ResultReceiver {
@@ -45,6 +56,8 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> observerAGREE = new AgreeObserver();
 	private final SpaceObserver<IFact> observerFAILURE = new FailureObserver();
 	private final SpaceObserver<IFact> observerPROXY = new ProxyObserver();
+	
+	HeatingService hsToDo = null;
 
 	@Override
 	public void doInit() throws Exception {
@@ -111,7 +124,31 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					// TODO
+					Proxy proxy = (Proxy) ((JiacMessage) object).getPayload(); // extract proxy from message
+					if (proxy.getMessage() instanceof Request<?>) {
+						Request<Object> req = (Request<Object>) proxy.getMessage(); // extract request from proxy
+						if (req.getValue() instanceof HeatingService) {
+							// send agree
+							Agree<HeatingService> agree = new Agree<HeatingService>(thisAgent.getAgentDescription(), 
+									(HeatingService)req.getValue());
+							JiacMessage agreeMsg = new JiacMessage(agree);
+							invoke(send, new Serializable[] { agreeMsg, req.getSenderID().getMessageBoxAddress() });
+							
+							// send query-ref for QualityOfService over the group channel
+							
+							hsToDo = (HeatingService) req.getValue(); // extract HeatingService from request
+							QueryRef<QualityOfService> query = new QueryRef<QualityOfService>(
+									thisAgent.getAgentDescription(), new QualityOfService(), req.getRequestID());
+							JiacMessage queryMsg = new JiacMessage(query);
+							invoke(send, new Serializable[] { queryMsg, BrokerAgentBean.this.groupAddress });
+						} else {
+							// send refuse
+							Refuse<HeatingService> refuse = new Refuse<HeatingService>(
+									thisAgent.getAgentDescription(), (HeatingService)req.getValue());
+							JiacMessage refuseMsg = new JiacMessage(refuse);
+							invoke(send, new Serializable[] { refuseMsg, req.getSenderID().getMessageBoxAddress() });
+						}
+					}
 				}
 			}
 		}
@@ -131,7 +168,13 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					//  TODO
+					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
+					if (inf.getValue() instanceof QualityOfService) {
+						// broker received a quality of service notification from Heizungsagent
+						
+					} else if (inf.getValue() instanceof HeatingService) {
+						
+					}
 				}
 			}
 		}
@@ -152,6 +195,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Agree from Heizungsagent
+					@SuppressWarnings("unchecked")
 					Agree<Object> agree =  (Agree<Object>) ((JiacMessage)object).getPayload();
 					log.debug("Broker hat Agree von " + agree.getSenderID().getName() + " erhalten");
 				}
@@ -174,6 +218,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Refuse from Heizungsagent
+					@SuppressWarnings("unchecked")
 					Refuse<Object> refuse =  (Refuse<Object>) ((JiacMessage)object).getPayload();
 					log.debug("Broker hat Refuse von " + refuse.getProposer().getName() + " erhalten");
 				}
@@ -196,11 +241,69 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Failure from Heizungsagent
+					@SuppressWarnings("unchecked")
 					Failure<Object> refuse =  (Failure<Object>) ((JiacMessage)object).getPayload();
 					log.debug("Broker hat Failure von " + refuse.getProposer().getName() + " erhalten");
 				}
 			}
 		}
+	}
+	
+	class AgentTaskManager {
+		
+		private int taskID;
+		private int setHeatingTo;
+		private ArrayList<QualityOfService> qosList;
+		
+		public AgentTaskManager(int taskID, int setHeatingTo) {
+			this.taskID = taskID;
+			this.setHeatingTo = setHeatingTo;
+			this.qosList = new ArrayList<QualityOfService>(4);
+		}
+		
+		public void addQOS(QualityOfService qos) {
+			this.qosList.add(qos);
+		}
+		
+		public boolean full() {
+			return this.qosList.size() == 4;
+		}
+		
+		public IAgentDescription getBestAgentForTask() {
+			Iterator<QualityOfService> iter = qosList.iterator();
+			while (iter.hasNext()) {
+				QualityOfService qos = iter.next();
+				// remove all qos whos Agent aren't ready or can't deliver the desired heating state
+				if (!qos.ready || qos.heating < this.setHeatingTo) {
+					iter.remove();
+				}
+			}
+			
+			if (qosList.isEmpty()) {
+				return null;
+			} else {
+				iter = qosList.iterator(); // get new iterator
+				// determine the QualityOfService the the maximum quality
+				QualityOfService maxQOS = qosList.get(0);
+				while(iter.hasNext()) {
+					QualityOfService currQOS = iter.next();
+					if (currQOS.quality > maxQOS.quality) {
+						maxQOS = currQOS;
+					}
+				}
+				return maxQOS.providerIAD;
+			}
+			
+		}
+
+		public int getTaskID() {
+			return taskID;
+		}
+
+		public int getSetHeatingTo() {
+			return setHeatingTo;
+		}
+		
 	}
 
 }
