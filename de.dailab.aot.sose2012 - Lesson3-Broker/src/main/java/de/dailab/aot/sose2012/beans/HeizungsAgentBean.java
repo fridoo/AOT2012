@@ -183,7 +183,8 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 									new Agree<HeatingService>(thisAgent.getAgentDescription(), hsToExecute));
 							invoke(send, new Serializable[] { agree, request.getAgent().getMessageBoxAddress() });
 							
-							HeizungsAgentBean.this.busy = hsToExecute.duration * 2;
+							// Heizungsagent is busy during the duration of the task and the double amount afterwards
+							HeizungsAgentBean.this.busy = hsToExecute.duration + hsToExecute.duration * 2;
 							
 							if (doesTaskSucceed()) {
 								 // send HeatingService to broker
@@ -224,14 +225,16 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 					QueryRef<Object> qr = (QueryRef<Object>) ((JiacMessage) object).getPayload(); 
 					if (qr.getInformAbout() instanceof QualityOfService) {
 						// send own QualityOfService to the Agent who asked
-						QualityOfService myQOS = new QualityOfService(HeizungsAgentBean.this.provider, 
-								HeizungsAgentBean.this.range, 
-								HeizungsAgentBean.this.quality, 
-								HeizungsAgentBean.this.busy > 0 ? false : true);
-						JiacMessage inform = new JiacMessage(
-								new Inform<QualityOfService>(myQOS, 
-								thisAgent.getAgentDescription()));
-						invoke(send, new Serializable[] { inform, qr.getSenderID().getMessageBoxAddress() }); 
+						if (HeizungsAgentBean.this.busy == 0) { // only answer if not busy
+							QualityOfService myQOS = new QualityOfService(HeizungsAgentBean.this.provider, 
+									HeizungsAgentBean.this.range, 
+									HeizungsAgentBean.this.quality, 
+									HeizungsAgentBean.this.busy > 0 ? false : true);
+							JiacMessage inform = new JiacMessage(
+									new Inform<QualityOfService>(myQOS, 
+									thisAgent.getAgentDescription()));
+							invoke(send, new Serializable[] { inform, qr.getSenderID().getMessageBoxAddress() });
+						}
 					}
 				}
 			}

@@ -19,7 +19,7 @@
 				<ref bean="HeizungsAgent3" />
 				<ref bean="HeizungsAgent4" />
 				<ref bean="FensterAgent" />
-				<ref bean="UserAgent" />
+				<ref bean="BrokerAgent" />
 			</list>
 		</property>
 	</bean>
@@ -111,10 +111,10 @@
 		</property>
 	</bean>
 
-	<bean name="UserAgent" parent="SimpleAgent">
+	<bean name="BrokerAgent" parent="SimpleAgent">
 		<property name="agentBeans">
 			<list>
-				<bean name="UserAgentBean" class="de.dailab.aot.sose2012.user.UserAgentBean">
+				<bean name="BrokerAgentBean" class="de.dailab.aot.sose2012.beans.BrokerAgentBean">
 					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="info" />
 				</bean>

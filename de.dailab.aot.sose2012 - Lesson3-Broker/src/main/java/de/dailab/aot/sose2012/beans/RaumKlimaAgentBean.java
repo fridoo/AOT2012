@@ -10,9 +10,7 @@ import de.dailab.aot.sose2012.ontology.Agree;
 import de.dailab.aot.sose2012.ontology.FailureNoMatch;
 import de.dailab.aot.sose2012.ontology.FailureProxy;
 import de.dailab.aot.sose2012.ontology.HeatingService;
-import de.dailab.aot.sose2012.ontology.Hstate;
 import de.dailab.aot.sose2012.ontology.Inform;
-import de.dailab.aot.sose2012.ontology.InformDone;
 import de.dailab.aot.sose2012.ontology.InformDoneProxy;
 import de.dailab.aot.sose2012.ontology.Proxy;
 import de.dailab.aot.sose2012.ontology.Refuse;
@@ -46,7 +44,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	// agent templates for messaging
 	private AgentDescription agentTemplate;
 	private IAgentDescription broker;
-	private final String BROKER_NAME = "Broker";
+	private final String BROKER_NAME = "BrokerAgent";
 
 	// used actions
 	private IActionDescription send;
@@ -269,7 +267,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle InformDoneProxy from Broker
-					log.debug("Inform_Done_Proxy vom Broker erhalten");
+					log.debug("Raumklimaagent hat Inform_Done_Proxy vom Broker erhalten");
 				}
 			}
 		}
@@ -290,7 +288,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Refuse from Broker
-					log.debug("Refuse vom Broker erhalten");
+					log.debug("Raumklimaagent hat Refuse vom Broker erhalten");
 				}
 			}
 		}
@@ -311,7 +309,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Agree from Broker
-					log.debug("Agree vom Broker erhalten");
+					log.debug("Raumklimaagent hat Agree vom Broker erhalten");
 				}
 			}
 		}
@@ -332,7 +330,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle FailureNoMatch from Broker
-					log.debug("Failure_No_Match vom Broker erhalten");
+					log.debug("Raumklimaagent hat Failure_No_Match vom Broker erhalten");
 				}
 			}
 		}
@@ -353,7 +351,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle FailureProxy from Broker
-					log.debug("Failure_Proxy vom Broker erhalten");
+					log.debug("Raumklimaagent hat Failure_Proxy vom Broker erhalten");
 				}
 			}
 		}
