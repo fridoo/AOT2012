@@ -14,8 +14,10 @@ import org.sercho.masp.space.event.WriteCallEvent;
 
 import de.dailab.aot.sose2012.ontology.Agree;
 import de.dailab.aot.sose2012.ontology.Failure;
+import de.dailab.aot.sose2012.ontology.FailureProxy;
 import de.dailab.aot.sose2012.ontology.HeatingService;
 import de.dailab.aot.sose2012.ontology.Inform;
+import de.dailab.aot.sose2012.ontology.InformDoneProxy;
 import de.dailab.aot.sose2012.ontology.Proxy;
 import de.dailab.aot.sose2012.ontology.QualityOfService;
 import de.dailab.aot.sose2012.ontology.QueryRef;
@@ -57,7 +59,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> observerFAILURE = new FailureObserver();
 	private final SpaceObserver<IFact> observerPROXY = new ProxyObserver();
 	
-	HeatingService hsToDo = null;
+	AgentTaskManager currentTask = null;
 
 	@Override
 	public void doInit() throws Exception {
@@ -134,9 +136,11 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 							JiacMessage agreeMsg = new JiacMessage(agree);
 							invoke(send, new Serializable[] { agreeMsg, req.getSenderID().getMessageBoxAddress() });
 							
-							// send query-ref for QualityOfService over the group channel
+							// create new AgentTaskManager for this request
+							HeatingService hsToDo = (HeatingService) req.getValue(); // extract HeatingService from request
+							currentTask = new AgentTaskManager(req.getRequestID(), hsToDo, req.getSenderID());
 							
-							hsToDo = (HeatingService) req.getValue(); // extract HeatingService from request
+							// send query-ref for QualityOfService over the group channel
 							QueryRef<QualityOfService> query = new QueryRef<QualityOfService>(
 									thisAgent.getAgentDescription(), new QualityOfService(), req.getRequestID());
 							JiacMessage queryMsg = new JiacMessage(query);
@@ -171,9 +175,27 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
 					if (inf.getValue() instanceof QualityOfService) {
 						// broker received a quality of service notification from Heizungsagent
-						
+						if (inf.getInReplyToID() == currentTask.getTaskID()) {
+							QualityOfService qos = (QualityOfService) inf.getValue();
+							currentTask.addQOS(qos);
+							if (currentTask.full()) { // when the 4th Agent replied check for best suitable agent
+								IAgentDescription bestAgent = currentTask.getBestAgentForTask();
+								// send request for HeatingService to the best agent
+								Request<HeatingService> req = new Request<HeatingService>(
+										currentTask.getSetHeatingTo(), thisAgent.getAgentDescription(), 
+										currentTask.getTaskID());
+								JiacMessage reqMsg = new JiacMessage(req);
+								invoke(send, new Serializable[] { reqMsg, bestAgent.getMessageBoxAddress() });
+								
+								// send inform-done-proxy to Raumklimaagent
+								InformDoneProxy<Integer> idp = new InformDoneProxy<Integer>(
+										thisAgent.getAgentDescription(), currentTask.getTaskID());
+								JiacMessage idpMsg = new JiacMessage(idp);
+								invoke(send, new Serializable[] { idpMsg, currentTask.getClient().getMessageBoxAddress() });
+							}
+						}
 					} else if (inf.getValue() instanceof HeatingService) {
-						
+						// TODO
 					}
 				}
 			}
@@ -218,8 +240,15 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Refuse from Heizungsagent
+					//send failure proxy
 					@SuppressWarnings("unchecked")
-					Refuse<Object> refuse =  (Refuse<Object>) ((JiacMessage)object).getPayload();
+					Refuse<Object> refuse = (Refuse<Object>) ((JiacMessage)object).getPayload();
+					if (refuse.getReferencedTask() instanceof HeatingService) {
+						FailureProxy<HeatingService> failProxy = new FailureProxy<HeatingService>(thisAgent.getAgentDescription(),
+								(HeatingService) refuse.getReferencedTask(), "received a refuse from Heizungsagent");
+						JiacMessage failProxyMsg = new JiacMessage(failProxy);
+						invoke(send, new Serializable[] { failProxyMsg, currentTask.getClient().getMessageBoxAddress() });
+					}
 					log.debug("Broker hat Refuse von " + refuse.getProposer().getName() + " erhalten");
 				}
 			}
@@ -241,9 +270,16 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle Failure from Heizungsagent
+					// send failure to Raumklimaagent
 					@SuppressWarnings("unchecked")
-					Failure<Object> refuse =  (Failure<Object>) ((JiacMessage)object).getPayload();
-					log.debug("Broker hat Failure von " + refuse.getProposer().getName() + " erhalten");
+					Failure<Object> fail =  (Failure<Object>) ((JiacMessage)object).getPayload();
+					if (fail.getReferencedTask() instanceof HeatingService) {
+						Failure<HeatingService> failOwn = new Failure<HeatingService>(thisAgent.getAgentDescription(),
+								(HeatingService) fail.getReferencedTask(), fail.getException());
+						JiacMessage failMsg = new JiacMessage(failOwn);
+						invoke(send, new Serializable[] { failMsg, currentTask.getClient().getMessageBoxAddress() });
+					}
+					log.debug("Broker hat Failure von " + fail.getProposer().getName() + " erhalten");
 				}
 			}
 		}
@@ -252,12 +288,14 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 	class AgentTaskManager {
 		
 		private int taskID;
-		private int setHeatingTo;
+		private IAgentDescription client;
+		private HeatingService setHeatingTo;
 		private ArrayList<QualityOfService> qosList;
 		
-		public AgentTaskManager(int taskID, int setHeatingTo) {
+		public AgentTaskManager(int taskID, HeatingService setHeatingTo, IAgentDescription client) {
 			this.taskID = taskID;
 			this.setHeatingTo = setHeatingTo;
+			this.client = client;
 			this.qosList = new ArrayList<QualityOfService>(4);
 		}
 		
@@ -274,7 +312,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 			while (iter.hasNext()) {
 				QualityOfService qos = iter.next();
 				// remove all qos whos Agent aren't ready or can't deliver the desired heating state
-				if (!qos.ready || qos.heating < this.setHeatingTo) {
+				if (!qos.ready || qos.heating < this.setHeatingTo.heating) {
 					iter.remove();
 				}
 			}
@@ -300,9 +338,15 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 			return taskID;
 		}
 
-		public int getSetHeatingTo() {
+		public HeatingService getSetHeatingTo() {
 			return setHeatingTo;
 		}
+
+		public IAgentDescription getClient() {
+			return client;
+		}
+		
+		
 		
 	}
 
