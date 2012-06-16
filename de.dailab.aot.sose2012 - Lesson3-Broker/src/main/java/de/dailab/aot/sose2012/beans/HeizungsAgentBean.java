@@ -115,6 +115,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 	@Override
 	public void execute() {
 		if (busy > 0) {
+			log.debug(thisAgent.getAgentName() + " ist busy " + busy);
 			--busy;
 		}
 	}
@@ -190,7 +191,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 								 // send HeatingService to broker
 								HeatingService doHeating = new HeatingService(hsToExecute.heating, hsToExecute.duration);
 								JiacMessage inform = new JiacMessage(
-										new Inform<HeatingService>(doHeating, thisAgent.getAgentDescription()));
+										new Inform<HeatingService>(doHeating, thisAgent.getAgentDescription(), request.getRequestID()));
 								invoke(send, new Serializable[] {inform , request.getSenderID().getMessageBoxAddress() });
 							} else {
 								// send failure to broker

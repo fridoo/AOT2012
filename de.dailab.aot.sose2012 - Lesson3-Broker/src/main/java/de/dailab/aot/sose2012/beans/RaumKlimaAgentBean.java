@@ -100,10 +100,12 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 		// doesnt work somehow
 		// agent = thisAgent.searchAgent(agentTemplate);
-		List<IAgentDescription> agents = thisAgent
-				.searchAllAgents(agentTemplate);
+		List<IAgentDescription> agents = thisAgent.searchAllAgents(agentTemplate);
+		log.debug("befor broker search");
 		for (IAgentDescription a : agents) {
+			log.debug("search for broker");
 			if (a.getName().equals(BROKER_NAME)) {
+				log.debug("found broker");
 				broker = a;
 			}
 		}
@@ -123,6 +125,9 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	public void execute() {
 		
 		currentTemp = memory.read(new Temperature());
+		if (currentTemp == null) {
+			currentTemp = new Temperature(20.0);
+		}
 
 		double nextTemp = calcNextTemperature(this.heating, this.windowPos,
 				currentTemp.getValue());

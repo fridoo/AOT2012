@@ -175,27 +175,58 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
 					if (inf.getValue() instanceof QualityOfService) {
 						// broker received a quality of service notification from Heizungsagent
-						if (inf.getInReplyToID() == currentTask.getTaskID()) {
-							QualityOfService qos = (QualityOfService) inf.getValue();
-							currentTask.addQOS(qos);
-							if (currentTask.full()) { // when the 4th Agent replied check for best suitable agent
-								IAgentDescription bestAgent = currentTask.getBestAgentForTask();
-								// send request for HeatingService to the best agent
-								Request<HeatingService> req = new Request<HeatingService>(
-										currentTask.getSetHeatingTo(), thisAgent.getAgentDescription(), 
-										currentTask.getTaskID());
-								JiacMessage reqMsg = new JiacMessage(req);
-								invoke(send, new Serializable[] { reqMsg, bestAgent.getMessageBoxAddress() });
-								
-								// send inform-done-proxy to Raumklimaagent
-								InformDoneProxy<Integer> idp = new InformDoneProxy<Integer>(
-										thisAgent.getAgentDescription(), currentTask.getTaskID());
-								JiacMessage idpMsg = new JiacMessage(idp);
-								invoke(send, new Serializable[] { idpMsg, currentTask.getClient().getMessageBoxAddress() });
+						if (currentTask != null) {
+							if (inf.getInReplyToID() == currentTask.getTaskID()) {
+								QualityOfService qos = (QualityOfService) inf.getValue();
+								currentTask.addQOS(qos);
+								if (currentTask.full()) { // when the 4th Agent
+															// replied check for
+															// best suitable
+															// agent
+									IAgentDescription bestAgent = currentTask.getBestAgentForTask();
+									log.debug("Broker: hat den besten Heizungsagent gewählt: " + bestAgent.getName());
+									// send request for HeatingService to the best agent
+									Request<HeatingService> req = new Request<HeatingService>(
+											currentTask.getSetHeatingTo(),
+											thisAgent.getAgentDescription(),
+											currentTask.getTaskID());
+									JiacMessage reqMsg = new JiacMessage(req);
+									invoke(send, new Serializable[] { reqMsg,
+											bestAgent.getMessageBoxAddress() });
+
+									// send inform-done-proxy to Raumklimaagent
+									InformDoneProxy<Integer> idp = new InformDoneProxy<Integer>(
+											thisAgent.getAgentDescription(),
+											currentTask.getTaskID());
+									JiacMessage idpMsg = new JiacMessage(idp);
+									invoke(send, new Serializable[] {
+											idpMsg,
+											currentTask.getClient().getMessageBoxAddress() });
+								}
+							} else {
+								log.debug("Broker: Inform QOS hat nicht die ID des currentTask");
 							}
+						} else {
+							log.debug("Broker: Inform QOS currentTask == null");
 						}
 					} else if (inf.getValue() instanceof HeatingService) {
 						// TODO
+						if (currentTask != null) {
+							if (inf.getInReplyToID() == currentTask.getTaskID()) {
+								// send HeatingService to Raumklimaagent
+								HeatingService hs = (HeatingService) inf.getValue();
+								Inform<HeatingService> informHS = new Inform<HeatingService>(hs, 
+										thisAgent.getAgentDescription(), inf.getInReplyToID());
+								JiacMessage infMsg = new JiacMessage(informHS);
+								invoke(send, new Serializable[] {
+										infMsg, currentTask.getClient().getMessageBoxAddress() });
+							} else {
+								log.debug("Broker: Inform HS hat nicht die ID von currentTask");
+							}
+						} else {
+							log.debug("Broker: Inform HS currentTask == null");
+						}
+						
 					}
 				}
 			}
