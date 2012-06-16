@@ -160,6 +160,9 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				new Proxy(thisAgent.getAgentDescription(), 
 				new Request<HeatingService>(hservice, thisAgent.getAgentDescription(), ++this.taskID))
 				);
+		if (broker == null) {
+			log.debug("broker nicht vorhanden");
+		}
 		this.invoke(send, new Serializable[] { proxyMsg, broker.getMessageBoxAddress() }); // send to Broker
 		log.debug("RaumklimaAgent wants Broker to set heating to : "
 				+ hservice.heating);
