@@ -369,7 +369,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				return null;
 			} else {
 				iter = qosList.iterator(); // get new iterator
-				// determine the QualityOfService the the maximum quality
+				// determine the QualityOfService with the maximum quality
 				QualityOfService maxQOS = qosList.get(0);
 				while(iter.hasNext()) {
 					QualityOfService currQOS = iter.next();
