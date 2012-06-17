@@ -7,6 +7,7 @@ import org.sercho.masp.space.event.SpaceObserver;
 import org.sercho.masp.space.event.WriteCallEvent;
 
 import de.dailab.aot.sose2012.ontology.Agree;
+import de.dailab.aot.sose2012.ontology.Failure;
 import de.dailab.aot.sose2012.ontology.FailureNoMatch;
 import de.dailab.aot.sose2012.ontology.FailureProxy;
 import de.dailab.aot.sose2012.ontology.HeatingService;
@@ -43,7 +44,6 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		ResultReceiver {
 
 	// agent templates for messaging
-	private AgentDescription agentTemplate;
 	private IAgentDescription broker;
 	private final String BROKER_NAME = "BrokerAgent";
 
@@ -61,6 +61,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	private final static JiacMessage AGREE = new JiacMessage(new Agree<Object>());
 	private final static JiacMessage FAILUREnoMatch = new JiacMessage(new FailureNoMatch<Object>());
 	private final static JiacMessage FAILUREProxy = new JiacMessage(new FailureProxy<Object>());
+	private final static JiacMessage FAILURE = new JiacMessage(new Failure<Object>());
 
 	// states
 	private final int TEMP_TO_ACHIVE = 21;
@@ -76,12 +77,12 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> observerAGREE = new AgreeObserver();
 	private final SpaceObserver<IFact> observerFAILUREnoMatch = new FailureNoMatchObserver();
 	private final SpaceObserver<IFact> observerFAILUREProxy = new FailureProxyObserver();
+	private final SpaceObserver<IFact> observerFAILURE = new FailureObserver();
 
 	@Override
 	public void doInit() {
 		this.groupAddress = CommunicationAddressFactory
 				.createGroupAddress(GROUP_ADDRESS);
-		this.agentTemplate = new AgentDescription(null, this.BROKER_NAME, null, null, null, null);
 
 		this.windowPos = 1;
 		this.heating = 0;
@@ -97,18 +98,6 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 		Action join = this.retrieveAction(ICommunicationBean.ACTION_JOIN_GROUP);
 		this.invoke(join, new Serializable[] { groupAddress, }, this);
-
-		// doesnt work somehow
-		// agent = thisAgent.searchAgent(agentTemplate);
-//		List<IAgentDescription> agents = thisAgent.searchAllAgents(agentTemplate);
-//		log.debug("befor broker search: agenttemplate name = " + agentTemplate.getName());
-//		for (IAgentDescription a : agents) {
-//			log.debug("search for broker, found agent: " + a.getName());
-//			if (a.getName().equals(BROKER_NAME)) {
-//				log.debug("found broker");
-//				broker = a;
-//			}
-//		}
 		
 		List<IAgent> agents2 = thisAgent.getAgentNode().findAgents();
 		for (IAgent a : agents2) {
@@ -126,6 +115,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		this.memory.attach(observerAGREE, AGREE);
 		this.memory.attach(observerFAILUREnoMatch, FAILUREnoMatch);
 		this.memory.attach(observerFAILUREProxy, FAILUREProxy);
+		this.memory.attach(observerFAILURE, FAILURE);
 	}
 
 	/**
@@ -133,6 +123,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	 */
 	@Override
 	public void execute() {
+		log.debug("-----------------------------------------------------------------");
 		
 		currentTemp = memory.read(new Temperature());
 		if (currentTemp == null) {
@@ -269,7 +260,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 								heat.heating, heat.duration);
 						RaumKlimaAgentBean.this.heating = newHeat.heating;
 						memory.write(newHeat);
-						log.debug(">>>>> Raumklimaagent hat Heatservice empfangen und ins Memory geschrieben: "
+						log.debug(">!> ERFOLG >!> Raumklimaagent hat Heatservice empfangen und ins Memory geschrieben: "
 								+ newHeat.heating);
 					}
 				}
@@ -355,7 +346,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle FailureNoMatch from Broker
-					log.debug("Raumklimaagent hat Failure_No_Match vom Broker erhalten");
+					log.debug("### MISSerfolg ### Raumklimaagent hat Failure_No_Match vom Broker erhalten");
 				}
 			}
 		}
@@ -376,7 +367,28 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					// handle FailureProxy from Broker
-					log.debug("Raumklimaagent hat Failure_Proxy vom Broker erhalten");
+					log.debug("### MISSerfolg ### Raumklimaagent hat Failure_Proxy vom Broker erhalten");
+				}
+			}
+		}
+	}
+	
+	final class FailureObserver implements SpaceObserver<IFact> {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 2952306745915919961L;
+
+		@Override
+		public void notify(SpaceEvent<? extends IFact> event) {
+
+			if (event instanceof WriteCallEvent) {
+				@SuppressWarnings("rawtypes")
+				Object object = ((WriteCallEvent) event).getObject();
+				if (object instanceof JiacMessage) {
+					// handle Failure from Broker
+					log.debug("### MISSerfolg ### Raumklimaagent hat Failure vom Broker erhalten");
 				}
 			}
 		}
