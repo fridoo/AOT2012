@@ -18,6 +18,7 @@ import de.dailab.aot.sose2012.ontology.Request;
 import de.dailab.aot.sose2012.ontology.Temperature;
 import de.dailab.aot.sose2012.ontology.WinService;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
+import de.dailab.jiactng.agentcore.IAgent;
 import de.dailab.jiactng.agentcore.action.Action;
 import de.dailab.jiactng.agentcore.action.ActionResult;
 import de.dailab.jiactng.agentcore.comm.CommunicationAddressFactory;
@@ -80,8 +81,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 	public void doInit() {
 		this.groupAddress = CommunicationAddressFactory
 				.createGroupAddress(GROUP_ADDRESS);
-		this.agentTemplate = new AgentDescription(null, BROKER_NAME, null,
-				null, null, null);
+		this.agentTemplate = new AgentDescription(null, this.BROKER_NAME, null, null, null, null);
 
 		this.windowPos = 1;
 		this.heating = 0;
@@ -100,15 +100,25 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 		// doesnt work somehow
 		// agent = thisAgent.searchAgent(agentTemplate);
-		List<IAgentDescription> agents = thisAgent.searchAllAgents(agentTemplate);
-		log.debug("befor broker search");
-		for (IAgentDescription a : agents) {
-			log.debug("search for broker");
-			if (a.getName().equals(BROKER_NAME)) {
+//		List<IAgentDescription> agents = thisAgent.searchAllAgents(agentTemplate);
+//		log.debug("befor broker search: agenttemplate name = " + agentTemplate.getName());
+//		for (IAgentDescription a : agents) {
+//			log.debug("search for broker, found agent: " + a.getName());
+//			if (a.getName().equals(BROKER_NAME)) {
+//				log.debug("found broker");
+//				broker = a;
+//			}
+//		}
+		
+		List<IAgent> agents2 = thisAgent.getAgentNode().findAgents();
+		for (IAgent a : agents2) {
+//			log.debug("2. search found agent. " + a.getAgentName());
+			if (a.getAgentName().equals(this.BROKER_NAME)) {
 				log.debug("found broker");
-				broker = a;
+				this.broker = a.getAgentDescription();
 			}
 		}
+		
 
 		this.memory.attach(observerINF, INF);
 		this.memory.attach(observerINFDoneProxy, INFDoneProxy);
@@ -126,6 +136,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 		
 		currentTemp = memory.read(new Temperature());
 		if (currentTemp == null) {
+			log.debug("coundn't read temperature"); // happens during the first execute cycle
 			currentTemp = new Temperature(20.0);
 		}
 
@@ -160,12 +171,14 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 				new Proxy(thisAgent.getAgentDescription(), 
 				new Request<HeatingService>(hservice, thisAgent.getAgentDescription(), ++this.taskID))
 				);
+		
 		if (broker == null) {
 			log.debug("broker nicht vorhanden");
+		} else {
+			this.invoke(send, new Serializable[] { proxyMsg, broker.getMessageBoxAddress() }); // send to Broker
+			log.debug("RaumklimaAgent wants Broker to set heating to : "
+					+ hservice.heating);
 		}
-		this.invoke(send, new Serializable[] { proxyMsg, broker.getMessageBoxAddress() }); // send to Broker
-		log.debug("RaumklimaAgent wants Broker to set heating to : "
-				+ hservice.heating);
 	}
 
 	/**
@@ -252,9 +265,10 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 						// former dates will not matter anymore
 						HeatingService newHeat = new HeatingService(
 								heat.heating, heat.duration);
+						RaumKlimaAgentBean.this.heating = newHeat.heating;
 						memory.write(newHeat);
-						log.debug("Heatservice empfangen und ins Memory geschrieben: "
-								+ newHeat);
+						log.debug("Raumklimaagent hat Heatservice empfangen und ins Memory geschrieben: "
+								+ newHeat.heating);
 					}
 				}
 			}

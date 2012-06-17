@@ -135,8 +135,9 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 	}
 	
 	private boolean doesTaskSucceed() {
-		Random r = new Random();
-		return (r.nextDouble() <= this.quality);
+//		Random r = new Random();
+//		return (r.nextDouble() <= this.quality);
+		return true;
 	}
 
 	@Override
@@ -168,21 +169,23 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					// TODO handle request from broker
 					@SuppressWarnings("unchecked")
 					Request<Object> request = (Request<Object>) ((JiacMessage) object).getPayload();
 					if (request.getValue() instanceof HeatingService) {
+						log.debug(thisAgent.getAgentName() + " hat Request für HeatingService erhalten");
 						HeatingService hsToExecute = (HeatingService) request.getValue();
 						if (hsToExecute.heating > HeizungsAgentBean.this.range || busy > 0) { // busy or out of range
 							// send refusal
 							JiacMessage refuse = new JiacMessage(
 									new Refuse<HeatingService>(thisAgent.getAgentDescription(), hsToExecute));
 							invoke(send, new Serializable[] { refuse, request.getSenderID().getMessageBoxAddress() });
+							log.debug(thisAgent.getAgentName() + " Req HS - busy oder out of range, refuse gesendet");
 						} else {
 							// send agree and do task
 							JiacMessage agree = new JiacMessage(
 									new Agree<HeatingService>(thisAgent.getAgentDescription(), hsToExecute));
 							invoke(send, new Serializable[] { agree, request.getSenderID().getMessageBoxAddress() });
+							log.debug(thisAgent.getAgentName() + " agree zur Heizungseinstellung an broker gesendet");
 							
 							// Heizungsagent is busy during the duration of the task and the double amount afterwards
 							HeizungsAgentBean.this.busy = hsToExecute.duration + hsToExecute.duration * 2;
@@ -193,12 +196,14 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 								JiacMessage inform = new JiacMessage(
 										new Inform<HeatingService>(doHeating, thisAgent.getAgentDescription(), request.getRequestID()));
 								invoke(send, new Serializable[] {inform , request.getSenderID().getMessageBoxAddress() });
+								log.debug(thisAgent.getAgentName() + " Heizungseinstellung ERFOLG, infrom an broker gesendet");
 							} else {
 								// send failure to broker
 								JiacMessage failure = new JiacMessage(
 										new Failure<HeatingService>(thisAgent.getAgentDescription(), 
 												hsToExecute, "Task execution unsuccessful :("));
 								invoke(send, new Serializable[] { failure, request.getSenderID().getMessageBoxAddress() });
+								log.debug(thisAgent.getAgentName() + " Heizungseinstellung MISSerfolg, failure an broker gesendet");
 							}
 							
 						}
@@ -225,6 +230,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 					@SuppressWarnings("unchecked")
 					QueryRef<Object> qr = (QueryRef<Object>) ((JiacMessage) object).getPayload(); 
 					if (qr.getInformAbout() instanceof QualityOfService) {
+						log.debug(thisAgent.getAgentName() + " hat query-ref erhalten");
 						// send own QualityOfService to the Agent who asked
 //						if (HeizungsAgentBean.this.busy == 0) { // only answer if not busy
 							QualityOfService myQOS = new QualityOfService(HeizungsAgentBean.this.provider, 
@@ -236,6 +242,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 									new Inform<QualityOfService>(myQOS, 
 									thisAgent.getAgentDescription(), qr.getQueryID()));
 							invoke(send, new Serializable[] { inform, qr.getSenderID().getMessageBoxAddress() });
+							log.debug(thisAgent.getAgentName() + " hat Inform QOS an Broker gesendet");
 //						} else {
 //							log.debug(thisAgent.getAgentDescription().getName() + " ist busy und verweigert QOS Nachricht");
 //						}

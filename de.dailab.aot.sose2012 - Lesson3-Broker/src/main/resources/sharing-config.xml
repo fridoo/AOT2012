@@ -45,7 +45,7 @@
 			<list>
 				<bean name="HeizungsAgentBean" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 					<property name="quality" value="0.9" />
 					<property name="range" value="2" />
 					<property name="provider" value="HeizungsAgent 1" />
@@ -59,7 +59,7 @@
 			<list>
 				<bean name="HeizungsAgentBean2" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 					<property name="quality" value="0.9" />
 					<property name="range" value="2" />
 					<property name="provider" value="HeizungsAgent 2" />
@@ -73,7 +73,7 @@
 			<list>
 				<bean name="HeizungsAgentBean3" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 					<property name="quality" value="0.7" />
 					<property name="range" value="4" />
 					<property name="provider" value="HeizungsAgent 3" />
@@ -87,7 +87,7 @@
 			<list>
 				<bean name="HeizungsAgentBean3" class="de.dailab.aot.sose2012.beans.HeizungsAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 					<property name="quality" value="0.2" />
 					<property name="range" value="6" />
 					<property name="provider" value="HeizungsAgent 4" />
@@ -101,11 +101,11 @@
 			<list>
 				<bean name="FensterBean" class="de.dailab.aot.sose2012.beans.FensterAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 				</bean>
 				<bean name="Window" class="de.dailab.aot.sose2012.sensors.Window">
 					<property name="executeInterval" value="4000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 				</bean>
 			</list>
 		</property>
@@ -116,7 +116,7 @@
 			<list>
 				<bean name="BrokerAgentBean" class="de.dailab.aot.sose2012.beans.BrokerAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="info" />
+					<property name="logLevel" value="DEBUG" />
 				</bean>
 			</list>
 		</property>

@@ -93,8 +93,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		super.execute();
+		
 	}
 
 	@Override
@@ -128,6 +127,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				if (object instanceof JiacMessage) {
 					Proxy proxy = (Proxy) ((JiacMessage) object).getPayload(); // extract proxy from message
 					if (proxy.getMessage() instanceof Request<?>) {
+						log.debug("Broker: hat proxy von Raumklimaagent bekommen");
 						Request<Object> req = (Request<Object>) proxy.getMessage(); // extract request from proxy
 						if (req.getValue() instanceof HeatingService) {
 							// send agree
@@ -139,12 +139,14 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 							// create new AgentTaskManager for this request
 							HeatingService hsToDo = (HeatingService) req.getValue(); // extract HeatingService from request
 							currentTask = new AgentTaskManager(req.getRequestID(), hsToDo, req.getSenderID());
+							log.debug("Broker: hat neuen task erstellt für Temperatur: " + hsToDo.heating);
 							
 							// send query-ref for QualityOfService over the group channel
 							QueryRef<QualityOfService> query = new QueryRef<QualityOfService>(
 									thisAgent.getAgentDescription(), new QualityOfService(), req.getRequestID());
 							JiacMessage queryMsg = new JiacMessage(query);
 							invoke(send, new Serializable[] { queryMsg, BrokerAgentBean.this.groupAddress });
+							log.debug("Broker: hat query-ref über die gruppenadresse geschickt");
 						} else {
 							// send refuse
 							Refuse<HeatingService> refuse = new Refuse<HeatingService>(
@@ -175,33 +177,40 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
 					if (inf.getValue() instanceof QualityOfService) {
 						// broker received a quality of service notification from Heizungsagent
+						log.debug("Broker: hat QOS erhalten von agent: " + inf.getAgent().getName());
 						if (currentTask != null) {
 							if (inf.getInReplyToID() == currentTask.getTaskID()) {
 								QualityOfService qos = (QualityOfService) inf.getValue();
 								currentTask.addQOS(qos);
+								log.debug("Broker: hat QOS zum currentTask hinzugefügt");
 								if (currentTask.full()) { // when the 4th Agent
 															// replied check for
 															// best suitable
 															// agent
+									log.debug("Broker: currentTask full - suche besten agenten");
 									IAgentDescription bestAgent = currentTask.getBestAgentForTask();
-									log.debug("Broker: hat den besten Heizungsagent gewählt: " + bestAgent.getName());
-									// send request for HeatingService to the best agent
-									Request<HeatingService> req = new Request<HeatingService>(
-											currentTask.getSetHeatingTo(),
-											thisAgent.getAgentDescription(),
-											currentTask.getTaskID());
-									JiacMessage reqMsg = new JiacMessage(req);
-									invoke(send, new Serializable[] { reqMsg,
-											bestAgent.getMessageBoxAddress() });
+									if (bestAgent != null) {
+										log.debug("Broker: hat den besten Heizungsagent gewählt: " + bestAgent.getName());
+										// send request for HeatingService to the best agent
+										Request<HeatingService> req = new Request<HeatingService>(
+												currentTask.getSetHeatingTo(),
+												thisAgent.getAgentDescription(),
+												currentTask.getTaskID());
+										JiacMessage reqMsg = new JiacMessage(req);
+										invoke(send, new Serializable[] { reqMsg,
+												bestAgent.getMessageBoxAddress() });
 
-									// send inform-done-proxy to Raumklimaagent
-									InformDoneProxy<Integer> idp = new InformDoneProxy<Integer>(
-											thisAgent.getAgentDescription(),
-											currentTask.getTaskID());
-									JiacMessage idpMsg = new JiacMessage(idp);
-									invoke(send, new Serializable[] {
-											idpMsg,
-											currentTask.getClient().getMessageBoxAddress() });
+										// send inform-done-proxy to Raumklimaagent
+										InformDoneProxy<Integer> idp = new InformDoneProxy<Integer>(
+												thisAgent.getAgentDescription(),
+												currentTask.getTaskID());
+										JiacMessage idpMsg = new JiacMessage(idp);
+										invoke(send, new Serializable[] {
+												idpMsg,
+												currentTask.getClient().getMessageBoxAddress() });
+									} else {
+										log.debug("Broker: kann keinen best agent finden");
+									}
 								}
 							} else {
 								log.debug("Broker: Inform QOS hat nicht die ID des currentTask");
@@ -210,7 +219,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 							log.debug("Broker: Inform QOS currentTask == null");
 						}
 					} else if (inf.getValue() instanceof HeatingService) {
-						// TODO
+						log.debug("Broker: hat Infrom HeatingService erhalten von agent: " + inf.getAgent().getName());
 						if (currentTask != null) {
 							if (inf.getInReplyToID() == currentTask.getTaskID()) {
 								// send HeatingService to Raumklimaagent
@@ -220,6 +229,9 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 								JiacMessage infMsg = new JiacMessage(informHS);
 								invoke(send, new Serializable[] {
 										infMsg, currentTask.getClient().getMessageBoxAddress() });
+								log.debug("Broker: hat HS an Raumklimaagent weitergeleitet - " +
+										"( client = " + currentTask.getClient().getName() + 
+										" Heating = " + hs.heating + " )");
 							} else {
 								log.debug("Broker: Inform HS hat nicht die ID von currentTask");
 							}
