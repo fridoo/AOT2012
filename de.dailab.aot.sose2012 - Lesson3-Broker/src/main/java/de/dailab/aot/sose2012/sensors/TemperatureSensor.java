@@ -172,6 +172,7 @@ public final class TemperatureSensor extends AbstractAgentBean implements Result
 
 			this.frame.updateTemperature(value);
 			final Temperature t = new Temperature(value);
+			this.frame.updateHeating(stateHeating);
 
 			this.memory.write(t);
 

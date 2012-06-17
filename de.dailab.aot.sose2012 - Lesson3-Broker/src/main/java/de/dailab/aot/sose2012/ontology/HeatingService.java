@@ -20,7 +20,9 @@ public class HeatingService implements IFact {
 	public final Long creationDate;
 
 	public HeatingService() {
-		this(null, null);
+		this.heating = null;
+		this.duration = null;
+		this.creationDate = null;
 	}
 
 	public HeatingService(Integer state, Integer duration) {
