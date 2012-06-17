@@ -142,8 +142,10 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 
 		double nextTemp = calcNextTemperature(this.heating, this.windowPos,
 				currentTemp.getValue());
-		double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos * nextTemp - nextTemp)
-				/ (0.11 * (30 - nextTemp));
+//		double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos * nextTemp - nextTemp)
+//				/ (0.11 * (30 - nextTemp));
+		double newHeating = (TEMP_TO_ACHIVE + 0.07 * this.windowPos * currentTemp.getValue() - currentTemp.getValue())
+				/ (0.11 * (30 - currentTemp.getValue()));
 		log.debug("current " + currentTemp.getValue());
 		log.debug("Next temp without adjustment " + nextTemp);
 		log.debug("Heating is now set to: " + this.heating);
@@ -267,7 +269,7 @@ public class RaumKlimaAgentBean extends AbstractAgentBean implements
 								heat.heating, heat.duration);
 						RaumKlimaAgentBean.this.heating = newHeat.heating;
 						memory.write(newHeat);
-						log.debug("Raumklimaagent hat Heatservice empfangen und ins Memory geschrieben: "
+						log.debug(">>>>> Raumklimaagent hat Heatservice empfangen und ins Memory geschrieben: "
 								+ newHeat.heating);
 					}
 				}

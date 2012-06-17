@@ -135,6 +135,7 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 	}
 	
 	private boolean doesTaskSucceed() {
+		// TODO random wieder entkommentieren
 //		Random r = new Random();
 //		return (r.nextDouble() <= this.quality);
 		return true;
@@ -188,7 +189,8 @@ public class HeizungsAgentBean extends AbstractAgentBean implements
 							log.debug(thisAgent.getAgentName() + " agree zur Heizungseinstellung an broker gesendet");
 							
 							// Heizungsagent is busy during the duration of the task and the double amount afterwards
-							HeizungsAgentBean.this.busy = hsToExecute.duration + hsToExecute.duration * 2;
+							// TODO busy wieder entkommentieren
+//							HeizungsAgentBean.this.busy = hsToExecute.duration + hsToExecute.duration * 2;
 							
 							if (doesTaskSucceed()) {
 								 // send HeatingService to broker
