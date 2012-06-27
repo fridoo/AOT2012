@@ -65,7 +65,7 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 			if(feed==null || feed.equals(oldFeed)) {
 				return;
 			}
-			IFeed iFeed = new IFeed(feed, null); // ändern
+			IFeed iFeed = new IFeed(feed, null);
 			blackboard.removeAll(iFeedTpl);
 			blackboard.write(iFeed);
 			log.debug("added new feed to Bb");
