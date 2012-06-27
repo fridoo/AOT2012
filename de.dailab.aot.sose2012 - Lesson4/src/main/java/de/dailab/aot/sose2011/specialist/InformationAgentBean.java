@@ -37,7 +37,11 @@ public class InformationAgentBean extends BlackboardAgentBean {
 		}
 		for (IFeedItem setItem : items) {
 			FeedItem item = setItem.getFeedItem();
-			log.info(setItem.getCategory() + ": " + item.getTitle() + " " + item.getLink());
+			log.info("........ Kategorie ... " + setItem.getCategory() );
+			log.info(item.getTitle());
+			log.info(item.getDescriptionAsText());
+			log.info(">>> For more information visit: " + item.getLink());
+			log.info("'''''''''''''''''''''''''");
 		}
 		log.debug("-----------------------------------------------");
 	}

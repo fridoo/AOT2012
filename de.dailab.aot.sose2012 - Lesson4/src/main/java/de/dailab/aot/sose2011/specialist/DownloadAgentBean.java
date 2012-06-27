@@ -16,10 +16,13 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 	URL[] url = new URL[5];
 	Feed oldFeed, tmpFeed;
 	IFeed iFeedTpl = new IFeed();
+	long time;
+	boolean firstDownload = true;
 	
 	@Override	
 	public void doInit() throws Exception {
 		super.doInit();
+		time = System.currentTimeMillis();
 	    try {
 	        url[0] = new URL("http://www.sueddeutsche.de/app/service/rss/alles/rss.xml");
 	        url[1] = new URL("http://www.taz.de/!p3270;rss/");
@@ -34,33 +37,40 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 
 	@Override
 	public void execute() {
-		if(url==null) {
+		if(url == null) {
 			return;
 		}
-		log.debug("Download Execution");
-		Feed feed = new Feed();
-		int i = 0;
-		try {
-			for (i = 0; i < url.length; ++i) {
-				tmpFeed = FeedParser.parse(url[i]);
-				for (int j = 0; j < tmpFeed.getItemCount(); ++j) {
-					FeedItem item = tmpFeed.getItem(j);
-					feed.addItem(item);
+		
+		// downloade nur alle 5 minuten
+		if (firstDownload || System.currentTimeMillis() - time > 300000) {
+			firstDownload = false;
+			time = System.currentTimeMillis();
+			
+			log.info("Download Execution");
+			Feed feed = new Feed();
+			int i = 0;
+			try {
+				for (i = 0; i < url.length; ++i) {
+					tmpFeed = FeedParser.parse(url[i]);
+					for (int j = 0; j < tmpFeed.getItemCount(); ++j) {
+						FeedItem item = tmpFeed.getItem(j);
+						feed.addItem(item);
+					}
+					log.debug("parsed feed " + i + " total feedcount: " + feed.getItemCount());
 				}
-				log.debug("parsed feed " + i + " total feedcount: " + feed.getItemCount());
+			} catch (FeedException e) {
+				log.debug("FeedException for Feed " + url[i].getHost().toString());
+				feed = null;
 			}
-		} catch (FeedException e) {
-			log.debug("FeedException for Feed " + url[i].getHost().toString());
-			feed = null;
+			if(feed==null || feed.equals(oldFeed)) {
+				return;
+			}
+			IFeed iFeed = new IFeed(feed, null); // ändern
+			blackboard.removeAll(iFeedTpl);
+			blackboard.write(iFeed);
+			log.debug("added new feed to Bb");
+			oldFeed = feed;
 		}
-		if(feed==null || feed.equals(oldFeed)) {
-			return;
-		}
-		IFeed iFeed = new IFeed(feed, null); // ändern
-		blackboard.removeAll(iFeedTpl);
-		blackboard.write(iFeed);
-		log.debug("added new feed to Bb");
-		oldFeed = feed;
 	}
 	
 }
