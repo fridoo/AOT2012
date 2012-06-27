@@ -19,6 +19,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 	
 	private IFeedItem iFeedItemTpl;
 	private final SpaceObserver<IFact> observer = new MyObserver();
+	private int counter = 0;
 	
 	
 
@@ -34,7 +35,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 	
 	@Override
 	public void doStart() throws Exception {
-		log.info(category);
+		log.info("Starte InfoAgent mit Kategorie: " + category);
 		iFeedItemTpl = new IFeedItem(null, category);
 		this.blackboard.attach(this.observer, iFeedItemTpl);
 	}
@@ -74,6 +75,8 @@ public class InformationAgentBean extends BlackboardAgentBean {
 						log.info(item.getDescriptionAsText());
 						log.info(">>> For more information visit: " + item.getLink());
 						log.info("'''''''''''''''''''''''''");
+					} else {
+						log.info(++counter + " not my category: " + setItem.getCategory());
 					}
 					
 				}
