@@ -11,7 +11,7 @@
 	<import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
 
 
-	<bean name="BlackboardNode" parent="Node">
+	<bean name="BlackboardNode" parent="NodeWithDirectory">
 		<property name="agentNodeBeans">
 			<list>
 				<ref bean="Blackboard" />
@@ -20,11 +20,21 @@
 
 		<property name="agents">
 			<list>
-				<!-- put your agents here -->
+				<ref bean="DownloadAgent" />
 			</list>
 		</property>
 	</bean>
 
+	<bean name="DownloadAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="DownloadAgentBean" class="de.dailab.aot.sose2011.specialist.DownloadAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	
 	<bean name="Blackboard" class="de.dailab.aot.sose2011.blackboard.BlackboardNodeBean" />
 	
