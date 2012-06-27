@@ -92,5 +92,10 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/nekohtml.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/lucene-core-3.6.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Users/Mitch/Downloads/lucene-3.6.0/docs/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

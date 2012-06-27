@@ -41,6 +41,7 @@ public class FeedAgentBean extends BlackboardAgentBean {
 				RawElement rawElement = item.getElement("", "category");
 				if (rawElement != null && rawElement.getValue() != null) {
 					msg = new IFeedItem(item, rawElement.getValue().toLowerCase());
+					log.info(rawElement.getValue().toLowerCase());
 				} else {
 					msg = new IFeedItem(item, "keine");
 				}
