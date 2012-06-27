@@ -92,7 +92,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.FilterAgentBean">
-					<property name="executeInterval" value="1000" />
+					<property name="executeInterval" value="60000" />
 					<property name="logLevel" value="info" />
 				</bean>
 			</list>
