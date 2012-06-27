@@ -1,5 +1,6 @@
 package de.dailab.aot.sose2011.blackboard;
 
+import de.dailab.aot.sose2011.FeedDisplay;
 import de.dailab.jiactng.agentcore.AbstractAgentBean;
 
 /**
@@ -11,10 +12,16 @@ import de.dailab.jiactng.agentcore.AbstractAgentBean;
 public abstract class BlackboardAgentBean extends AbstractAgentBean {
 
 	protected Blackboard blackboard = null;
+	protected static FeedDisplay display = null;
 
 	@Override
 	public void doInit() throws Exception {
 		super.doInit();
+		
+		if (display == null) {
+			display = new FeedDisplay();
+		}
+		
 		blackboard = thisAgent.getAgentNode().findAgentNodeBean(Blackboard.class);
 		if (blackboard == null) {
 			log.error("this agent has no access to the blackboard");
