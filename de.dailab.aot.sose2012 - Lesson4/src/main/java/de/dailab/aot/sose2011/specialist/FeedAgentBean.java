@@ -42,7 +42,6 @@ public class FeedAgentBean extends BlackboardAgentBean {
 					msg = new IFeedItem(item, "keine");
 				}
 				blackboard.write(msg);
-				blackboard.write(msg);
 				items.add(item.getGUID());
 				log.debug(item.getTitle());
 			} else {

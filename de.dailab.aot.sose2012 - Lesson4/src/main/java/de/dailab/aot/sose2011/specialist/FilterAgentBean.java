@@ -185,18 +185,9 @@ public class FilterAgentBean extends BlackboardAgentBean {
 
 			for (int i = 0; i < score.length; i++) {
 				totalScore += score[i];
-
 			}
 
 		}
-	}
-
-	public class text_finalScore {
-		public int docid;
-		public String text;
-		public float total;
-		public String relateddocs;
-		public String relatedscores;
 	}
 
 	private static <E> ArrayList<Integer> removeSimilar(ArrayList<Text_score> items) {
