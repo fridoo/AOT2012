@@ -1,15 +1,11 @@
 package de.dailab.aot.sose2011;
 
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
@@ -29,8 +25,9 @@ public class FeedDisplay extends JFrame {
 		gbc.weightx = gbc.weighty = 1.0;
 		gbc.fill = GridBagConstraints.BOTH;
 		this.setLayout(new GridBagLayout());
-		
+		this.textArea.setEditable(false);
 //		this.textArea.setContentType("text/html");
+		
 		
 		JScrollPane scrollpane = new JScrollPane(textArea);
 		this.add(scrollpane, gbc);
@@ -41,6 +38,7 @@ public class FeedDisplay extends JFrame {
 	
 	public void addMessage(String msg) {
 		Document doc = this.textArea.getDocument();
+		
 		try {
 			doc.insertString(doc.getLength(), msg + "\n", null);
 		} catch (BadLocationException e) {
