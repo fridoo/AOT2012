@@ -18,6 +18,7 @@ public class InformationAgentBean extends BlackboardAgentBean{
 	String cat = null;
 
 	// TODO Kategorie auslesen und in IFeedItem speichern, im Moment bleibt es null.
+	// Auﬂerdem werden noch Nachrichten doppelt reingeschrieben und es scheinen nur Nachrichten von einem Feed anzukommen.
 	@Override
 	public void execute() {
 		iFeed = blackboard.read(iFeedTPL);
