@@ -23,7 +23,7 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 	    try {
 	        url[0] = new URL("http://www.sueddeutsche.de/app/service/rss/alles/rss.xml");
 	        url[1] = new URL("http://www.taz.de/!p3270;rss/");
-	        url[2] = new URL("http://www.heise.de/newsticker/heise.rdf");
+	        url[2] = new URL("http://www.heise.de/newsticker/heise-atom.xml");
 	        url[3] = new URL("http://rss.slashdot.org/Slashdot/slashdot");
 	        url[4] = new URL("http://newsfeed.zeit.de/all");
 	    } catch (MalformedURLException ex) {
