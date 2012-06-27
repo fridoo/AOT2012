@@ -116,6 +116,11 @@ public class FilterAgentBean extends BlackboardAgentBean {
 			}
 			temp.computeTotal();
 			text_scores.add(temp);
+			try {
+				searcher.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		int tmp = text_scores.size();
 		ArrayList<Integer> rem = removeSimilar(text_scores);
@@ -131,6 +136,7 @@ public class FilterAgentBean extends BlackboardAgentBean {
 			blackboard.write(item);
 		}
 		log.debug("Liste beim schreiben: " + items.size());
+		
 	}
 
 	private static void addDoc(IndexWriter w, String value) throws IOException {
