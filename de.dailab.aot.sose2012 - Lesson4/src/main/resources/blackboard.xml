@@ -25,6 +25,7 @@
 				<ref bean="InformationAgent-Gesellschaft" />
 				<!--ref bean="InformationAgent-Sport" /-->
 				<!--ref bean="InformationAgent-Keine-Kategorie" /-->
+				<ref bean="FilterAgent" />
 			</list>
 		</property>
 	</bean>
@@ -80,6 +81,17 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.FeedAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="FilterAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.FilterAgentBean">
 					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="info" />
 				</bean>
