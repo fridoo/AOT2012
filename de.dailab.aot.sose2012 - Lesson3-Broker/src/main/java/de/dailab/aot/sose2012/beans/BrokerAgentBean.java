@@ -14,6 +14,7 @@ import org.sercho.masp.space.event.WriteCallEvent;
 
 import de.dailab.aot.sose2012.ontology.Agree;
 import de.dailab.aot.sose2012.ontology.Failure;
+import de.dailab.aot.sose2012.ontology.FailureNoMatch;
 import de.dailab.aot.sose2012.ontology.FailureProxy;
 import de.dailab.aot.sose2012.ontology.HeatingService;
 import de.dailab.aot.sose2012.ontology.Inform;
@@ -182,7 +183,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 							if (inf.getInReplyToID() == currentTask.getTaskID()) {
 								QualityOfService qos = (QualityOfService) inf.getValue();
 								currentTask.addQOS(qos);
-								log.debug("Broker: hat QOS zum currentTask hinzugefügt");
+								log.debug("Broker: hat QOS zum currentTask hinzugefügt - Agent ready: " + qos.ready);
 								if (currentTask.full()) { // when the 4th Agent
 															// replied check for
 															// best suitable
@@ -209,6 +210,10 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 												idpMsg,
 												currentTask.getClient().getMessageBoxAddress() });
 									} else {
+										FailureNoMatch<HeatingService> fnm = new FailureNoMatch<HeatingService>(thisAgent.getAgentDescription(),
+												currentTask.getSetHeatingTo(), "Found no agent which can execute the task");
+										JiacMessage failNoMatchMsg = new JiacMessage(fnm);
+										invoke(send, new Serializable[] { failNoMatchMsg, currentTask.getClient().getMessageBoxAddress() });
 										log.debug("Broker: kann keinen best agent finden");
 									}
 								}
@@ -364,7 +369,7 @@ public class BrokerAgentBean extends AbstractAgentBean implements
 				return null;
 			} else {
 				iter = qosList.iterator(); // get new iterator
-				// determine the QualityOfService the the maximum quality
+				// determine the QualityOfService with the maximum quality
 				QualityOfService maxQOS = qosList.get(0);
 				while(iter.hasNext()) {
 					QualityOfService currQOS = iter.next();
