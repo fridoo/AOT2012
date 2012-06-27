@@ -45,7 +45,7 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 				for (int j = 0; j < tmpFeed.getItemCount(); ++j) {
 					FeedItem item = tmpFeed.getItem(j);
 					feed.addItem(item);
-					log.debug(item.getTitle());
+//					log.debug(item.getTitle());
 				}
 			}
 		} catch (FeedException e) {
