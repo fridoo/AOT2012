@@ -53,6 +53,7 @@ public class FilterAgentBean extends BlackboardAgentBean {
 		if (hItems == null || hItems.isEmpty()) {
 			return;
 		}
+		log.debug("Liste bei holen: " + hItems.size());
 		ArrayList<String> queries = new ArrayList<String>();
 		ArrayList<IFeedItem> items = new ArrayList<IFeedItem>();
 		ArrayList<Text_score> text_scores = new ArrayList<Text_score>();
@@ -123,11 +124,13 @@ public class FilterAgentBean extends BlackboardAgentBean {
 					+ " Nachrichten wegen Überschneidungen entfernt");
 			for(int i = rem.size()-1; i >= 0; --i) {
 				items.remove((int) rem.get(i));
+				log.info("Löschen: " + rem.get(i));
 			}
 		}
 		for (IFeedItem item : items) {
 			blackboard.write(item);
 		}
+		log.debug("Liste beim schreiben: " + items.size());
 	}
 
 	private static void addDoc(IndexWriter w, String value) throws IOException {

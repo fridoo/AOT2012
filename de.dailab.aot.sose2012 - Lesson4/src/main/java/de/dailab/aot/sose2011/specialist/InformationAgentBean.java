@@ -15,7 +15,7 @@ import de.dailab.jiactng.agentcore.knowledge.IFact;
 public class InformationAgentBean extends BlackboardAgentBean {
 
 	HashSet<IFeedItem> items;
-	private String category = "sport";
+	private String category = null;
 	
 	private IFeedItem iFeedItemTpl;
 	private final SpaceObserver<IFact> observer = new MyObserver();
