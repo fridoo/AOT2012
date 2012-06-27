@@ -22,6 +22,7 @@
 			<list>
 				<ref bean="DownloadAgent" />
 				<ref bean="FeedAgent" />
+				<ref bean="InformationAgent" />
 			</list>
 		</property>
 	</bean>
@@ -30,6 +31,17 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="DownloadAgentBean" class="de.dailab.aot.sose2011.specialist.DownloadAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="InformationAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="InformationAgentBean" class="de.dailab.aot.sose2011.specialist.InformationAgentBean">
 					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="DEBUG" />
 				</bean>
@@ -42,7 +54,7 @@
 			<list>
 				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.FeedAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="DEBUG" />
+					<property name="logLevel" value="info" />
 				</bean>
 			</list>
 		</property>
