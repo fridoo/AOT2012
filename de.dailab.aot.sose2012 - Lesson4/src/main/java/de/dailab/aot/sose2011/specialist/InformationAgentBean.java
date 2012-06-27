@@ -31,6 +31,9 @@ public class InformationAgentBean extends BlackboardAgentBean {
 	@Override
 	public void execute() {
 		items = (HashSet<IFeedItem>) blackboard.removeAll(iFeedItemTpl);
+		if(items.isEmpty()) {
+			return;
+		}
 		for (IFeedItem setItem : items) {
 			FeedItem item = setItem.getFeedItem();
 			log.debug(item.getTitle());

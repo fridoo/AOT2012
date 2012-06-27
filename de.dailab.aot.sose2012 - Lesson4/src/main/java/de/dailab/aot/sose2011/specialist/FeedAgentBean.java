@@ -42,7 +42,7 @@ public class FeedAgentBean extends BlackboardAgentBean {
 				items.add(item.getGUID());
 				log.debug(item.getTitle());
 			} else {
-				log.debug("items contained " + item.getTitle());
+				log.debug("item contained " + item.getTitle());
 			}
 		}
 	}
