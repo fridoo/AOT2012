@@ -23,8 +23,8 @@
 				<ref bean="DownloadAgent" />
 				<ref bean="FeedAgent" />
 				<ref bean="InformationAgent-Gesellschaft" />
-				<!--ref bean="InformationAgent-Sport" /-->
-				<!--ref bean="InformationAgent-Keine-Kategorie" /-->
+				<ref bean="InformationAgent-Sport" />
+				<ref bean="InformationAgent-Keine-Kategorie" />
 			</list>
 		</property>
 	</bean>

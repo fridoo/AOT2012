@@ -70,13 +70,21 @@ public class InformationAgentBean extends BlackboardAgentBean {
 					
 					if (setItem.getCategory().equals(InformationAgentBean.this.category)) {
 						FeedItem item = setItem.getFeedItem();
-						log.info("........ Kategorie ... " + setItem.getCategory() );
-						log.info(item.getTitle());
-						log.info(item.getDescriptionAsText());
-						log.info(">>> For more information visit: " + item.getLink());
-						log.info("'''''''''''''''''''''''''");
+						
+						InformationAgentBean.display.addMessage("........ Kategorie ... " + setItem.getCategory());
+						InformationAgentBean.display.addMessage(item.getTitle());
+						InformationAgentBean.display.addMessage(item.getDescriptionAsText());
+						InformationAgentBean.display.addMessage(">>> For more information visit: " + item.getLink());
+						InformationAgentBean.display.addMessage("'''''''''''''''''''''''''");
+						
+//						log.info("........ Kategorie ... " + setItem.getCategory() );
+//						log.info(item.getTitle());
+//						log.info(item.getDescriptionAsText());
+//						log.info(">>> For more information visit: " + item.getLink());
+//						log.info("'''''''''''''''''''''''''");
 					} else {
-						log.info(++counter + " not my category: " + setItem.getCategory());
+						
+//						log.info(++counter + " not my category: " + setItem.getCategory());
 					}
 					
 				}
