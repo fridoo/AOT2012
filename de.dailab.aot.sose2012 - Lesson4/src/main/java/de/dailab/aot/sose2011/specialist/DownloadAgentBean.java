@@ -55,6 +55,12 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 		if(feed==null || feed.equals(oldFeed)) {
 			return;
 		}
+//		log.debug("--------------------------------------------------");
+//		for (int j = 0; j < feed.getItemCount(); ++j) {
+//			FeedItem item = feed.getItem(j);
+//			log.debug(item.getTitle());
+//		}
+//		log.debug("--------------------------------------------------");
 		IFeed iFeed = new IFeed(feed);
 		blackboard.removeAll(iFeedTpl);
 		blackboard.write(iFeed);

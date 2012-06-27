@@ -8,7 +8,7 @@ import de.dailab.aot.sose2011.blackboard.BlackboardAgentBean;
 import de.dailab.aot.sose2012.ontology.IFeed;
 import de.dailab.aot.sose2012.ontology.IFeedItem;
 
-public class InformationAgentBean extends BlackboardAgentBean{
+public class FeedAgentBean extends BlackboardAgentBean{
 
 	IFeed iFeedTPL = new IFeed();
 	IFeed iFeed;
@@ -35,11 +35,13 @@ public class InformationAgentBean extends BlackboardAgentBean{
 			FeedItem item = feed.getItem(i);
 			for (int j= 0; j<item.getAttributeCount(); ++j) {
 				if (!items.contains(item)) {
-					cat = item.getElementValue(item.getNamespaceURI(), "category");
+//					cat = item.getElementValue(item.getNamespaceURI(), "category");
 					IFeedItem msg = new IFeedItem(item, cat);
 					blackboard.write(msg);
 					items.add(item);
 					log.debug(item.getTitle());
+				} else {
+					log.debug("items contained " + item.getTitle());
 				}
 			}
 		}

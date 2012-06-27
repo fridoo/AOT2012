@@ -21,7 +21,7 @@
 		<property name="agents">
 			<list>
 				<ref bean="DownloadAgent" />
-				<ref bean="InformationAgent" />
+				<ref bean="FeedAgent" />
 			</list>
 		</property>
 	</bean>
@@ -37,10 +37,10 @@
 		</property>
 	</bean>
 	
-	<bean name="InformationAgent" parent="SimpleAgent">
+	<bean name="FeedAgent" parent="SimpleAgent">
 		<property name="agentBeans">
 			<list>
-				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.InformationAgentBean">
+				<bean name="informationAgentBean" class="de.dailab.aot.sose2011.specialist.FeedAgentBean">
 					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="DEBUG" />
 				</bean>
