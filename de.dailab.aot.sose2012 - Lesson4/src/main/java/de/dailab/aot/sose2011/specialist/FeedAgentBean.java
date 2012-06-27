@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 import it.sauronsoftware.feed4j.bean.Feed;
 import it.sauronsoftware.feed4j.bean.FeedItem;
+import it.sauronsoftware.feed4j.bean.RawElement;
 import de.dailab.aot.sose2011.blackboard.BlackboardAgentBean;
 import de.dailab.aot.sose2012.ontology.IFeed;
 import de.dailab.aot.sose2012.ontology.IFeedItem;
@@ -36,13 +37,18 @@ public class FeedAgentBean extends BlackboardAgentBean {
 		for (int i = 0; i < feed.getItemCount(); ++i) {
 			FeedItem item = feed.getItem(i);
 			if (!items.contains(item.getGUID())) {
-				// cat = item.getElementValue(item.getNamespaceURI(),"category");
-				IFeedItem msg = new IFeedItem(item, cat);
+				IFeedItem msg = null;
+				RawElement rawElement = item.getElement("", "category");
+				if (rawElement != null && rawElement.getValue() != null) {
+					msg = new IFeedItem(item, rawElement.getValue().toLowerCase());
+				} else {
+					msg = new IFeedItem(item, "keine");
+				}
 				blackboard.write(msg);
 				items.add(item.getGUID());
 				log.debug(item.getTitle());
 			} else {
-				log.debug("item contained " + item.getTitle());
+				log.debug("items contained " + item.getTitle() + " already");
 			}
 		}
 	}

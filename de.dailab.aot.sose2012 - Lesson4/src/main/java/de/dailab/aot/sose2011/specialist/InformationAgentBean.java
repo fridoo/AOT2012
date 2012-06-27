@@ -11,7 +11,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 
 	private IFeedItem iFeedItemTpl;
 	HashSet<IFeedItem> items;
-	private String category = null;
+	private String category = "sport";
 
 	public String getCategory() {
 		return category;
@@ -25,6 +25,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 	
 	@Override
 	public void doStart() throws Exception {
+		log.info(category);
 		iFeedItemTpl = new IFeedItem(null, category);
 	}
 
@@ -36,7 +37,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 		}
 		for (IFeedItem setItem : items) {
 			FeedItem item = setItem.getFeedItem();
-			log.debug(item.getTitle());
+			log.info(setItem.getCategory() + ": " + item.getTitle() + " " + item.getLink());
 		}
 		log.debug("-----------------------------------------------");
 	}

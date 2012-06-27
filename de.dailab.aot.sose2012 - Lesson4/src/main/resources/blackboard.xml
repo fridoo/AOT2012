@@ -22,7 +22,9 @@
 			<list>
 				<ref bean="DownloadAgent" />
 				<ref bean="FeedAgent" />
-				<ref bean="InformationAgent" />
+				<ref bean="InformationAgent-Gesellschaft" />
+				<!--ref bean="InformationAgent-Sport" /-->
+				<!--ref bean="InformationAgent-Keine-Kategorie" /-->
 			</list>
 		</property>
 	</bean>
@@ -38,12 +40,37 @@
 		</property>
 	</bean>
 	
-	<bean name="InformationAgent" parent="SimpleAgent">
+	<bean name="InformationAgent-Gesellschaft" parent="SimpleAgent">
 		<property name="agentBeans">
 			<list>
 				<bean name="InformationAgentBean" class="de.dailab.aot.sose2011.specialist.InformationAgentBean">
 					<property name="executeInterval" value="1000" />
-					<property name="logLevel" value="DEBUG" />
+					<property name="logLevel" value="info" />
+					<property name="category" value="gesellschaft" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="InformationAgent-Sport" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="InformationAgentBean" class="de.dailab.aot.sose2011.specialist.InformationAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="category" value="sport" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="InformationAgent-Keine-Kategorie" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="InformationAgentBean" class="de.dailab.aot.sose2011.specialist.InformationAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="info" />
+					<property name="category" value="keine" />
 				</bean>
 			</list>
 		</property>
