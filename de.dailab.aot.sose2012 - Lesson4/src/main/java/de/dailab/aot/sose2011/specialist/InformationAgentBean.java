@@ -35,6 +35,7 @@ public class InformationAgentBean extends BlackboardAgentBean {
 			FeedItem item = setItem.getFeedItem();
 			log.debug(item.getTitle());
 		}
+		log.debug("-----------------------------------------------");
 	}
 	
 	
