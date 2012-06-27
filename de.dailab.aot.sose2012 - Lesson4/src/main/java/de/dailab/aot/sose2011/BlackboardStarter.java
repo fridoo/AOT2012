@@ -6,6 +6,7 @@ public class BlackboardStarter {
 
 
 	public static void main(String[] args) {
+//		new FeedDisplay();
 		SimpleAgentNode.main(new String[] { "classpath:blackboard.xml" });
 	}
 
