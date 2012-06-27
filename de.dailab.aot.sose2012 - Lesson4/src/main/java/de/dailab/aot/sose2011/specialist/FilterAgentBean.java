@@ -120,9 +120,9 @@ public class FilterAgentBean extends BlackboardAgentBean {
 		ArrayList<Integer> rem = removeSimilar(text_scores);
 		if (tmp != text_scores.size()) {
 			log.info(tmp - text_scores.size()
-					+ "Nachrichten wegen Überschneidungen entfernt");
+					+ " Nachrichten wegen Überschneidungen entfernt");
 			for(int i = rem.size()-1; i >= 0; --i) {
-				items.remove(rem.get(i));
+				items.remove((int) rem.get(i));
 			}
 		}
 		for (IFeedItem item : items) {
