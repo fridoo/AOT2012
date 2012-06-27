@@ -14,7 +14,7 @@ import de.dailab.aot.sose2012.ontology.IFeed;
 public class DownloadAgentBean extends BlackboardAgentBean {
 	
 	URL[] url = new URL[5];
-	Feed feed, oldFeed, tmpFeed;
+	Feed oldFeed, tmpFeed;
 	IFeed iFeedTpl = new IFeed();
 	
 	@Override	
@@ -37,9 +37,10 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 		if(url==null) {
 			return;
 		}
+		log.debug("Download Execution");
+		Feed feed = new Feed();
 		int i = 0;
 		try {
-			feed = new Feed();
 			for (i = 0; i < url.length; ++i) {
 				tmpFeed = FeedParser.parse(url[i]);
 				for (int j = 0; j < tmpFeed.getItemCount(); ++j) {
@@ -47,23 +48,19 @@ public class DownloadAgentBean extends BlackboardAgentBean {
 					feed.addItem(item);
 //					log.debug(item.getTitle());
 				}
+				log.debug("parsed feed " + i + " total feedcount: " + feed.getItemCount());
 			}
 		} catch (FeedException e) {
-			log.debug("FeedException for Feed" + url[i].getHost().toString());
+			log.debug("FeedException for Feed " + url[i].getHost().toString());
 			feed = null;
 		}
 		if(feed==null || feed.equals(oldFeed)) {
 			return;
 		}
-//		log.debug("--------------------------------------------------");
-//		for (int j = 0; j < feed.getItemCount(); ++j) {
-//			FeedItem item = feed.getItem(j);
-//			log.debug(item.getTitle());
-//		}
-//		log.debug("--------------------------------------------------");
-		IFeed iFeed = new IFeed(feed);
+		IFeed iFeed = new IFeed(feed, null); // ändern
 		blackboard.removeAll(iFeedTpl);
 		blackboard.write(iFeed);
+		log.debug("added new feed to Bb");
 		oldFeed = feed;
 	}
 	
