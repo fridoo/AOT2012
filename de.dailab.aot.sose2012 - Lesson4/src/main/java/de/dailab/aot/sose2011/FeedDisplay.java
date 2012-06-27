@@ -30,7 +30,7 @@ public class FeedDisplay extends JFrame {
 		gbc.fill = GridBagConstraints.BOTH;
 		this.setLayout(new GridBagLayout());
 		
-//		this.textArea.se
+//		this.textArea.setContentType("text/html");
 		
 		JScrollPane scrollpane = new JScrollPane(textArea);
 		this.add(scrollpane, gbc);
