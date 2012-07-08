@@ -152,9 +152,12 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					InformWin infWin = (InformWin) ((JiacMessage) object).getPayload();
-					log.info(thisAgent.getAgentName() + " bought " + infWin.getItemBought().getName() 
-							+ " for" + infWin.getItemBought().getCurrentBid().getBid());
-					itemsBought++;
+					// check if I won the auction
+					if (infWin.getItemBought().getCurrentBid().getSenderID().equals(thisAgent.getAgentDescription())) {
+						log.info(thisAgent.getAgentName() + " bought " + infWin.getItemBought().getName() 
+								+ " for" + infWin.getItemBought().getCurrentBid().getBid());
+						itemsBought++;
+					}
 				}
 			}
 		}

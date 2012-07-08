@@ -100,11 +100,12 @@ public class AuctioneerBean extends AbstractAgentBean implements
 			
 			if (this.itemsToSell.get(currentAuctionIndex).getCurrentBid() != null
 					&& this.itemsToSell.get(currentAuctionIndex).getCurrentBid().getSenderID() != null) {
-				// inform winner
+				// inform all agents about winner
 				InformWin infWin = new InformWin(thisAgent.getAgentDescription(), this.itemsToSell.get(currentAuctionIndex));
 				JiacMessage infWinMsg = new JiacMessage(infWin);
-				this.invoke(send, new Serializable[] { infWinMsg, this.itemsToSell.get(currentAuctionIndex)
-						.getCurrentBid().getSenderID().getMessageBoxAddress() });
+				this.invoke(send, new Serializable[] { infWinMsg, this.groupAddress });
+			} else {
+				log.info("item " + this.itemsToSell.get(currentAuctionIndex).getName() + " could not be sold");
 			}
 			
 		}
