@@ -50,6 +50,7 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 	private final int ITEMS_TO_BUY = 3;
 	private int budget;
 	private int itemsBought;
+	private int itemsLeft = 8;
 
 
 	@Override
@@ -153,6 +154,7 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 				if (object instanceof JiacMessage) {
 					InformWin infWin = (InformWin) ((JiacMessage) object).getPayload();
 					// check if I won the auction
+					itemsLeft--;
 					if (infWin.getItemBought().getCurrentBid().getSenderID().equals(thisAgent.getAgentDescription())) {
 						log.info(thisAgent.getAgentName() + " bought " + infWin.getItemBought().getName() 
 								+ " for" + infWin.getItemBought().getCurrentBid().getBid());
