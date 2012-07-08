@@ -14,7 +14,7 @@ public class Bid implements IFact {
 	private final int auctionID;
 	
 	public Bid() {
-		this.bid = -1;
+		this.bid = 0;
 		this.senderID = null;
 		this.auctionID = -1;
 	}

@@ -65,7 +65,9 @@ public class AuctioneerBean extends AbstractAgentBean implements
 
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
-		// TODO erzeugt liste mit items zum versteigern
+		for (int i = 0; i < 8; i++) {
+			this.itemsToSell.add(new ItemForSale("item_" + i, 0));
+		}
 		
 		this.auctionRunning = false;
 		this.currentAuctionIndex = -1;
@@ -96,7 +98,8 @@ public class AuctioneerBean extends AbstractAgentBean implements
 			// stop auction
 			this.auctionRunning = false;
 			
-			if (this.itemsToSell.get(currentAuctionIndex).getCurrentBid() != null) {
+			if (this.itemsToSell.get(currentAuctionIndex).getCurrentBid() != null
+					&& this.itemsToSell.get(currentAuctionIndex).getCurrentBid().getSenderID() != null) {
 				// inform winner
 				InformWin infWin = new InformWin(thisAgent.getAgentDescription(), this.itemsToSell.get(currentAuctionIndex));
 				JiacMessage infWinMsg = new JiacMessage(infWin);
@@ -126,7 +129,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 					log.info("---- End Of All Auctions ----");
 					for (ItemForSale ifs : this.itemsToSell) {
 						log.info("Item " + ifs.getName() + " was bought by " 
-								+ ifs.getCurrentBid() != null ? ifs.getCurrentBid().getSenderID().getName() : "no buyer" 
+								+ ifs.getCurrentBid().getSenderID() != null ? ifs.getCurrentBid().getSenderID().getName() : "no buyer" 
 								+ " for " + ifs.getCurrentBid() != null ? ifs.getCurrentBid().getBid() : "-" + " AE");
 					}
 				}
