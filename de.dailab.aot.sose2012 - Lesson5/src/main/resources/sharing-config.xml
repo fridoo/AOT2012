@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+	<!--
+		This is a Spring application context. There are imports to other
+		Spring configurations and configured beans.
+	-->
+<beans>
+
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+	<import resource="classpath:de/dailab/jiactng/agentcore/conf/AgentNode.xml" />
+
+	<bean name="JIACvNode" parent="NodeWithJMX">
+		<property name="agents">
+			<list>
+				<ref bean="AuctioneerAgent" />
+				<ref bean="BidderAgent1" />
+				<ref bean="BidderAgent2" />
+				<ref bean="BidderAgent3" />
+			</list>
+		</property>
+	</bean>
+
+
+	<bean name="AuctioneerAgent" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="AuctioneerBean" class="de.dailab.aot.sose2012.beans.AuctioneerBean">
+					<property name="executeInterval" value="500" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="BidderAgent1" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="BidderAgentBean" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="BidderAgent2" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="BidderAgentBean2" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="BidderAgent3" parent="SimpleAgent">
+		<property name="agentBeans">
+			<list>
+				<bean name="BidderAgentBean3" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
+					<property name="executeInterval" value="1000" />
+					<property name="logLevel" value="DEBUG" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
