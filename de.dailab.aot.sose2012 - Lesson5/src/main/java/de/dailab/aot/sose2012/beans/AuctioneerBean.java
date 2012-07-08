@@ -65,6 +65,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
+		this.itemsToSell = new ArrayList<ItemForSale>(8);
 		for (int i = 0; i < 8; i++) {
 			this.itemsToSell.add(new ItemForSale("item_" + i, 0));
 		}
@@ -96,6 +97,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 		
 		if (auctionRunning && System.currentTimeMillis() > this.nextDeadline) { // deadline is expired
 			// stop auction
+			log.debug("Auction stoped");
 			this.auctionRunning = false;
 			
 			if (this.itemsToSell.get(currentAuctionIndex).getCurrentBid() != null
@@ -117,24 +119,24 @@ public class AuctioneerBean extends AbstractAgentBean implements
 					&& this.currentAuctionIndex < this.itemsToSell.size() ) { // at least one more item to sell
 				// start new auction
 				log.info("Starting auction number: " + this.currentAuctionIndex 
-						+ " for item " + this.itemsToSell.get(currentAuctionIndex));
+						+ " for item " + this.itemsToSell.get(currentAuctionIndex).getName());
 				StartOfAuction soa = new StartOfAuction(thisAgent.getAgentDescription(), 
 						this.currentAuctionIndex, this.itemsToSell.get(currentAuctionIndex));
 				JiacMessage soaMsg = new JiacMessage(soa);
 				this.invoke(send, new Serializable[] { soaMsg, this.groupAddress });
 				this.nextDeadline = System.currentTimeMillis() + BID_TIMEOUT;
 				this.auctionRunning = true;
+				
 			} else { // no more items to sell
 				if (!this.postedWinners) {
-					this.currentAuctionIndex = -1;
+					this.postedWinners = true;
 					log.info("---- End Of All Auctions ----");
 					for (ItemForSale ifs : this.itemsToSell) {
-						log.info("Item " + ifs.getName() + " was bought by " 
-								+ ifs.getCurrentBid().getSenderID() != null ? ifs.getCurrentBid().getSenderID().getName() : "no buyer" 
-								+ " for " + ifs.getCurrentBid() != null ? ifs.getCurrentBid().getBid() : "-" + " AE");
+						log.info(ifs.getName() + " was bought by " 
+						+ ((ifs.getCurrentBid().getSenderID() != null) ? ifs.getCurrentBid().getSenderID().getName() : "NO-BUYER")
+						+ " for " + ((ifs.getCurrentBid().getSenderID() != null) ? ifs.getCurrentBid().getBid() : "-") + " AE");
 					}
 				}
-				this.postedWinners = true;
 			}
 		}
 		
@@ -188,7 +190,11 @@ public class AuctioneerBean extends AbstractAgentBean implements
 							}
 							// set new deadline
 							nextDeadline = System.currentTimeMillis() + BID_TIMEOUT;
+						} else {
+							log.debug("Bid not accepted, bid not valid");
 						}
+					} else {
+						log.debug("Bid not accepted, no auction or not registered");
 					}
 					
 				}
@@ -212,6 +218,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 				if (object instanceof JiacMessage) {
 					RegisterForAuction rfa =  (RegisterForAuction) ((JiacMessage)object).getPayload();
 					if (auctionRunning && currentAuctionIndex == rfa.getAuctionID()) {
+						log.debug(rfa.getSenderID().getName() + " registered to auction " + currentAuctionIndex);
 						AuctioneerBean.this.registeredBidders.add(rfa.getSenderID());
 					}
 				}

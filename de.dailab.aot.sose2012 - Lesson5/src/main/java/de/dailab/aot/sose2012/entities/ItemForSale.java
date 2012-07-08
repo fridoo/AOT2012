@@ -1,9 +1,14 @@
 package de.dailab.aot.sose2012.entities;
 
 import de.dailab.aot.sose2012.ontology.Bid;
+import de.dailab.jiactng.agentcore.knowledge.IFact;
 
-public class ItemForSale {
+public class ItemForSale implements IFact {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2131652073351291966L;
 	// the name of the item
 	private final String name;
 	// the actual value of the item (might not be used)

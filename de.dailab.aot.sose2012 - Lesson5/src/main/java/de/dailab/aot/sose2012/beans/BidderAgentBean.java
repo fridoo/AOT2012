@@ -7,6 +7,8 @@ import org.sercho.masp.space.event.SpaceEvent;
 import org.sercho.masp.space.event.SpaceObserver;
 import org.sercho.masp.space.event.WriteCallEvent;
 
+import de.dailab.aot.sose2012.ontology.Bid;
+import de.dailab.aot.sose2012.ontology.Inform;
 import de.dailab.aot.sose2012.ontology.InformWin;
 import de.dailab.aot.sose2012.ontology.RegisterForAuction;
 import de.dailab.aot.sose2012.ontology.StartOfAuction;
@@ -20,16 +22,14 @@ import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.environment.ResultReceiver;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
+import de.dailab.jiactng.agentcore.ontology.IAgentDescription;
 
 /**
- * HeizungsAgentBean is the main class for HeizungsAgent. It receives
- * heating-state changerequests from other agents and fulfills them if they're
- * valid, or rejects them.
  * 
  * @author Mitch
  * 
  */
-public class BiddingAgentBean extends AbstractAgentBean implements
+public class BidderAgentBean extends AbstractAgentBean implements
 		ResultReceiver {
 
 	// used actions
@@ -47,10 +47,14 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> observerSTARTAUC = new StartAuctionObserver();
 	private final SpaceObserver<IFact> observerWIN = new InformWinObserver();
 
-	private final int ITEMS_TO_BUY = 3;
-	private int budget;
-	private int itemsBought;
+	private int ITEMS_TO_BUY = 3;
+	private int budget = 500;
 	private int itemsLeft = 8;
+	private IAgentDescription auctioneer;
+	private boolean participateInAuction;
+	private int lastBid;
+	private int biddingLimit;
+	private Random rand;
 
 
 	@Override
@@ -68,9 +72,9 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 		this.invoke(join, new Serializable[] { groupAddress }, this);
 
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
-
-		this.budget = 500;
-		this.itemsBought = 0;
+		
+		this.participateInAuction = false;
+		this.rand = new Random();
 		
 		// attach observers
 		this.memory.attach(observerSTARTAUC, STARTAUC);
@@ -79,7 +83,7 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 
 	@Override
 	public void execute() {
-		// TODO implement bidding strategy
+		
 	}
 
 	/**
@@ -111,6 +115,15 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 		}
 	}
 	
+	private void sendBid(int amount, int auctionID) {
+		Bid bid = new Bid(thisAgent.getAgentDescription(), amount, auctionID);
+		lastBid = amount;
+		JiacMessage bidMsg = new JiacMessage(bid);
+		invoke(send, new Serializable[] { bidMsg, auctioneer.getMessageBoxAddress() });
+	}
+	
+	
+	
 	final class StartAuctionObserver implements SpaceObserver<IFact> {
 		
 		/**
@@ -125,18 +138,69 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
+					StartOfAuction soa = (StartOfAuction) ((JiacMessage) object).getPayload();
+					log.debug("received start of auction");
 					// reply only if budget is not zero and this Agents still wants to buy more items
-					if (itemsBought < ITEMS_TO_BUY && budget !=  0) { 
-						StartOfAuction soa = (StartOfAuction) ((JiacMessage) object).getPayload();
+					if (ITEMS_TO_BUY > 0 && budget > 0) { 
 						RegisterForAuction rfa = new RegisterForAuction(thisAgent.getAgentDescription(), soa.getAuctionID());
 						JiacMessage rfaMsg = new JiacMessage(rfa);
 						// register for auction
-						invoke(send, new Serializable[] { rfaMsg, soa.getSenderID().getMessageBoxAddress() });
+						auctioneer = soa.getSenderID();
+						participateInAuction = true;
+						invoke(send, new Serializable[] { rfaMsg, auctioneer.getMessageBoxAddress() });
+						log.debug("try to register, items to buy " + ITEMS_TO_BUY);
+						
+						// send initial Bid
+						sendBid(1, soa.getAuctionID());
+					} else {
+						log.debug(thisAgent.getAgentName() + " does't join auction " + soa.getAuctionID());
+						participateInAuction = false;
+						auctioneer = null;
 					}
 				}
 			}
 		}
 	}
+	
+	final class InformBidObserver implements SpaceObserver<IFact> {
+		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 7644631440961432970L;
+
+		@Override
+		public void notify(SpaceEvent<? extends IFact> event) {
+			
+			if (event instanceof WriteCallEvent) {
+				@SuppressWarnings("rawtypes")
+				Object object = ((WriteCallEvent) event).getObject();
+				if (object instanceof JiacMessage) {
+					if (!participateInAuction) {
+						return;
+					}
+					
+					@SuppressWarnings("unchecked")
+					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
+					if (inf.getValue() instanceof Bid) {
+						Bid bid = (Bid) inf.getValue();
+						// check if i'm the hightest bidder
+						if ( ! bid.getSenderID().equals(thisAgent.getAgentDescription())) {
+							// send higher bid if possible
+							biddingLimit = budget/2 + rand.nextInt(budget/4);
+							if (bid.getBid() + 1 <= biddingLimit) {
+								sendBid(bid.getBid() + 1, bid.getAuctionID());
+							} else {
+								// 
+							}
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	
 	final class InformWinObserver implements SpaceObserver<IFact> {
 		
@@ -155,10 +219,12 @@ public class BiddingAgentBean extends AbstractAgentBean implements
 					InformWin infWin = (InformWin) ((JiacMessage) object).getPayload();
 					// check if I won the auction
 					itemsLeft--;
+					participateInAuction = false;
 					if (infWin.getItemBought().getCurrentBid().getSenderID().equals(thisAgent.getAgentDescription())) {
 						log.info(thisAgent.getAgentName() + " bought " + infWin.getItemBought().getName() 
-								+ " for" + infWin.getItemBought().getCurrentBid().getBid());
-						itemsBought++;
+								+ " for " + infWin.getItemBought().getCurrentBid().getBid());
+						ITEMS_TO_BUY--;
+						budget -= infWin.getItemBought().getCurrentBid().getBid();
 					}
 				}
 			}

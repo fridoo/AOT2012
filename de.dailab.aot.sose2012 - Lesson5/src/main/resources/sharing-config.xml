@@ -15,8 +15,8 @@
 			<list>
 				<ref bean="AuctioneerAgent" />
 				<ref bean="BidderAgent1" />
-				<ref bean="BidderAgent2" />
-				<ref bean="BidderAgent3" />
+				<!-- <ref bean="BidderAgent2" />
+				<ref bean="BidderAgent3" /> -->
 			</list>
 		</property>
 	</bean>
@@ -26,7 +26,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="AuctioneerBean" class="de.dailab.aot.sose2012.beans.AuctioneerBean">
-					<property name="executeInterval" value="500" />
+					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="DEBUG" />
 				</bean>
 			</list>
