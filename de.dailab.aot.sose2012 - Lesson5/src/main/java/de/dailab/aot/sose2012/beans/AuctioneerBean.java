@@ -183,18 +183,19 @@ public class AuctioneerBean extends AbstractAgentBean implements
 							// bid accepted
 							itemsToSell.get(currentAuctionIndex).setCurrentBid(bid);
 							// send current bid to all registered Bidders
-							for (IAgentDescription iad : registeredBidders) {
+//							for (IAgentDescription iad : registeredBidders) {
 								Inform<Bid> inf = new Inform<Bid>(bid, thisAgent.getAgentDescription());
 								JiacMessage infMsg = new JiacMessage(inf);
-								invoke(send, new Serializable[] { infMsg, iad.getMessageBoxAddress() });
-							}
+								invoke(send, new Serializable[] { infMsg, groupAddress });
+//							}
 							// set new deadline
 							nextDeadline = System.currentTimeMillis() + BID_TIMEOUT;
 						} else {
-							log.debug("Bid not accepted, bid not valid");
+							log.debug("Bid " + bid.getBid() + " from " 
+									+ bid.getSenderID().getName() + " not accepted, bid not valid");
 						}
 					} else {
-						log.debug("Bid not accepted, no auction or not registered");
+						log.debug("Bid not accepted from " + bid.getSenderID().getName() + ", no auction or not registered");
 					}
 					
 				}

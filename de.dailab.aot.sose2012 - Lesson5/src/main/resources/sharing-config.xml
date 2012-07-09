@@ -15,8 +15,8 @@
 			<list>
 				<ref bean="AuctioneerAgent" />
 				<ref bean="BidderAgent1" />
-				<!-- <ref bean="BidderAgent2" />
-				<ref bean="BidderAgent3" /> -->
+				<ref bean="BidderAgent2" />
+				<!-- <ref bean="BidderAgent3" /> -->
 			</list>
 		</property>
 	</bean>
@@ -37,8 +37,9 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="BidderAgentBean" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
-					<property name="executeInterval" value="1000" />
+					<property name="executeInterval" value="500" />
 					<property name="logLevel" value="DEBUG" />
+					<property name="STRATEGY" value="1" />
 				</bean>
 			</list>
 		</property>
@@ -48,8 +49,9 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="BidderAgentBean2" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
-					<property name="executeInterval" value="1000" />
+					<property name="executeInterval" value="500" />
 					<property name="logLevel" value="DEBUG" />
+					<property name="STRATEGY" value="2" />
 				</bean>
 			</list>
 		</property>
@@ -61,6 +63,7 @@
 				<bean name="BidderAgentBean3" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
 					<property name="executeInterval" value="1000" />
 					<property name="logLevel" value="DEBUG" />
+					<property name="STRATEGY" value="3" />
 				</bean>
 			</list>
 		</property>
