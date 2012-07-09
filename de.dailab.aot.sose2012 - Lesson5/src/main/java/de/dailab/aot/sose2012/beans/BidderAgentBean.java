@@ -53,7 +53,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	private int budget = 500;
 	private int itemsLeft = 8;
 	private IAgentDescription auctioneer;
-	private boolean participateInAuction;
+	private int currentAuction;
 	private int lastBid;
 	private int biddingLimit;
 	private Random rand;
@@ -85,7 +85,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
-		this.participateInAuction = false;
+		this.currentAuction = -1;
 		this.rand = new Random();
 		
 		// attach observers
@@ -99,38 +99,41 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	@Override
 	public void execute() {
 		
-		if (currentBid.getBid() != oldBid.getBid()) {
-			if ( ! currentBid.getSenderID().equals(thisAgent.getAgentDescription())) {
-				// send higher bid if possible
-				switch (STRATEGY) {
-				case 1:
-					biddingLimit = budget/2 + rand.nextInt(budget/4);
-					if (currentBid.getBid() + 1 <= biddingLimit) {
-						sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
-					} else {
-						log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
+		// only bid if participating at an auction and still got items to buy
+		if (currentAuction != -1 && ITEMS_TO_BUY > 0) {
+			// only bid if a new bid arrived since last bid
+			if (currentBid.getBid() != oldBid.getBid()) {
+				// only bid if i'm not the highest bidder
+				if ( ! currentBid.getSenderID().equals(thisAgent.getAgentDescription())) {
+					// send higher bid if possible
+					switch (STRATEGY) {
+					case 1:
+						biddingLimit = budget/2 + rand.nextInt(budget/4);
+						if (currentBid.getBid() + 1 <= biddingLimit) {
+							sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
+						} else {
+							log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
+						}
+						break;
+					case 2:
+						biddingLimit = budget / ITEMS_TO_BUY;
+						if (currentBid.getBid() + 1 <= biddingLimit) {
+							sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
+						} else {
+							log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
+						}
+						break;
+					case 3:
+						;
+						break;
+					default:
+						break;
 					}
-					break;
-				case 2:
-					biddingLimit = budget / ITEMS_TO_BUY;
-					if (currentBid.getBid() + 1 <= biddingLimit) {
-						sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
-					} else {
-						log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
-					}
-					break;
-				case 3:
-					;
-					break;
-				default:
-					break;
 				}
+				
+				oldBid = currentBid;
 			}
-			
-			oldBid = currentBid;
 		}
-		
-		
 		
 	}
 
@@ -194,7 +197,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						JiacMessage rfaMsg = new JiacMessage(rfa);
 						// register for auction
 						auctioneer = soa.getSenderID();
-						participateInAuction = true;
+						currentAuction = rfa.getAuctionID();
 						oldBid = new Bid();
 						currentBid = new Bid();
 						invoke(send, new Serializable[] { rfaMsg, auctioneer.getMessageBoxAddress() });
@@ -204,7 +207,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						sendBid(1, soa.getAuctionID());
 					} else {
 						log.debug(thisAgent.getAgentName() + " does't join auction " + soa.getAuctionID());
-						participateInAuction = false;
+						currentAuction = -1;
 						auctioneer = null;
 					}
 				}
@@ -226,16 +229,18 @@ public class BidderAgentBean extends AbstractAgentBean implements
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
-					if (!participateInAuction) {
-						return;
-					}
+					log.debug("informBid received ");
 					
 					@SuppressWarnings("unchecked")
 					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
 					if (inf.getValue() instanceof Bid) {
 						Bid bid = (Bid) inf.getValue();
+						if (bid.getAuctionID() != currentAuction) {
+							log.debug("bid ignored, not participating");
+							return;
+						}
+						
 						// check if i'm the hightest bidder
-						log.debug("bid received " + bid.getBid());
 						if (! bid.getSenderID().equals(thisAgent.getAgentDescription()) 
 								&& bid.getBid() > currentBid.getBid()) {
 							oldBid = currentBid;
@@ -296,7 +301,9 @@ public class BidderAgentBean extends AbstractAgentBean implements
 					InformWin infWin = (InformWin) ((JiacMessage) object).getPayload();
 					// check if I won the auction
 					itemsLeft--;
-					participateInAuction = false;
+					if (infWin.getItemBought().getCurrentBid().getAuctionID() == currentAuction) {
+						currentAuction = -1;
+					}
 					if (infWin.getItemBought().getCurrentBid().getSenderID().equals(thisAgent.getAgentDescription())) {
 						ITEMS_TO_BUY--;
 						budget -= infWin.getItemBought().getCurrentBid().getBid();

@@ -124,7 +124,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 						this.currentAuctionIndex, this.itemsToSell.get(currentAuctionIndex));
 				JiacMessage soaMsg = new JiacMessage(soa);
 				this.invoke(send, new Serializable[] { soaMsg, this.groupAddress });
-				this.nextDeadline = System.currentTimeMillis() + BID_TIMEOUT;
+				this.nextDeadline = System.currentTimeMillis() + BID_TIMEOUT + 2000;
 				this.auctionRunning = true;
 				
 			} else { // no more items to sell
@@ -152,7 +152,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 			}
 		} else if (ICommunicationBean.ACTION_SEND.equals(resultActionName)) {
 			if (result.getFailure() != null) {
-				this.log.error("could not send msg" + result.getFailure());
+				this.log.debug("could not send msg" + result.getFailure());
 			}
 		}
 	}
@@ -182,12 +182,10 @@ public class AuctioneerBean extends AbstractAgentBean implements
 							log.debug("Valid Bid received from " + bid.getSenderID().getName() + " amount: " + bid.getBid());
 							// bid accepted
 							itemsToSell.get(currentAuctionIndex).setCurrentBid(bid);
-							// send current bid to all registered Bidders
-//							for (IAgentDescription iad : registeredBidders) {
-								Inform<Bid> inf = new Inform<Bid>(bid, thisAgent.getAgentDescription());
-								JiacMessage infMsg = new JiacMessage(inf);
-								invoke(send, new Serializable[] { infMsg, groupAddress });
-//							}
+							// inform all bidders about new bid
+							Inform<Bid> inf = new Inform<Bid>(bid, thisAgent.getAgentDescription());
+							JiacMessage infMsg = new JiacMessage(inf);
+							invoke(send, new Serializable[] { infMsg, groupAddress });
 							// set new deadline
 							nextDeadline = System.currentTimeMillis() + BID_TIMEOUT;
 						} else {
