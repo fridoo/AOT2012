@@ -59,6 +59,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	private Random rand;
 	private Bid oldBid = new Bid();
 	private Bid currentBid = new Bid();
+	private boolean participating = true;
 	
 	int STRATEGY = 1;
 	public int getSTRATEGY() {
@@ -100,7 +101,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	public void execute() {
 		
 		// only bid if participating at an auction and still got items to buy
-		if (currentAuction != -1 && ITEMS_TO_BUY > 0) {
+		if (currentAuction != -1 && ITEMS_TO_BUY > 0 && participating) {
 			// only bid if a new bid arrived since last bid
 			if (currentBid.getBid() != oldBid.getBid()) {
 				// only bid if i'm not the highest bidder
@@ -124,7 +125,17 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						}
 						break;
 					case 3:
-						;
+						int willingness = budget / ITEMS_TO_BUY;
+						if(currentAuction - ITEMS_TO_BUY < 5) {
+							biddingLimit = willingness * 2 / 3;
+						} else {
+							biddingLimit = willingness;
+						}
+						if (currentBid.getBid() + 1 <= biddingLimit) {
+							sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
+						} else {
+							log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
+						}
 						break;
 					default:
 						break;
@@ -201,6 +212,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						oldBid = new Bid();
 						currentBid = new Bid();
 						invoke(send, new Serializable[] { rfaMsg, auctioneer.getMessageBoxAddress() });
+						participating = true;
 						log.debug(thisAgent.getAgentName() + " tryed to register, items to buy " + ITEMS_TO_BUY);
 						
 						// send initial Bid
@@ -237,6 +249,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						Bid bid = (Bid) inf.getValue();
 						if (bid.getAuctionID() != currentAuction) {
 							log.debug("bid ignored, not participating");
+							participating = false;
 							return;
 						}
 						

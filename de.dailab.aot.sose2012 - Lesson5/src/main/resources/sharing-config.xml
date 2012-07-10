@@ -16,7 +16,7 @@
 				<ref bean="AuctioneerAgent" />
 				<ref bean="BidderAgent1" />
 				<ref bean="BidderAgent2" />
-				<!-- <ref bean="BidderAgent3" /> -->
+				<ref bean="BidderAgent3" />
 			</list>
 		</property>
 	</bean>
