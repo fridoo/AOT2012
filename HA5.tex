@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{pgf,tikz}
+\usepackage{amsfonts}
+\usepackage{cancel}
+\usepackage{mathcomp}
+\usepackage{mathrsfs}
+\usepackage{dsfont}
+\usepackage{
+    amscd,
+    amsfonts,
+    amsmath,
+    amssymb,
+    amsthm,
+}
+\usepackage{tikz}
+\usepackage{ stmaryrd }
+\usepackage{ulsy}
+
+
+\begin{document}
+
+  \begin{flushright}
+    08.07.2012
+  \end{flushright}
+  \begin{center}
+    \Large\textbf{{Agententechnologien: Grundlagen und Anwendungen | Aufgabenblatt 5}}\\
+    \Large Gruppe 3
+  \end{center}
+
+  \begin{center}
+        \large\textsl{Mitja Richter, 324680}\\
+        \large\textsl{Friedrich Dombek, 319343}\\
+        \large\textsl{Brandon LLanque, 323323}\\
+        \large\textsl{Quang Vinh Cao Ba, 319788}\\
+  \end{center}
+
+%        \begin{tikzpicture}
+%            \begin{scope}
+%                \node (1) at (3,0)    {$\{ \neg Z \}$};
+%            \end{scope}
+%            \begin{scope}
+%                \draw (1)--(7)--(11)--(12);
+%            \end{scope}
+%        \end{tikzpicture}
+\section*{Aufgabe 1.}
+	\subsection*{1.b)}
+	Die erste Bietstrategie besteht darin zuerst sehr viel, nämlich die Hälfte des vorhandenen Budget plus einen zufälliger Anteil (bis zu einem Viertel) zu bieten und danach, bedingt durch das Schrumpfen des vorhandenen Budgets, immer weniger. Diese Strategie ist nur vorteilhaft, wenn die ersten Auktionen eher billig sind, da man sie mit dieser Strategie wahrscheinlich gewinnt. Der Nachteil entsteht, wenn die ersten Auktionen eher teuer sind, da man sie wahrscheinlich auch gewinnt, aber für die letzten Artikel unter Umständen sehr wenig Budget verfügbar ist.\\
+	Die Bietstrategie des zweiten Bietagenten ist immer sein komplettes aktuelles Budget, aufgeteilt auf die noch zu ersteigernden Artikel, zu bieten. Dass heißt, wenn noch drei Artikel zu ersteigern sind, bietet er ein drittel seines Budgets, bei zweien die Hälfte seines aktuellen Budgets, etc. . Die Strategie hat den Vorteil, dass die zu ersteigernden Artikel auch wahrscheinlich ersteigert werden. Der Nachteil ist, dass eine eventuelle billige erste Auktion durch eine teure danach wieder ausgeglichen werden kann.\\
+	Die Bietstrategie des dritten Bietagenten besteht darin, zunächst sein Limit niedriger als seine reale Wertschätzung(Budget/Anzahl zu ersteigender Artikel) zu setzen. Sollten nur noch so viele Auktionen stattfinden wie er Artikel ersteigern will, wechselt er sein Limit auf das Level seiner Zahlungsbereitschaft/Wertschätzung. Dieses Verhalten ist vorteilhaft, wenn die ersten Auktionen eher teurer werden, weil er aus diesen vorzeitig aussteigt. Nachteilig ist es, wenn die ersten Auktionen billiger sind, aber über dem reduzierten Limit des Bietagenten liegen. Das Limit wäre also mit der antizipierten Bieterstruktur anzupassen.
+	
+	\subsection*{1.d)}
+	Mehrmaliges Ausführen hat ein weitgehend gleichbleibendes Bild ergeben: Die ersten zwei Auktionen gewinnt meist der Bietagent 1, da er am Anfang das meiste Budget einsetzt. Allerdings sind die ersten Auktionen meist auch am teuersten, sodass für den Bietagententen 1 in den folgenden Auktionen nur wenig Budget zur Verfügung steht. \\
+	Die nächsten Auktionen gewinnt meist der Bietagent 2 zu einem mittleren Preis, da Bietagent 1 und 3 ind diesen Auktionen nicht viel bieten.\\
+	Die letzten Auktionen gewinnt der Bietagent 3 zu kleinen Preisen, weil er die ersten teureren Auktionen mit Hilfe seines Limits umgangen hat.\\
+	Den größten Verlust hat also Agent 1 da er nur 2 Artikel ersteigert und die auch zu einem sehr hohen Preis. Klarer Gewinner in dieser Konstellation ist Bietstrategie 3.
+
+\section*{Aufgabe 2.}
+
+	Zur Lösung des Problems, bei parallelen Auktionen nicht versehentlich mehr Artikel zu kaufen als geplant oder nicht den optimalen Preis zu erreichen, werden Bietgruppen-Agenten eingesetzt. Alle in Frage kommenden Auktionsartikel werden in einer Bietgruppe zusammengefasst.
+	Der Agent beobachtet nun alle Artikel simultan und bietet zum kleinstmöglichen Preis. Falls  simultan Gebote abgegeben werden, weil z.B. der Preis gleich ist und das Auktionshaus Bietrücknahmen erlaubt, sollen dann bei Zuschlag die restlichen noch nicht erfolgreichen Gebote zurückgenommen werden. Die Bietgruppe eignet sich für einen homogenen Artikelpool, in welchem für jeden Artikel die gleiche Zahlungsbereitschaft besteht.\\\\
+	Eine Lösung für heterogene Artikelstrukturen bietet der multidimensionale Bietagent. Hier muss der Agent die relevante Gütermenge und die jeweilige Zahlungsbereitschaft erfragen. Der Agent beobachtet nun diese Artikel bietet bei dem Artikel mit dem höchsten Nutzen. Der Nutzen errechnet sich hierbei aus der Zahlungsbereitschaft minus dem aktuellen Preis für jeweils jeden Artikel. Auch hier wäre, solange es vom Aktionshaus erlaubt wird, simultanes Bieten mit entsprechenden Bietrücknahmen möglich.
+
+\end{document}
