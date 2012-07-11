@@ -14,18 +14,18 @@ public class ItemForSale implements IFact {
 	// the actual value of the item (might not be used)
 	private final int value;
 	// the currently highest bid
-	private Bid currentBid;
+	private Bid currentlyHighestBid;
 	
 	public ItemForSale() {
 		this.name = null;
 		this.value = 0;
-		this.currentBid = null;
+		this.currentlyHighestBid = null;
 	}
 
 	public ItemForSale(String name, int value) {
 		this.name = name;
 		this.value = value;
-		this.currentBid = new Bid();
+		this.currentlyHighestBid = new Bid();
 	}
 
 	public String getName() {
@@ -36,12 +36,12 @@ public class ItemForSale implements IFact {
 		return value;
 	}
 
-	public Bid getCurrentBid() {
-		return currentBid;
+	public Bid getCurrentlyHighestBid() {
+		return currentlyHighestBid;
 	}
 
-	public void setCurrentBid(Bid currentBid) {
-		this.currentBid = currentBid;
+	public void setCurrentlyHighestBid(Bid currentBid) {
+		this.currentlyHighestBid = currentBid;
 	}
 
 	

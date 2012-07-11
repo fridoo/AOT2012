@@ -26,7 +26,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="AuctioneerBean" class="de.dailab.aot.sose2012.beans.AuctioneerBean">
-					<property name="executeInterval" value="1000" />
+					<property name="executeInterval" value="600" />
 					<property name="logLevel" value="DEBUG" />
 				</bean>
 			</list>
@@ -37,7 +37,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="BidderAgentBean" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
-					<property name="executeInterval" value="500" />
+					<property name="executeInterval" value="300" />
 					<property name="logLevel" value="DEBUG" />
 					<property name="STRATEGY" value="1" />
 				</bean>
@@ -49,7 +49,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="BidderAgentBean2" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
-					<property name="executeInterval" value="500" />
+					<property name="executeInterval" value="300" />
 					<property name="logLevel" value="DEBUG" />
 					<property name="STRATEGY" value="2" />
 				</bean>
@@ -61,7 +61,7 @@
 		<property name="agentBeans">
 			<list>
 				<bean name="BidderAgentBean3" class="de.dailab.aot.sose2012.beans.BidderAgentBean">
-					<property name="executeInterval" value="1000" />
+					<property name="executeInterval" value="300" />
 					<property name="logLevel" value="DEBUG" />
 					<property name="STRATEGY" value="3" />
 				</bean>

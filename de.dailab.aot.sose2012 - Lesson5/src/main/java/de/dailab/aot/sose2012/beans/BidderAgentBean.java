@@ -53,13 +53,14 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	private int budget = 500;
 	private int itemsLeft = 8;
 	private IAgentDescription auctioneer;
+	// id of the current auction, -1 stands for no auction running that I participate in
 	private int currentAuction;
 	private int lastBid;
-	private int biddingLimit;
+	private boolean firstBidInformReceived = false;
 	private Random rand;
 	private Bid oldBid = new Bid();
 	private Bid currentBid = new Bid();
-	private boolean participating = true;
+//	private boolean participating = true;
 	
 	int STRATEGY = 1;
 	public int getSTRATEGY() {
@@ -101,14 +102,23 @@ public class BidderAgentBean extends AbstractAgentBean implements
 	public void execute() {
 		
 		// only bid if participating at an auction and still got items to buy
-		if (currentAuction != -1 && ITEMS_TO_BUY > 0 && participating) {
+		if (currentAuction != -1 && ITEMS_TO_BUY > 0) {
+			
+			// Resent initial bid if necessary, 
+			// because sometimes the initial bid arrived before agent was registered for the auction
+			if (!firstBidInformReceived) {
+				sendBid(1, currentAuction);
+			}
+			
 			// only bid if a new bid arrived since last bid
 			if (currentBid.getBid() != oldBid.getBid()) {
 				// only bid if i'm not the highest bidder
 				if ( ! currentBid.getSenderID().equals(thisAgent.getAgentDescription())) {
 					// send higher bid if possible
+					int biddingLimit = 0;
 					switch (STRATEGY) {
 					case 1:
+						// crazy bidder (you never know...)
 						biddingLimit = budget/2 + rand.nextInt(budget/4);
 						if (currentBid.getBid() + 1 <= biddingLimit) {
 							sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
@@ -117,6 +127,7 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						}
 						break;
 					case 2:
+						// conservative bidder
 						biddingLimit = budget / ITEMS_TO_BUY;
 						if (currentBid.getBid() + 1 <= biddingLimit) {
 							sendBid(currentBid.getBid() + 1, currentBid.getAuctionID());
@@ -192,16 +203,17 @@ public class BidderAgentBean extends AbstractAgentBean implements
 		 * 
 		 */
 		private static final long serialVersionUID = 7644631440961432970L;
-
+		
 		@Override
 		public void notify(SpaceEvent<? extends IFact> event) {
+			
+			log.debug("received start of auction");
 			
 			if (event instanceof WriteCallEvent) {
 				@SuppressWarnings("rawtypes")
 				Object object = ((WriteCallEvent) event).getObject();
 				if (object instanceof JiacMessage) {
 					StartOfAuction soa = (StartOfAuction) ((JiacMessage) object).getPayload();
-//					log.debug("received start of auction");
 					// reply only if budget is not zero and this Agents still wants to buy more items
 					if (ITEMS_TO_BUY > 0 && budget > 0) { 
 						RegisterForAuction rfa = new RegisterForAuction(thisAgent.getAgentDescription(), soa.getAuctionID());
@@ -212,8 +224,8 @@ public class BidderAgentBean extends AbstractAgentBean implements
 						oldBid = new Bid();
 						currentBid = new Bid();
 						invoke(send, new Serializable[] { rfaMsg, auctioneer.getMessageBoxAddress() });
-						participating = true;
-						log.debug(thisAgent.getAgentName() + " tryed to register, items to buy " + ITEMS_TO_BUY);
+						log.debug(thisAgent.getAgentName() + " tryed to register, items to buy " 
+						+ ITEMS_TO_BUY + ", budget " + budget);
 						
 						// send initial Bid
 						sendBid(1, soa.getAuctionID());
@@ -247,9 +259,13 @@ public class BidderAgentBean extends AbstractAgentBean implements
 					Inform<Object> inf = (Inform<Object>) ((JiacMessage) object).getPayload();
 					if (inf.getValue() instanceof Bid) {
 						Bid bid = (Bid) inf.getValue();
+						if (!firstBidInformReceived) {
+							firstBidInformReceived = true;
+						}
+						
 						if (bid.getAuctionID() != currentAuction) {
-							log.debug("bid ignored, not participating");
-							participating = false;
+							log.debug("bid ignored for auction " + bid.getAuctionID() 
+									+ ", not participating, my currentAuctionID " + currentAuction );
 							return;
 						}
 						
@@ -261,35 +277,6 @@ public class BidderAgentBean extends AbstractAgentBean implements
 							log.debug("new bid at auction " + bid.getBid());
 						}
 						
-						
-						
-//						if ( ! bid.getSenderID().equals(thisAgent.getAgentDescription())) {
-//							// send higher bid if possible
-//							switch (STRATEGY) {
-//							case 1:
-//								biddingLimit = budget/2 + rand.nextInt(budget/4);
-//								if (bid.getBid() + 1 <= biddingLimit) {
-//									sendBid(bid.getBid() + 1, bid.getAuctionID());
-//								} else {
-//									log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
-//								}
-//								break;
-//							case 2:
-//								biddingLimit = budget / ITEMS_TO_BUY;
-//								if (bid.getBid() + 1 <= biddingLimit) {
-//									sendBid(bid.getBid() + 1, bid.getAuctionID());
-//								} else {
-//									log.debug(thisAgent.getAgentName() + " reached bidding limit " + biddingLimit); 
-//								}
-//								break;
-//							case 3:
-//								;
-//								break;
-//							default:
-//								break;
-//							}
-//							
-//						}
 					}
 				}
 			}
@@ -314,14 +301,14 @@ public class BidderAgentBean extends AbstractAgentBean implements
 					InformWin infWin = (InformWin) ((JiacMessage) object).getPayload();
 					// check if I won the auction
 					itemsLeft--;
-					if (infWin.getItemBought().getCurrentBid().getAuctionID() == currentAuction) {
+					if (infWin.getItemBought().getCurrentlyHighestBid().getAuctionID() == currentAuction) {
 						currentAuction = -1;
 					}
-					if (infWin.getItemBought().getCurrentBid().getSenderID().equals(thisAgent.getAgentDescription())) {
+					if (infWin.getItemBought().getCurrentlyHighestBid().getSenderID().equals(thisAgent.getAgentDescription())) {
 						ITEMS_TO_BUY--;
-						budget -= infWin.getItemBought().getCurrentBid().getBid();
+						budget -= infWin.getItemBought().getCurrentlyHighestBid().getBid();
 						log.info(thisAgent.getAgentName() + " bought " + infWin.getItemBought().getName() 
-								+ " for " + infWin.getItemBought().getCurrentBid().getBid());
+								+ " for " + infWin.getItemBought().getCurrentlyHighestBid().getBid());
 					}
 				}
 			}

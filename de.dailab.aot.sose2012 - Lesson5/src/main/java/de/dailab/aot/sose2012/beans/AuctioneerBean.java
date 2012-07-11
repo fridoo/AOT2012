@@ -44,7 +44,8 @@ public class AuctioneerBean extends AbstractAgentBean implements
 	private final SpaceObserver<IFact> observerREG = new RegisterObserver();
 	
 	private List<IAgentDescription> registeredBidders;
-	private List<ItemForSale> itemsToSell; 
+	private List<ItemForSale> itemsToSell;
+	private int NUM_OF_ITEMS_TO_SELL = 8;
 	private boolean auctionRunning = false;
 	private boolean postedWinners = false;
 	// the index of the item in itemsToSell that is currently being sold
@@ -65,8 +66,9 @@ public class AuctioneerBean extends AbstractAgentBean implements
 
 		send = this.retrieveAction(ICommunicationBean.ACTION_SEND);
 		
-		this.itemsToSell = new ArrayList<ItemForSale>(8);
-		for (int i = 0; i < 8; i++) {
+		// create the items to sell
+		this.itemsToSell = new ArrayList<ItemForSale>(NUM_OF_ITEMS_TO_SELL);
+		for (int i = 0; i < NUM_OF_ITEMS_TO_SELL; i++) {
 			this.itemsToSell.add(new ItemForSale("item_" + i, 0));
 		}
 		
@@ -100,13 +102,13 @@ public class AuctioneerBean extends AbstractAgentBean implements
 			log.debug("Auction stoped");
 			this.auctionRunning = false;
 			
-			if (this.itemsToSell.get(currentAuctionIndex).getCurrentBid() != null
-					&& this.itemsToSell.get(currentAuctionIndex).getCurrentBid().getSenderID() != null) {
+			if (this.itemsToSell.get(currentAuctionIndex).getCurrentlyHighestBid() != null
+					&& this.itemsToSell.get(currentAuctionIndex).getCurrentlyHighestBid().getSenderID() != null) {
 				// inform all agents about winner
 				InformWin infWin = new InformWin(thisAgent.getAgentDescription(), this.itemsToSell.get(currentAuctionIndex));
 				JiacMessage infWinMsg = new JiacMessage(infWin);
 				this.invoke(send, new Serializable[] { infWinMsg, this.groupAddress });
-			} else {
+			} else { // no bid present for the item, items could not be sold
 				log.info("item " + this.itemsToSell.get(currentAuctionIndex).getName() + " could not be sold");
 			}
 			
@@ -133,8 +135,8 @@ public class AuctioneerBean extends AbstractAgentBean implements
 					log.info("---- End Of All Auctions ----");
 					for (ItemForSale ifs : this.itemsToSell) {
 						log.info(ifs.getName() + " was bought by " 
-						+ ((ifs.getCurrentBid().getSenderID() != null) ? ifs.getCurrentBid().getSenderID().getName() : "NO-BUYER")
-						+ " for " + ((ifs.getCurrentBid().getSenderID() != null) ? ifs.getCurrentBid().getBid() : "-") + " AE");
+						+ ((ifs.getCurrentlyHighestBid().getSenderID() != null) ? ifs.getCurrentlyHighestBid().getSenderID().getName() : "NO-BUYER")
+						+ " for " + ((ifs.getCurrentlyHighestBid().getSenderID() != null) ? ifs.getCurrentlyHighestBid().getBid() : "-") + " AE");
 					}
 				}
 			}
@@ -178,10 +180,10 @@ public class AuctioneerBean extends AbstractAgentBean implements
 					if (auctionRunning && registeredBidders.contains(bid.getSenderID())) { 
 						// is the bid for the current auction and the amount higher than the current price
 						if (currentAuctionIndex == bid.getAuctionID() 
-							&& bid.getBid() > itemsToSell.get(currentAuctionIndex).getCurrentBid().getBid() ) { 
+							&& bid.getBid() > itemsToSell.get(currentAuctionIndex).getCurrentlyHighestBid().getBid() ) { 
 							log.debug("Valid Bid received from " + bid.getSenderID().getName() + " amount: " + bid.getBid());
 							// bid accepted
-							itemsToSell.get(currentAuctionIndex).setCurrentBid(bid);
+							itemsToSell.get(currentAuctionIndex).setCurrentlyHighestBid(bid);
 							// inform all bidders about new bid
 							Inform<Bid> inf = new Inform<Bid>(bid, thisAgent.getAgentDescription());
 							JiacMessage infMsg = new JiacMessage(inf);
@@ -217,7 +219,7 @@ public class AuctioneerBean extends AbstractAgentBean implements
 				if (object instanceof JiacMessage) {
 					RegisterForAuction rfa =  (RegisterForAuction) ((JiacMessage)object).getPayload();
 					if (auctionRunning && currentAuctionIndex == rfa.getAuctionID()) {
-						log.debug(rfa.getSenderID().getName() + " registered to auction " + currentAuctionIndex);
+						log.info(rfa.getSenderID().getName() + " registered to auction " + currentAuctionIndex);
 						AuctioneerBean.this.registeredBidders.add(rfa.getSenderID());
 					}
 				}
